@@ -18,9 +18,18 @@ for subdir in os.listdir(input_folder):
         with open(json_name, 'r') as json_file:
             json_data = json.load(json_file)
             for key in json_data:
-                image_link = json_data[key]["image_link"]
-                page_url = json_data[key]["google"]["ru"]
-                original_filename = json_data[key]["original_filename"]
+                try:
+                    image_link = json_data[key]["image_link"]
+                except:
+                    image_link = ""
+                try:
+                    page_url = json_data[key]["google"]["ru"]
+                except:
+                    page_url = ""
+                try:
+                    original_filename = json_data[key]["original_filename"]
+                except:
+                    original_filename = ""
                 correspond_file_path = os.path.join(directory_path , file_prefix+ key + ".jpg")
                 index_content.append("\t".join([correspond_file_path, page_url, image_link]))
 

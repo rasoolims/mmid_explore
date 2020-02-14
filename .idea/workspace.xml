@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="" />
+    <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +18,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1XM7tNktyV0ZOCKzbH6A1MjE3DA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,9 +30,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.resize_all_images_in_subfolders">
+  <component name="RunManager" selected="Python.read_warc">
     <configuration name="convert_metadata_to_txt_for_all_files" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="mmid_explore" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,7 +89,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/read_warc.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/arabic-text-warcs" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -110,10 +119,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
-      <item itemvalue="Python.move_data" />
       <item itemvalue="Python.read_warc" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
+      <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
+      <item itemvalue="Python.move_data" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -130,59 +139,59 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581628280987">
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581700000924">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581628280987" />
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700000924" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1581109929880">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581109929880" />
     <state x="1017" y="341" key="#com.intellij.ide.macro.MacrosDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580845578761" />
-    <state width="2534" height="269" key="GridCell.Tab.0.bottom" timestamp="1581629246764">
+    <state width="2534" height="269" key="GridCell.Tab.0.bottom" timestamp="1581700003376">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246764" />
+    <state width="2534" height="269" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700003376" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929324" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="269" key="GridCell.Tab.0.center" timestamp="1581629246763">
+    <state width="2534" height="269" key="GridCell.Tab.0.center" timestamp="1581700003376">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246763" />
+    <state width="2534" height="269" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700003376" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="269" key="GridCell.Tab.0.left" timestamp="1581629246763">
+    <state width="2534" height="269" key="GridCell.Tab.0.left" timestamp="1581700003376">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246763" />
+    <state width="2534" height="269" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700003376" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929322" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="269" key="GridCell.Tab.0.right" timestamp="1581629246764">
+    <state width="2534" height="269" key="GridCell.Tab.0.right" timestamp="1581700003376">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246764" />
+    <state width="2534" height="269" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700003376" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="269" key="GridCell.Tab.1.bottom" timestamp="1581629248213">
+    <state width="2534" height="269" key="GridCell.Tab.1.bottom" timestamp="1581700004268">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.1.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248213" />
+    <state width="2534" height="269" key="GridCell.Tab.1.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700004268" />
     <state width="2534" height="457" key="GridCell.Tab.1.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
-    <state width="2534" height="269" key="GridCell.Tab.1.center" timestamp="1581629248212">
+    <state width="2534" height="269" key="GridCell.Tab.1.center" timestamp="1581700004267">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.1.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248212" />
+    <state width="2534" height="269" key="GridCell.Tab.1.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700004267" />
     <state width="2534" height="457" key="GridCell.Tab.1.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
-    <state width="2534" height="269" key="GridCell.Tab.1.left" timestamp="1581629248212">
+    <state width="2534" height="269" key="GridCell.Tab.1.left" timestamp="1581700004267">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.1.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248212" />
+    <state width="2534" height="269" key="GridCell.Tab.1.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700004267" />
     <state width="2534" height="457" key="GridCell.Tab.1.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937730" />
-    <state width="2534" height="269" key="GridCell.Tab.1.right" timestamp="1581629248213">
+    <state width="2534" height="269" key="GridCell.Tab.1.right" timestamp="1581700004267">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state width="2534" height="269" key="GridCell.Tab.1.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248213" />
+    <state width="2534" height="269" key="GridCell.Tab.1.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700004267" />
     <state width="2534" height="457" key="GridCell.Tab.1.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
     <state x="665" y="245" key="SettingsEditor" timestamp="1581627645924">
       <screen x="0" y="23" width="2560" height="1342" />
@@ -196,6 +205,10 @@
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
     <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581631610007" />
+    <state x="758" y="223" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581698728902">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state x="758" y="223" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581698728902" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -205,13 +218,19 @@
           <line>44</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/read_warc.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="x" language="Python" />
-        <watch expression="y" language="Python" />
-        <watch expression="x*y" language="Python" />
+        <watch expression="line" language="Python" />
+        <watch expression="line.decode(&quot;utf-8&quot;)" language="Python" />
+        <watch expression="str(line)" language="Python" />
+        <watch expression="line.decode()" language="Python" />
       </configuration>
     </watches-manager>
   </component>
