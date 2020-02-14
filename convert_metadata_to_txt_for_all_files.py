@@ -21,15 +21,15 @@ for subdir in os.listdir(input_folder):
                 try:
                     image_link = json_data[key]["image_link"]
                 except:
-                    image_link = ""
+                    image_link = "-"
                 try:
                     page_url = json_data[key]["google"]["ru"]
                 except:
-                    page_url = ""
+                    page_url = "-"
                 try:
                     original_filename = json_data[key]["original_filename"]
                 except:
-                    original_filename = ""
+                    original_filename = "-"
                 correspond_file_path = os.path.join(directory_path , file_prefix+ key + ".jpg")
                 index_content.append("\t".join([correspond_file_path, page_url, image_link]))
 
