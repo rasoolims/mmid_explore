@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XM7tNktyV0ZOCKzbH6A1MjE3DA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.resize_all_images_in_subfolders">
+    <configuration name="convert_metadata_to_txt_for_all_files" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/english-all" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="move_data" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/move_data.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/index_conversion.txt $USER_HOME$/Documents/mmid/scale-english- $USER_HOME$/Documents/mmid/english-all persian,arabic" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_warc" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/3.7/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/read_warc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="resize_all_images_in_subfolders" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/resize_all_images_in_subfolders.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/scale-english-02-package 256 256" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
+      <item itemvalue="Python.move_data" />
+      <item itemvalue="Python.read_warc" />
+      <item itemvalue="Python.resize_all_images_in_subfolders" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="" />
+      <created>1580844323993</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580844323993</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581628280987">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581628280987" />
+    <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
+    <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1581109929880">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581109929880" />
+    <state x="1017" y="341" key="#com.intellij.ide.macro.MacrosDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580845578761" />
+    <state width="2534" height="269" key="GridCell.Tab.0.bottom" timestamp="1581629246764">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246764" />
+    <state width="2534" height="372" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929324" />
+    <state width="2534" height="372" key="GridCell.Tab.0.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
+    <state width="2534" height="269" key="GridCell.Tab.0.center" timestamp="1581629246763">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246763" />
+    <state width="2534" height="372" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
+    <state width="2534" height="372" key="GridCell.Tab.0.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
+    <state width="2534" height="269" key="GridCell.Tab.0.left" timestamp="1581629246763">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246763" />
+    <state width="2534" height="372" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929322" />
+    <state width="2534" height="372" key="GridCell.Tab.0.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
+    <state width="2534" height="269" key="GridCell.Tab.0.right" timestamp="1581629246764">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629246764" />
+    <state width="2534" height="372" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
+    <state width="2534" height="372" key="GridCell.Tab.0.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
+    <state width="2534" height="269" key="GridCell.Tab.1.bottom" timestamp="1581629248213">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.1.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248213" />
+    <state width="2534" height="457" key="GridCell.Tab.1.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
+    <state width="2534" height="269" key="GridCell.Tab.1.center" timestamp="1581629248212">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.1.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248212" />
+    <state width="2534" height="457" key="GridCell.Tab.1.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
+    <state width="2534" height="269" key="GridCell.Tab.1.left" timestamp="1581629248212">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.1.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248212" />
+    <state width="2534" height="457" key="GridCell.Tab.1.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937730" />
+    <state width="2534" height="269" key="GridCell.Tab.1.right" timestamp="1581629248213">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="2534" height="269" key="GridCell.Tab.1.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581629248213" />
+    <state width="2534" height="457" key="GridCell.Tab.1.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
+    <state x="665" y="245" key="SettingsEditor" timestamp="1581627645924">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state x="665" y="245" key="SettingsEditor/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581627645924" />
+    <state width="1280" height="671" key="XDebugger.FullValuePopup" timestamp="1580921907993">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state width="1280" height="671" key="XDebugger.FullValuePopup/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1580921907993" />
+    <state x="626" y="697" key="com.intellij.ide.util.TipDialog" timestamp="1581631610007">
+      <screen x="0" y="23" width="2560" height="1342" />
+    </state>
+    <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581631610007" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/move_data.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="x" language="Python" />
+        <watch expression="y" language="Python" />
+        <watch expression="x*y" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
