@@ -41,7 +41,7 @@ for length in batch.keys():
 	output_numpy = []
 	for i in range(0, cat_len, max_batch_size):
 		with torch.no_grad():
-			current_batch = cat_tensor[i, min(i+max_batch_size, cat_len)]
+			current_batch = cat_tensor[i: min(i+max_batch_size, cat_len)]
 			output_tensor = model(current_batch)[0]
 			output_tensor = output_tensor[:, 0, :].cpu().numpy()
 			output_numpy.append(output_numpy)
