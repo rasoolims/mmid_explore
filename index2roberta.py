@@ -14,6 +14,9 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	tokens = ["CLS"]
 	for entry in entries:
 		tokens += tokenizer.tokenize(entry) + ["[SEP]"]
+	if len(tokens)>512:
+		tokens = tokens[:512]
+		print("trimming the tokens")
 	tok_ids = tokenizer.convert_tokens_to_ids(tokens)
 	tok_tensors = torch.tensor([tok_ids])
 
