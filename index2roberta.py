@@ -36,6 +36,16 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 sys.stdout.write(str(len(vector_dict))+"\n")
 
 for length in batch.keys():
+	cat_tensor = torch.cat(batch[length])
+	max_batch_size, cat_len = 100, cat_tensor.size()[0]
+	output_numpy = []
+	for i in range(0, cat_len, max_batch_size):
+		with torch.no_grad():
+			current_batch = cat_tensor[i, min(i+max_batch_size, cat_len)]
+			output_tensor = model(current_batch)[0]
+			output_tensor = output_tensor[:, 0, :].cpu().numpy()
+			output_numpy.append(output_numpy)
+
 	print("hi")
 	import pdb
 	pdb.set_trace()
