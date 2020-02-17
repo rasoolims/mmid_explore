@@ -24,7 +24,7 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	tok_ids = tokenizer.convert_tokens_to_ids(tokens)
 	tok_tensors = torch.tensor([tok_ids])
 	batch[tok_tensors.size()[-1]].append(tok_tensors)
-	batch[tok_tensors.size()[-1]].append(int(columns[0]))
+	batch_ids[tok_tensors.size()[-1]].append(int(columns[0]))
 
 	# with torch.no_grad():
 	# 	class_hidden_state = model(tok_tensors)[0]
