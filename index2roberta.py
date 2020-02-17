@@ -37,6 +37,7 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 sys.stdout.write(str(len(vector_dict))+"\n")
 
 for length in batch.keys():
+	print("length", length)
 	cat_tensor = torch.cat(batch[length])
 	max_batch_size, cat_len = 100, cat_tensor.size()[0]
 	output_tensors = []
@@ -47,13 +48,9 @@ for length in batch.keys():
 			output_tensor = output_tensor[:, 0, :].cpu()
 			output_tensors.append(output_tensor)
 
-	print("hi")
-	import pdb
-	pdb.set_trace()
 	complete_tensors = torch.cat(output_tensors)
-
-
-
+	for i in range(len(batch_ids[length])):
+		vector_dict[batch_ids[length][i]] = complete_tensors[i,:].numpy()
 
 sorted_tensors = sorted(vector_dict.values(), key = lambda kv:(kv[1], kv[0]))
 
