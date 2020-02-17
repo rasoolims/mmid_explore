@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unify_entries.py" beforeDir="false" afterPath="$PROJECT_DIR$/unify_entries.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.read_warc">
+  <component name="RunManager" selected="Python.unify_entries">
     <configuration name="convert_metadata_to_txt_for_all_files" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="mmid_explore" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,11 +117,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="unify_entries" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/unify_entries.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/indices/ $USER_HOME$/Documents/mmid/multilingual-google-image-scraper/dictionaries/ $USER_HOME$/Documents/mmid/multilingual-google-image-scraper/dictionaries/lang2name.txt $USER_HOME$/Documents/mmid/index_conversion.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.read_warc" />
-      <item itemvalue="Python.resize_all_images_in_subfolders" />
       <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
       <item itemvalue="Python.move_data" />
+      <item itemvalue="Python.read_warc" />
+      <item itemvalue="Python.unify_entries" />
+      <item itemvalue="Python.resize_all_images_in_subfolders" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -137,10 +160,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581700000924">
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581964559340">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581700000924" />
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581964559340" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1581109929880">
       <screen x="0" y="23" width="2560" height="1342" />
@@ -199,10 +222,10 @@
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
     <state width="1280" height="671" key="XDebugger.FullValuePopup/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1580921907993" />
-    <state x="626" y="697" key="com.intellij.ide.util.TipDialog" timestamp="1581631610007">
+    <state x="626" y="697" key="com.intellij.ide.util.TipDialog" timestamp="1581711918151">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581631610007" />
+    <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581711918151" />
     <state x="758" y="223" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581698728902">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
