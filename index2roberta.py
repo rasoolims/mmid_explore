@@ -28,7 +28,7 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	batch_ids[tok_tensors.size()[-1]].append(int(columns[0]))
 
 for length in sorted(batch.keys()):
-	print("length", length)
+	print("length", length, len(batch[length]))
 	cat_tensor = torch.cat(batch[length])
 	max_batch_size, cat_len = 100, cat_tensor.size()[0]
 	output_tensors = []
