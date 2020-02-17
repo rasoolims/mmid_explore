@@ -26,12 +26,12 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	batch[tok_tensors.size()[-1]].append(tok_tensors)
 	batch[tok_tensors.size()[-1]].append(int(columns[0]))
 
-	with torch.no_grad():
-		class_hidden_state = model(tok_tensors)[0]
-		vector_dict[int(columns[0])] = class_hidden_state[0, 0]
+	# with torch.no_grad():
+	# 	class_hidden_state = model(tok_tensors)[0]
+	# 	vector_dict[int(columns[0])] = class_hidden_state[0, 0]
 
-	if len(vector_dict)%100==0:
-		sys.stdout.write(str(len(vector_dict))+"...")
+	# if len(vector_dict)%100==0:
+	# 	sys.stdout.write(str(len(vector_dict))+"...")
 
 sys.stdout.write(str(len(vector_dict))+"\n")
 
