@@ -21,13 +21,13 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	tok_tensors = torch.tensor([tok_ids])
 
 	with torch.no_grad():
-		try:
-			class_hidden_state = model(tok_tensors)[0]
-			vector_dict[int(columns[0])] = class_hidden_state[0, 0]
-		except:
-			import pdb
-			pdb.set_trace()
-			print("exception in ", entries)
+		class_hidden_state = model(tok_tensors)[0]
+		vector_dict[int(columns[0])] = class_hidden_state[0, 0]
+
+	if len(vector_dict)%100==0:
+		sys.stdout.write(str(len(vector_dict))+"...")
+
+sys.stdout.write(str(len(vector_dict))+"\n")
 
 sorted_tensors = sorted(vector_dict.values(), key = lambda kv:(kv[1], kv[0]))
 
