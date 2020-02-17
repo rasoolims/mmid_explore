@@ -19,9 +19,9 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	print(tok_tensors.size())
 
 	with torch.no_grad():
-		class_hidden_state = model(tok_tensors)[0][0, 0]
+		class_hidden_state = model(tok_tensors)[0]
 		print(class_hidden_state.size())
-		vector_dict[int(columns[0])] = class_hidden_state
+		vector_dict[int(columns[0])] = class_hidden_state[0, 0]
 
 sorted_tensors = sorted(vector_dict.values(), key = lambda kv:(kv[1], kv[0]))
 
