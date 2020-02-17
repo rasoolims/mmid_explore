@@ -22,6 +22,8 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 			class_hidden_state = model(tok_tensors)[0]
 			vector_dict[int(columns[0])] = class_hidden_state[0, 0]
 		except:
+			import pdb
+			pdb.set_trace()
 			print("exception in ", entries)
 
 sorted_tensors = sorted(vector_dict.values(), key = lambda kv:(kv[1], kv[0]))
