@@ -13,6 +13,7 @@ warc_path_prefix = os.path.abspath(sys.argv[1])
 
 text_information = {}
 counter = 0
+alt_text_count = 0
 for warc_path in glob.glob(warc_path_prefix+"*"):
     if not warc_path.endswith("warc") and not warc_path.endswith("warc.gz") and not warc_path.endswith("warcs.tgz"):
         print("skipped", warc_path)
@@ -67,22 +68,24 @@ for warc_path in glob.glob(warc_path_prefix+"*"):
                 for image in imgThis:
                     try:
                         images[image["src"]] = image["alt"]
+                        alt_text_count+=1
                     except:
                         try:
                             images[image["data-src"]] = image["alt"]
+                            alt_text_count += 1
                         except:
                             pass
 
                 text_information[target_uri] = {"title":title, "body": body_text, "images_with_alt": images}
                 counter +=1
-                if counter%100==0:
-                    sys.stdout.write(str(counter)+"...")
+                if counter%1000==0:
+                    sys.stdout.write(str(counter)+"("+str(alt_text_count)+")...")
             except:
                 sys.stdout.write("skipped this one...")
     except:
         print("exception in reading this warc file; finished unexpectedly!")
 
-    sys.stdout.write(str(counter)+"\n")
+    sys.stdout.write(str(counter)+"("+str(alt_text_count)+")\n")
 
 print("writing...")
 with open(os.path.abspath(sys.argv[2]), "w", encoding="utf-8") as writer:
