@@ -20,8 +20,8 @@ process_counter = 0
 dir_list = os.listdir(warc_info_path)
 for i,f in enumerate(dir_list):
     process_counter+=1
-    command = "python3 -u "+path_dir_name+"/read_warc.py " + os.path.join(warc_info_path, f)+" "+os.path.join(warc_json_path, f)
-    if process_counter%20 !=0 and i<len(dir_list)-1:
+    command = "python3 -u "+path_dir_name+"/read_warc.py " + os.path.join(warc_info_path, f)+" "+os.path.join(warc_json_path, f+".json")
+    if process_counter%40 !=0 and i<len(dir_list)-1:
         command+=" &"
     print(command)
     os.system(command)
