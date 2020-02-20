@@ -57,7 +57,7 @@ for folder in glob.glob(english_prefix + "*"):
     path_dict = {}
     for line in open(index_path, 'r'):
         spl = line.strip().split("\t")
-        print(line)
+        print(line.strip())
         path_dict[spl[0]] = spl[1]
 
     for word in path_dict.keys():
