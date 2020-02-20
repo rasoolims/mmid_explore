@@ -10,6 +10,7 @@ if not os.path.exists(warc_info_path):
 if not os.path.exists(warc_json_path):
     os.makedirs(warc_json_path)
 
+warc_info_path = warc_info_path+"/info"
 command = "python3 -u "+path_dir_name+"/read_warc_raw.py " + warc_path_prefix +" "+warc_info_path
 print(command)
 os.system(command)

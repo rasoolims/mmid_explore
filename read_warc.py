@@ -30,6 +30,8 @@ def is_relevant_image(url, text):
         return False
     if "_" in text:
         return False
+    if "img" in text:
+        return False
     if text == "image" or text == "picture":
         return False
     if text in url:
@@ -115,7 +117,7 @@ for i, name in enumerate(warc_records.keys()):
 
 write_json(file_path, text_information)
 
-with open(file_path+".image_list", "w") as writer:
+with open(file_path+".image_list.txt", "w") as writer:
     content_list = []
     for values in text_information.values():
         images = values["images_with_alt"]
