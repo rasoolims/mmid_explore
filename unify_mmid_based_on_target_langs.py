@@ -51,11 +51,17 @@ for file in os.listdir(bilingual_dict_folder):
 print("number of allowed english labels", len(allowed_english_entries))
 
 to_fetch_folders = set()
+to_fetch_files = 0
 for folder in glob.glob(english_prefix + "*"):
     print(folder)
     for subdir in os.listdir(folder):
-        word = open(os.path.join(folder, subdir, "word.txt"),'r').read().strip()
-        to_fetch_folders.add(os.path.join(folder, subdir))
+        pth = os.path.join(folder, subdir)
+        if not os.path.isdir(pth):
+            continue
+        word = open(os.path.join(pth, "word.txt"),'r').read().strip()
+        to_fetch_folders.add(pth)
+        to_fetch_files += len(os.listdir(pth))
 
 print("number of fetched english folders", len(to_fetch_folders))
+print("number of fetched english files", to_fetch_files)
 
