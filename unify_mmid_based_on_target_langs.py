@@ -54,7 +54,12 @@ to_fetch_folders = set()
 for folder in glob.glob(english_prefix + "*"):
     print(folder)
     index_path = os.path.join(folder, "index.tsv")
-    path_dict = {line.split("\t")[0]:line.split("\t")[1] for line in open(index_path, 'r').read().strip().split()}
+    path_dict = {}
+    for line in open(index_path, 'r'):
+        spl = line.strip().split("\t")
+        print(line)
+        path_dict[spl[0]] = spl[1]
+
     for word in path_dict.keys():
         if word in allowed_english_entries:
             to_fetch_folders.add(os.path.join(folder, path_dict[word]))
