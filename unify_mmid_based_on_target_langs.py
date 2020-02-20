@@ -55,6 +55,7 @@ for file in os.listdir(bilingual_dict_folder):
 print("number of allowed english labels", len(allowed_english_entries))
 
 to_fetch_folders = set()
+new_index_dict = []
 for folder in glob.glob(english_prefix + "*"):
     print(folder)
     index_path = os.path.join(folder, "index.tsv")
@@ -65,9 +66,12 @@ for folder in glob.glob(english_prefix + "*"):
 
     for word in path_dict.keys():
         if word in allowed_english_entries:
-            to_fetch_folders.add(os.path.join(folder, path_dict[word]))
             copy_command = "cp -r " + os.path.join(folder, path_dict[word]) + " " + os.path.join(output_en_folder, str(len(to_fetch_folders)))
+            new_index_dict.append(str(len(to_fetch_folders))+"\t"+ word)
+            to_fetch_folders.add(os.path.join(folder, path_dict[word]))
             print(copy_command)
 
 print("number of fetched english folders", len(to_fetch_folders))
+with open(os.path.join(output_en_folder, "index.tsv"), "w") as writer:
+    writer.write("\n".join(new_index_dict))
 
