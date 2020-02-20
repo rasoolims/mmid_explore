@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/process_warcs_for_lang.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/read_warc_raw.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/read_warc.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc.py" afterDir="false" />
     </list>
@@ -222,10 +225,10 @@
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
     <state width="1280" height="671" key="XDebugger.FullValuePopup/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1580921907993" />
-    <state x="626" y="697" key="com.intellij.ide.util.TipDialog" timestamp="1581711918151">
+    <state x="626" y="697" key="com.intellij.ide.util.TipDialog" timestamp="1582148945033">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581711918151" />
+    <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582148945033" />
     <state x="758" y="223" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581698728902">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
@@ -238,11 +241,6 @@
           <url>file://$PROJECT_DIR$/move_data.py</url>
           <line>44</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/read_warc.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
