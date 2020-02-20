@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_warc.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unify_mmid_based_on_target_langs.py" beforeDir="false" afterPath="$PROJECT_DIR$/unify_mmid_based_on_target_langs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,10 +161,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582140921755">
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582230898311">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
-    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582140921755" />
+    <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582230898311" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1581109929880">
       <screen x="0" y="23" width="2560" height="1342" />

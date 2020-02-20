@@ -126,6 +126,8 @@ write_json(file_path, text_information)
 with open(file_path+".image_list.txt", "w") as writer:
     content_list = []
     for values in text_information.values():
+        if "images_with_alt" not in values:
+            continue
         images = values["images_with_alt"]
         for url, alt_text in images.items():
             content_list.append("\t".join([url, alt_text]))
