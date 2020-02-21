@@ -15,7 +15,9 @@ image_list = [line.strip().split("\t") for line in open(input_file, 'r').read().
 file_number = defaultdict(int)
 default_set = set(["png", "jpg", "jpeg", "gif"])
 written_files = 0
+url_count = 0
 for url, text in image_list:
+    url_count += 1
     fixed_url = url
     if "?" in fixed_url:
         fixed_url = fixed_url[:fixed_url.find("?")]
@@ -33,21 +35,24 @@ for url, text in image_list:
 
     for tries in range(5):
         try:
-            urllib.request.urlretrieve(url, file_path)
+            urllib.request.urlretrieve(fixed_url, file_path)
             file_indices[extension].append(str(file_number[extension])+"\t"+fixed_url+"\t"+text)
             file_number[extension] += 1
             written_files+=1
             break
         except:
             try:
-                urllib.request.urlretrieve(fixed_url, file_path)
+                urllib.request.urlretrieve(url, file_path)
                 file_indices[extension].append(str(file_number[extension]) + "\t" + fixed_url + "\t" + text)
                 file_number[extension] += 1
                 written_files += 1
                 break
             except:
                 pass
+    if url_count%100==0:
+        sys.stdout.write(str(url_count)+"...")
 
+sys.stdout.write(str(url_count)+"\n")
 
 for extension in os.listdir(output_folder):
     file_path = os.path.join(output_folder, extension, "index.txt")
