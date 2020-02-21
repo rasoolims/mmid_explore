@@ -20,7 +20,7 @@ with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
                 try:
                     final_text = "\t".join(contains_text)
                     output = line.strip() +"\t" + final_text
-                    writer.write(final_text+"\n")
+                    writer.write(output+"\n")
                 except:
                     pass
 print("done!")
