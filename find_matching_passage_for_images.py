@@ -20,6 +20,7 @@ with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
             if len(contains_text)>0:
                 contains_text_dict = {i:text for i, text in enumerate(contains_text)}
                 image_text_dict[correspond_file_path] = {"word":word, "text":contains_text_dict, "url": page_url, "image":image_link}
-    json.dump(image_text_dict, writer, ensure_ascii=False)
+    output = json.dumps(image_text_dict, ensure_ascii=False)
+    writer.write(output)
 
 print("done!")
