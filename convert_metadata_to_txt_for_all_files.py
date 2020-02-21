@@ -17,7 +17,7 @@ for subdir in os.listdir(input_folder):
         file_prefix = json_name[:json_name.rfind("-")+1]
         file_prefix_path = os.path.join(subdir_path, file_prefix)
         file_prefix = ntpath.basename(file_prefix)
-        directory_path = input_folder
+        directory_path = subdir_path
         if directory_path.endswith("/"):
             directory_path = directory_path[:-1]
         if "/" in directory_path:
@@ -39,7 +39,7 @@ for subdir in os.listdir(input_folder):
                     original_filename = json_data[key]["original_filename"]
                 except:
                     original_filename = "-"
-                correspond_file_path = directory_path +"/"+subdir_path +"/"+ key + ".jpg"
+                correspond_file_path = directory_path +"/"+ key + ".jpg"
                 index_content.append("\t".join([word, correspond_file_path, page_url, image_link]))
 
 with open(os.path.abspath(sys.argv[2]), "w") as writer:
