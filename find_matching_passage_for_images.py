@@ -1,10 +1,10 @@
-import os,sys, pickle,json
+import os,sys, pickle
 
 with open(os.path.abspath(sys.argv[1]), "rb") as fin:
     target_uri_dict = pickle.load(fin)
 
 counter = 0
-with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
+with open(os.path.abspath(sys.argv[3]), "wb") as writer:
     image_text_dict = {}
     for line in open(os.path.abspath(sys.argv[2]), "r", encoding="utf-8"):
         word, correspond_file_path, page_url, image_link = line.split("\t")
@@ -20,7 +20,6 @@ with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
             if len(contains_text)>0:
                 contains_text_dict = {i:text for i, text in enumerate(contains_text)}
                 image_text_dict[correspond_file_path] = {"word":word, "text":contains_text_dict, "url": page_url, "image":image_link}
-    output = json.dumps(image_text_dict, ensure_ascii=False)
-    writer.write(output)
+    pickle.dump(image_text_dict, writer)
 
 print("done!")
