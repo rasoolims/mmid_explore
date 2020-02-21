@@ -17,7 +17,12 @@ for subdir in os.listdir(input_folder):
         file_prefix = json_name[:json_name.rfind("-")+1]
         file_prefix_path = os.path.join(subdir_path, file_prefix)
         file_prefix = ntpath.basename(file_prefix)
-        directory_path = ntpath.basename(input_folder)
+        directory_path = input_folder
+        if directory_path.endswith("/"):
+            directory_path = directory_path[:-1]
+        if "/" in directory_path:
+            directory_path = directory_path[directory_path.rfind("/")+1:]
+
         with open(json_name, 'r') as json_file:
             json_data = json.load(json_file)
             word = open(json_name[:-13]+"word.txt","r").read().strip()
