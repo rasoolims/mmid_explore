@@ -22,7 +22,7 @@ for url, text in image_list:
     extension = fixed_url[fixed_url.rfind(".") + 1:].lower()
     if extension not in default_set:
         extension = "others"
-        file_extension = ""
+        file_extension = ".jpg" # Assuming default is jpg
     else:
         file_extension = "."+extension
 
