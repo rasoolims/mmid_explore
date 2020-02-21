@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="" />
+    <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/find_matching_passage_for_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_matching_passage_for_images.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -291,7 +293,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py</url>
-          <line>41</line>
+          <line>49</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

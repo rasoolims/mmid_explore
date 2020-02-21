@@ -4,7 +4,7 @@ with open(os.path.abspath(sys.argv[1]), "rb") as fin:
     target_uri_dict = pickle.load(fin)
 
 counter = 0
-with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
+with open(os.path.abspath(sys.argv[3]), "w") as writer:
     image_text_dict = {}
     for line in open(os.path.abspath(sys.argv[2]), "r"):
         word, correspond_file_path, page_url, image_link = line.split("\t")
