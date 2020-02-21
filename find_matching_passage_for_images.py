@@ -4,15 +4,15 @@ with open(os.path.abspath(sys.argv[1]), "rb") as fin:
     target_uri_dict = pickle.load(fin)
 
 counter = 0
-with open(os.path.abspath(sys.argv[3]), "w") as writer:
+with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
     image_text_dict = {}
-    for line in open(os.path.abspath(sys.argv[2]), "r"):
+    for line in open(os.path.abspath(sys.argv[2]), "r", encoding="utf-8"):
         word, correspond_file_path, page_url, image_link = line.split("\t")
         counter+=1
         if counter %100000==0:
             print(counter)
         if page_url in target_uri_dict:
-            texts = target_uri_dict[page_url].split("\n")
+            texts = target_uri_dict[page_url].encode("utf-8").split("\n")
             contains_text = []
             for text in texts:
                 if word.lower() in text.lower():
