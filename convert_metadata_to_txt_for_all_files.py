@@ -17,6 +17,7 @@ for subdir in os.listdir(input_folder):
         directory_path = ntpath.basename(os.path.split(file_prefix_path)[0])
         with open(json_name, 'r') as json_file:
             json_data = json.load(json_file)
+            word = open(json_name[:-13]+"word.txt","r").read().strip()
             for key in json_data:
                 try:
                     image_link = json_data[key]["image_link"]
@@ -31,7 +32,7 @@ for subdir in os.listdir(input_folder):
                 except:
                     original_filename = "-"
                 correspond_file_path = os.path.join(directory_path , file_prefix+ key + ".jpg")
-                index_content.append("\t".join([correspond_file_path, page_url, image_link]))
+                index_content.append("\t".join([word, correspond_file_path, page_url, image_link]))
 
 with open(os.path.join(input_folder, "all_indices.txt"), "w") as writer:
     writer.write("\n".join(index_content))
