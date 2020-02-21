@@ -34,7 +34,7 @@ for subdir in os.listdir(input_folder):
                 correspond_file_path = os.path.join(directory_path , file_prefix+ key + ".jpg")
                 index_content.append("\t".join([word, correspond_file_path, page_url, image_link]))
 
-with open(os.path.join(input_folder, "all_indices.txt"), "w") as writer:
+with open(os.path.abspath(sys.argv[2]), "w") as writer:
     writer.write("\n".join(index_content))
 
 print("finished")
