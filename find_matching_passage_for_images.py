@@ -5,7 +5,6 @@ with open(os.path.abspath(sys.argv[1]), "rb") as fin:
 
 counter = 0
 with open(os.path.abspath(sys.argv[3]), "wb") as writer:
-    image_text_dict = {}
     for line in open(os.path.abspath(sys.argv[2]), "r", encoding="utf-8"):
         word, correspond_file_path, page_url, image_link = line.split("\t")
         counter+=1
@@ -18,8 +17,7 @@ with open(os.path.abspath(sys.argv[3]), "wb") as writer:
                 if word.lower() in text.lower():
                     contains_text.append(text)
             if len(contains_text)>0:
-                contains_text_dict = {i:text for i, text in enumerate(contains_text)}
-                image_text_dict[correspond_file_path] = {"word":word, "text":contains_text_dict, "url": page_url, "image":image_link}
-    pickle.dump(image_text_dict, writer)
-
+                final_text = "\t".join(contains_text)
+                output = line.strip() +"\t" + final_text
+                writer.write(final_text+"\n")
 print("done!")
