@@ -20,5 +20,6 @@ for file in os.listdir(input_folder):
         if num_process%20 != 0:
             command+= " &"
         print(command)
+        os.system(command)
 
 print("finished downloading all!")
