@@ -17,7 +17,10 @@ with open(os.path.abspath(sys.argv[3]), "w", encoding="utf-8") as writer:
                 if word.lower() in text.lower():
                     contains_text.append(text)
             if len(contains_text)>0:
-                final_text = "\t".join(contains_text)
-                output = line.strip() +"\t" + final_text
-                writer.write(final_text+"\n")
+                try:
+                    final_text = "\t".join(contains_text)
+                    output = line.strip() +"\t" + final_text
+                    writer.write(final_text+"\n")
+                except:
+                    pass
 print("done!")
