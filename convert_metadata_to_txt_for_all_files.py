@@ -6,9 +6,12 @@ import ntpath
 # root directory for the image data that has subdirectories.
 input_folder = os.path.abspath(sys.argv[1])
 index_content = []
+num_processed = 0
 for subdir in os.listdir(input_folder):
     subdir_path = os.path.join(input_folder, subdir)
-    print(subdir_path)
+    num_processed += 1
+    if num_processed%100==0:
+        print(num_processed)
     for json_name in glob.glob(subdir_path + "/*metadata.json"):
         print(json_name)
         file_prefix = json_name[:json_name.rfind("-")+1]
