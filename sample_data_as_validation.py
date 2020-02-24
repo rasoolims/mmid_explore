@@ -32,11 +32,11 @@ for dir in os.listdir(input_dir):
             os.system(move_command)
             if sampled>=num_to_sample:
                 break
-    copy_command = " ".join(["cp", dir_path+"/*.txt", target_dir+"/ "])
+    copy_command = " ".join(["cp", dir_path+"/*.txt", target_dir+"/ &"])
     print(copy_command)
     os.system(copy_command)
 
-    copy_command = " ".join(["cp", dir_path + "/*.json", target_dir + "/ "])
+    copy_command = " ".join(["cp", dir_path + "/*.json", target_dir + "/ &"])
     print(copy_command)
     os.system(copy_command)
 
