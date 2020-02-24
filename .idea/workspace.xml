@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/find_matching_passage_for_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_matching_passage_for_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index2roberta.py" beforeDir="false" afterPath="$PROJECT_DIR$/index2roberta.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,13 +181,13 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.collect_passage_for_target_urls" />
       <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
+      <item itemvalue="Python.find_matching_passage_for_images" />
       <item itemvalue="Python.move_data" />
       <item itemvalue="Python.read_warc" />
-      <item itemvalue="Python.collect_passage_for_target_urls" />
-      <item itemvalue="Python.find_matching_passage_for_images" />
-      <item itemvalue="Python.unify_entries" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
+      <item itemvalue="Python.unify_entries" />
     </list>
   </component>
   <component name="SvnConfiguration">

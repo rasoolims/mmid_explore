@@ -14,8 +14,7 @@ batch = defaultdict(list)
 batch_ids = defaultdict(list)
 
 for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
-	columns = line.strip().split("\t")
-	entries = columns[1:]
+	entries = line.strip().split("\t")
 	tokens = ["CLS"]
 	for entry in entries:
 		tokens += tokenizer.tokenize(entry) + ["[SEP]"]
