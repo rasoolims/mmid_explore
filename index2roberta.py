@@ -13,7 +13,7 @@ vector_dict = {}
 batch = defaultdict(list)
 batch_ids = defaultdict(list)
 
-for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
+for i, line in enumerate(open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8")):
 	entries = line.strip().split("\t")
 	tokens = ["CLS"]
 	for entry in entries:
@@ -24,7 +24,7 @@ for line in open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8"):
 	tok_ids = tokenizer.convert_tokens_to_ids(tokens)
 	tok_tensors = torch.tensor([tok_ids])
 	batch[tok_tensors.size()[-1]].append(tok_tensors)
-	batch_ids[tok_tensors.size()[-1]].append(int(columns[0]))
+	batch_ids[tok_tensors.size()[-1]].append(i)
 
 for length in sorted(batch.keys()):
 	print("length", length, len(batch[length]))
