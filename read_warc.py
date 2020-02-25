@@ -25,20 +25,17 @@ def is_good_text(text):
     if "<" in text or ">" in text or "*" in text:
         return False
 
-    banned_words = ["logo", "icon", "avatar", "thumbnail"]
-    for word in banned_words:
-        if word in text or word in url:
-            return False
-
     if "loading" in text:
         return False
     if "_" in text:
         return False
     if "img" in text:
         return False
-    if text == "image" or text == "picture":
+    if "the document has moved" in text:
         return False
-    if text in url:
+    if "page not found" in text:
+        return False
+    if text == "image" or text == "picture":
         return False
     return True
 
@@ -52,11 +49,19 @@ def is_relevant_image(url, text):
         return False # Usually these extensions do not have good images
     if text.lower() in url.lower():
         return False
+    banned_words = ["logo", "icon", "avatar", "thumbnail"]
+    for word in banned_words:
+        if word in text or word in url:
+            return False
     return True
 
 def process_warc_record(text_information, target_uri):
     try:
         html_text = warc_records[target_uri]
+
+        if "the document has moved" in html_text.lower() or "page not found" in html_text.lower():
+            return
+
         soup = BeautifulSoup(html_text, features="html.parser", from_encoding="utf-8")
 
         for script in soup(["script", "style", "a", "menu", "href"]):
@@ -108,9 +113,10 @@ def process_warc_record(text_information, target_uri):
                 src = src[2:]
             if is_relevant_image(src, alt_text):
                 images[src] = alt_text
-        text_information[target_uri] = {"title": title, "body": body_text, "images_with_alt": images}
+        if len(body_text)>0:
+            text_information[target_uri] = {"title": title, "body": body_text, "images_with_alt": images}
     except:
-        text_information[target_uri] = {}
+        pass
 
 
 
