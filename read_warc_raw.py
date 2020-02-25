@@ -97,6 +97,7 @@ for warc_path in glob.glob(warc_path_prefix + "*"):
                 part_number+=1
                 warc_records = {}
     except:
+        print("problem with", warc_path)
         pass
 
 if len(warc_records) >0:

@@ -5,21 +5,25 @@ import json
 from bs4 import BeautifulSoup
 import  pickle
 import validators
+import gzip
 
 warnings.filterwarnings("ignore")
 warnings.filterwarnings("ignore", module='bs4')
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 
-def is_relevant_image(url, text):
+def is_good_text(text):
     text = text.lower()
-    if len(text)<2:
+    if len(text) < 2:
         return False
-    if validators.url(url) is not True:
+    if "{" in text or "}" in text:
         return False
-    url = url.lower()
-    if ".svg" in url:
-        return False # Usually these extensions do not have good images
+    if "lorem ipsum" in text:
+        return False
+    if "javascript" in text:
+        return False
+    if "<" in text or ">" in text or "*" in text:
+        return False
 
     banned_words = ["logo", "icon", "avatar", "thumbnail"]
     for word in banned_words:
@@ -35,6 +39,18 @@ def is_relevant_image(url, text):
     if text == "image" or text == "picture":
         return False
     if text in url:
+        return False
+    return True
+
+def is_relevant_image(url, text):
+    if not is_good_text(text):
+        return False
+    if validators.url(url) is not True:
+        return False
+    url = url.lower()
+    if ".svg" in url:
+        return False # Usually these extensions do not have good images
+    if text.lower() in url.lower():
         return False
     return True
 
@@ -65,7 +81,8 @@ def process_warc_record(text_information, target_uri):
                 continue
             if b.isdigit():
                 continue
-            body_text[len(body_text)] = b
+            if is_good_text(b):
+                body_text[len(body_text)] = b
 
         try:
             title = soup.title.get_text()
@@ -97,20 +114,13 @@ def process_warc_record(text_information, target_uri):
 
 
 
-def write_json(file_path, text_information):
+def write_pickle(file_path, text_information):
     print("writing ", file_path)
-
-    try:
-        with open(file_path, "w", encoding="utf-8") as writer:
-            json.dump(text_information, writer, ensure_ascii=False)
-    except:
-        print("problem with writing", file_path)
-
-    with open(file_path+".pickle", "wb") as writer:
+    with gzip.open(file_path, "wb") as writer:
         pickle.dump(text_information, writer)
 
 input_file_path = os.path.abspath(sys.argv[1])
-with open(input_file_path, "rb") as fin:
+with gzip.open(input_file_path, "rb") as fin:
     warc_records = pickle.load(fin)
 
 file_path = os.path.abspath(sys.argv[2])
@@ -121,9 +131,9 @@ text_information = {}
 for i, name in enumerate(warc_records.keys()):
     process_warc_record(text_information=text_information, target_uri=name)
 
-write_json(file_path, text_information)
+write_pickle(file_path, text_information)
 
-with open(file_path+".image_list.txt", "w") as writer:
+with gzip.open(file_path+".image_list.txt.gz", "wb") as writer:
     content_list = []
     for values in text_information.values():
         if "images_with_alt" not in values:
@@ -132,6 +142,6 @@ with open(file_path+".image_list.txt", "w") as writer:
         for url, alt_text in images.items():
             content_list.append("\t".join([url, alt_text]))
     print(file_path, "--> found images", len(content_list))
-    writer.write("\n".join(content_list))
+    writer.write("\n".join(content_list).encode("utf8"))
 
 print("finished", file_path)
