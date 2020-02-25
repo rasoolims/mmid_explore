@@ -1,15 +1,16 @@
 import os
 import pickle
 import sys
+import gzip
 
 pickle_folder = os.path.abspath(sys.argv[1])
 
 passage_dict = dict()
 for f in os.listdir(pickle_folder):
-    if not f.endswith(".pickle"):
+    if not f.endswith(".pickle.gz"):
         continue
     print(f)
-    with open(os.path.join(pickle_folder, f), "rb") as fin:
+    with gzip.open(os.path.join(pickle_folder, f), "rb") as fin:
         cur_dict = pickle.load(fin)
         for target_url in cur_dict.keys():
             try:
@@ -19,5 +20,5 @@ for f in os.listdir(pickle_folder):
                 pass
 
 print("dict length", len(passage_dict))
-with open(os.path.abspath(sys.argv[2]), "wb") as fout:
+with gzip.open(os.path.abspath(sys.argv[2]), "wb") as fout:
     pickle.dump(passage_dict, fout)
