@@ -9,12 +9,6 @@ input_folder = os.path.abspath(sys.argv[1])
 index_content = []
 num_processed = 0
 
-base_input_dir = input_folder
-if base_input_dir.endswith("/"):
-    base_input_dir = base_input_dir[:-1]
-if "/" in base_input_dir:
-    base_input_dir = base_input_dir[base_input_dir.rfind("/") + 1:]
-
 for folder_matches in glob.glob(input_folder):
     print("reading ", folder_matches)
     for subdir in os.listdir(folder_matches):
