@@ -6,7 +6,7 @@ import gzip
 pickle_folder = os.path.abspath(sys.argv[1])
 
 passage_dict = dict()
-with open(os.path.abspath(sys.argv[2]), "w") as writer:
+with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
     for f in os.listdir(pickle_folder):
         if not f.endswith(".pickle.gz"):
             continue
