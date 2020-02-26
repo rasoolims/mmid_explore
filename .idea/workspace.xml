@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_warc.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,18 +289,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py</url>
-          <line>49</line>
+          <line>50</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/read_warc.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/read_warc.py</url>
-          <line>116</line>
-          <option name="timeStamp" value="15" />
+          <line>62</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
