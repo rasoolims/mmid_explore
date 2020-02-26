@@ -16,13 +16,15 @@ def is_good_text(text):
     text = text.lower()
     if len(text) < 2:
         return False
+    if len(text.split(" "))<4:
+        return False
     if "{" in text or "}" in text:
         return False
     if "lorem ipsum" in text:
         return False
     if "javascript" in text:
         return False
-    if "<" in text or ">" in text or "*" in text:
+    if "<" in text or ">" in text or "*" in text or "//" in text:
         return False
 
     if "loading" in text:
@@ -30,6 +32,8 @@ def is_good_text(text):
     if "_" in text:
         return False
     if "img" in text:
+        return False
+    if "\t" in text:
         return False
     if "the document has moved" in text:
         return False
@@ -76,11 +80,8 @@ def process_warc_record(text_information, target_uri):
         # break multi-headlines into a line each
         chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
         # drop blank lines
-        text = '\n'.join(chunk for chunk in chunks if chunk)
-        body = soup.find_all("body")
-        body_text_list = "\n".join(b.get_text() for b in body).split("\n")
         body_text = {}
-        for b in body_text_list:
+        for b in chunks:
             b = b.strip().replace("\r", "").replace("\b", "")
             if "<" in b or len(b.strip()) < 2:
                 continue
@@ -89,13 +90,6 @@ def process_warc_record(text_information, target_uri):
             if is_good_text(b):
                 body_text[len(body_text)] = b
 
-        try:
-            title = soup.title.get_text()
-        except:
-            title = ""
-            pass
-
-        title = title.replace("\t", " ").replace("\n", "").replace("\r", "").replace("\b", "")
         images = {}
         imgThis = soup.find_all("img", alt=True)
         for image in imgThis:
@@ -114,7 +108,7 @@ def process_warc_record(text_information, target_uri):
             if is_relevant_image(src, alt_text):
                 images[src] = alt_text
         if len(body_text)>0:
-            text_information[target_uri] = {"title": title, "body": body_text, "images_with_alt": images}
+            text_information[target_uri] = {"body": body_text, "images_with_alt": images}
     except:
         pass
 
