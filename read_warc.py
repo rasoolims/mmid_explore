@@ -24,13 +24,24 @@ def is_good_text(text):
         return False
     if "javascript" in text:
         return False
+    if "domain name has expired" in text:
+        return False
+    if "page cannot be displayed" in text:
+        return False
+    if "page not found" in text:
+        return False
     if "<" in text or ">" in text or "*" in text or "//" in text:
         return False
 
     if "loading" in text:
         return False
-    if "_" in text:
+    if "~" in text or "_" in text or "+" in text or  "|" in text or  "\\" in text:
         return False
+    if "©" in text:
+        return False
+    if text.startswith("--") or text.startswith("/") or text.startswith(":") or text.startswith("."):
+        return False
+
     if "img" in text:
         return False
     if "\t" in text:
@@ -64,55 +75,55 @@ def process_warc_record(text_information, target_uri):
         html_text = warc_records[target_uri]
 
         if "the document has moved" in html_text.lower() or "page not found" in html_text.lower():
-            return
+            pass
+        else:
+            soup = BeautifulSoup(html_text, features="html.parser", from_encoding="utf-8")
 
-        soup = BeautifulSoup(html_text, features="html.parser", from_encoding="utf-8")
+            for script in soup(["script", "style", "a", "menu", "href"]):
+                script.extract()  # rip it out
 
-        for script in soup(["script", "style", "a", "menu", "href"]):
-            script.extract()  # rip it out
+            # get text
+            text = soup.get_text()
 
-        # get text
-        text = soup.get_text()
+            # break into lines and remove leading and trailing space on each
+            lines = (line.strip() for line in text.splitlines())
 
-        # break into lines and remove leading and trailing space on each
-        lines = (line.strip() for line in text.splitlines())
+            # break multi-headlines into a line each
+            chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+            # drop blank lines
+            body_text = {}
+            added = set()
+            for b in chunks:
+                b = b.strip().replace("\r", "").replace("\b", "")
+                if "<" in b or len(b.strip()) < 2:
+                    continue
+                if b.isdigit():
+                    continue
+                if b in added: # Skip repeats
+                    continue
+                added.add(b)
+                if is_good_text(b):
+                    body_text[len(body_text)] = b
 
-        # break multi-headlines into a line each
-        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-        # drop blank lines
-        body_text = {}
-        added = set()
-        for b in chunks:
-            b = b.strip().replace("\r", "").replace("\b", "")
-            if "<" in b or len(b.strip()) < 2:
-                continue
-            if b.isdigit():
-                continue
-            if b in added: # Skip repeats
-                continue
-            added.add(b)
-            if is_good_text(b):
-                body_text[len(body_text)] = b
-
-        images = {}
-        imgThis = soup.find_all("img", alt=True)
-        for image in imgThis:
-            alt_text, src = "", ""
-            try:
-                alt_text = image["alt"].strip()
-                src = image["src"].strip().replace(" ", "%20")
-            except:
+            images = {}
+            imgThis = soup.find_all("img", alt=True)
+            for image in imgThis:
+                alt_text, src = "", ""
                 try:
                     alt_text = image["alt"].strip()
-                    src = image["data-src"].strip().replace(" ", "%20")
+                    src = image["src"].strip().replace(" ", "%20")
                 except:
-                    pass
-            if src.startswith("//"):
-                src = src[2:]
-            if is_relevant_image(src, alt_text):
-                images[src] = alt_text
-        if len(body_text)>0:
-            text_information[target_uri] = {"body": body_text, "images_with_alt": images}
+                    try:
+                        alt_text = image["alt"].strip()
+                        src = image["data-src"].strip().replace(" ", "%20")
+                    except:
+                        pass
+                if src.startswith("//"):
+                    src = src[2:]
+                if is_relevant_image(src, alt_text):
+                    images[src] = alt_text
+            if len(body_text)>0:
+                text_information[target_uri] = {"body": body_text, "images_with_alt": images}
     except:
         pass
 
