@@ -11,7 +11,7 @@ with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
         if not f.endswith(".pickle.gz"):
             continue
         print(f)
-        current_output = ""
+        current_output = []
         with gzip.open(os.path.join(pickle_folder, f), "rb") as fin:
             cur_dict = pickle.load(fin)
             for target_url in cur_dict.keys():
