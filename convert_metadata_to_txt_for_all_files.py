@@ -12,6 +12,8 @@ num_processed = 0
 print("input folder", input_folder)
 for folder_matches in glob.glob(input_folder+"*"):
     print("reading ", folder_matches)
+    if not os.path.isdir(folder_matches):
+        continue
     for subdir in os.listdir(folder_matches):
         subdir_path = os.path.join(folder_matches, subdir)
 

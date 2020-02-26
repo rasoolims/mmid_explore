@@ -20,7 +20,7 @@ with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
                     whole_text = target_url + "\t" + passage_dict[target_url]
 
                     # Doing this to make sure that the text is ok
-                    t = whole_text.encode("utf-8")
+                    t = whole_text.decode("utf-8")
 
                     passage_dict[target_url] = cur_dict[target_url]["title"]+"\t"+ "\t".join(body_text)
                     current_output.append(whole_text)
