@@ -22,3 +22,4 @@ for f in os.listdir(pickle_folder):
 print("dict length", len(passage_dict))
 with gzip.open(os.path.abspath(sys.argv[2]), "wb") as fout:
     pickle.dump(passage_dict, fout)
+print("finished")
