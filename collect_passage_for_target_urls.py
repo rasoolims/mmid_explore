@@ -16,7 +16,7 @@ with open(os.path.abspath(sys.argv[2]), "w") as writer:
             for target_url in cur_dict.keys():
                 try:
                     body_text = list(cur_dict[target_url]["body"].values())
-                    passage_dict[target_url] = cur_dict[target_url]["title"]+"\n"+ "\n".join(body_text)
+                    passage_dict[target_url] = cur_dict[target_url]["title"]+"\t"+ "\t".join(body_text)
                     writer.write(target_url + "\t" + passage_dict[target_url] + "\n")
                 except:
                     pass
