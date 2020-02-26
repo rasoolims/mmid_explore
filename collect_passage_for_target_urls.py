@@ -24,7 +24,7 @@ with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
 
                     passage_dict[target_url] = cur_dict[target_url]["title"]+"\t"+ "\t".join(body_text)
 
-                    writer.write.append(whole_text)
+                    current_output.append(whole_text)
                 except:
                     pass
         writer.write("\n".join(current_output))

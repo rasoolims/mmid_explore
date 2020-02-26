@@ -81,12 +81,16 @@ def process_warc_record(text_information, target_uri):
         chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
         # drop blank lines
         body_text = {}
+        added = set()
         for b in chunks:
             b = b.strip().replace("\r", "").replace("\b", "")
             if "<" in b or len(b.strip()) < 2:
                 continue
             if b.isdigit():
                 continue
+            if b in added: # Skip repeats
+                continue
+            added.add(b)
             if is_good_text(b):
                 body_text[len(body_text)] = b
 
