@@ -19,7 +19,8 @@ for f in os.listdir(pickle_folder):
             except:
                 pass
 
+output_text = "\n".join([key+"\t"+value for key,value in passage_dict.items()])
 print("dict length", len(passage_dict))
-with gzip.open(os.path.abspath(sys.argv[2]), "wb") as fout:
-    pickle.dump(passage_dict, fout)
+with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
+    writer.write("\n".join(output_text))
 print("finished")
