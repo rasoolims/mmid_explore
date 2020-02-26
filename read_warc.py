@@ -148,7 +148,7 @@ for i, name in enumerate(warc_records.keys()):
 
 write_pickle(file_path, text_information)
 
-with gzip.open(file_path+".image_list.txt.gz", "wb") as writer:
+with gzip.open(file_path+".image_list.txt.gz", "wt") as writer:
     content_list = []
     for values in text_information.values():
         if "images_with_alt" not in values:
@@ -157,6 +157,6 @@ with gzip.open(file_path+".image_list.txt.gz", "wb") as writer:
         for url, alt_text in images.items():
             content_list.append("\t".join([url, alt_text]))
     print(file_path, "--> found images", len(content_list))
-    writer.write("\n".join(content_list).encode("utf8"))
+    writer.write("\n".join(content_list))
 
 print("finished", file_path)
