@@ -17,11 +17,18 @@ with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
             for target_url in cur_dict.keys():
                 try:
                     body_text = list(cur_dict[target_url]["body"].values())
-                    whole_text = target_url + "\t" + passage_dict[target_url]+"\n"
+
+                    whole_text = target_url + "\t" + cur_dict[target_url]["title"] + "\t" + "\t".join(body_text) + "\n"
+                    # Doing this to make sure that the text is ok
+                    t = whole_text.encode("utf-8")
+
                     passage_dict[target_url] = cur_dict[target_url]["title"]+"\t"+ "\t".join(body_text)
+
                     writer.write.append(whole_text)
                 except:
                     pass
+        writer.write("\n".join(current_output))
+        writer.write("\n")
 
 print("dict length", len(passage_dict))
 print("finished")
