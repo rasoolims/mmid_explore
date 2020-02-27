@@ -34,12 +34,12 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.
 
                     for file_path, word in url_info_dict[target_url].items():
                         if target_url in url_info_dict and word.lower() in body_text.lower():
-                            whole_text = file_path +"\t"+ body_text + "\n"
+                            whole_text = file_path +"\t"+ body_text
                             # Doing this to make sure that the text is ok
                             t = whole_text.encode("utf-8")
 
                             short_body = [body for body in cur_dict[target_url]["body"].values() if word.lower() in body.lower()]
-                            short_text =  "\t".join([file_path]+short_body)+"\n"
+                            short_text =  "\t".join([file_path]+short_body)
                             current_output.append(whole_text)
                             current_short_output.append(short_text)
                             write_count+=1
