@@ -5,7 +5,7 @@ import gzip
 
 url_info_dict = {}
 print("reading url info dict")
-for line in open(os.path.abspath(sys.argv[3])):
+for line in open(os.path.abspath(sys.argv[1])):
     try:
         word, correspond_file_path, page_url, image_link = line.strip().split()
         url_info_dict[page_url] = [word, correspond_file_path]
