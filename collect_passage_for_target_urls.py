@@ -2,14 +2,15 @@ import os
 import pickle
 import sys
 import gzip
+from collections import defaultdict
 
-url_info_dict = {}
+url_info_dict = defaultdict(dict)
 num_url_lines = 0
 print("reading url info dict")
 for line in open(os.path.abspath(sys.argv[1])):
     try:
         word, correspond_file_path, page_url, image_link = line.strip().split()
-        url_info_dict[page_url] = [word, correspond_file_path]
+        url_info_dict[page_url][correspond_file_path] = word
         num_url_lines+=1
     except:
         pass
@@ -31,16 +32,17 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.
                 try:
                     body_text = "\t".join(list(cur_dict[target_url]["body"].values()))
 
-                    if target_url in url_info_dict and url_info_dict[target_url][0].lower() in body_text.lower():
-                        whole_text = url_info_dict[target_url][1] +"\t"+ body_text + "\n"
-                        # Doing this to make sure that the text is ok
-                        t = whole_text.encode("utf-8")
+                    for file_path, word in url_info_dict[target_url].items():
+                        if target_url in url_info_dict and word.lower() in body_text.lower():
+                            whole_text = file_path +"\t"+ body_text + "\n"
+                            # Doing this to make sure that the text is ok
+                            t = whole_text.encode("utf-8")
 
-                        short_body = [body  for body in cur_dict[target_url]["body"].values() if url_info_dict[target_url][0].lower() in body.lower()]
-                        short_text =  "\t".join([url_info_dict[target_url][1]]+short_body)+"\n"
-                        current_output.append(whole_text)
-                        current_short_output.append(short_text)
-                        write_count+=1
+                            short_body = [body for body in cur_dict[target_url]["body"].values() if word.lower() in body.lower()]
+                            short_text =  "\t".join([file_path]+short_body)+"\n"
+                            current_output.append(whole_text)
+                            current_short_output.append(short_text)
+                            write_count+=1
                 except:
                     pass
         writer.write("\n".join(current_output))
