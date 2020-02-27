@@ -18,7 +18,7 @@ with gzip.open(os.path.abspath(sys.argv[2]), "wt") as writer:
                 try:
                     body_text = list(cur_dict[target_url]["body"].values())
 
-                    whole_text = target_url + "\t" + cur_dict[target_url]["title"] + "\t" + "\t".join(body_text) + "\n"
+                    whole_text = target_url + "\t" + "\t".join(body_text) + "\n"
                     # Doing this to make sure that the text is ok
                     t = whole_text.encode("utf-8")
 

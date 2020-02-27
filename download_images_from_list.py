@@ -2,6 +2,7 @@ import os
 import sys
 from collections import defaultdict
 import urllib.request
+import gzip
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -10,7 +11,7 @@ if not os.path.exists(output_folder):
 
 file_indices = defaultdict(list)
 
-image_list = [line.strip().split("\t") for line in open(input_file, 'r').read().strip().split("\n") if
+image_list = [line.strip().split("\t") for line in gzip.open(input_file, 'r').read().strip().split("\n") if
               len(line.strip().split("\t")) == 2]
 file_number = defaultdict(int)
 default_set = set(["png", "jpg", "jpeg", "gif"])

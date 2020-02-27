@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_warc.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect_passage_for_target_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_passage_for_target_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download_images_from_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_images_from_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download_images_from_lists_in_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_images_from_lists_in_folder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,11 +303,6 @@
           <url>file://$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py</url>
           <line>32</line>
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/read_warc.py</url>
-          <line>125</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
