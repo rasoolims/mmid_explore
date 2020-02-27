@@ -32,7 +32,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.
             cur_dict = pickle.load(fin)
             for target_url in cur_dict.keys():
                 try:
-                    body_list = [sentence for sentence in cur_dict[target_url]["body"].values()]
+                    body_list = [sentence for sentence in cur_dict[target_url]["body"].values() if "::" not in sentence]
                     if len(body_list)==0:
                         continue
 

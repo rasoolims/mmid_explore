@@ -18,7 +18,7 @@ def is_good_text(text):
         return False
     if len(text.split(" "))<4:
         return False
-    if "{" in text or "}" in text:
+    if "{" in text or "}" in text or "::" in text:
         return False
     if "lorem ipsum" in text:
         return False
