@@ -3,6 +3,7 @@ import pickle
 import sys
 import gzip
 from collections import defaultdict
+from langdetect import detect
 
 url_info_dict = defaultdict(dict)
 num_url_lines = 0
@@ -17,6 +18,7 @@ for line in open(os.path.abspath(sys.argv[1])):
 print("length of url info dict", len(url_info_dict), num_url_lines)
 
 pickle_folder = os.path.abspath(sys.argv[2])
+target_lang = sys.argv[5]
 
 write_count = 0
 with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.abspath(sys.argv[4]), "wt") as short_writer:
@@ -30,7 +32,11 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.
             cur_dict = pickle.load(fin)
             for target_url in cur_dict.keys():
                 try:
-                    body_text = "\t".join(list(cur_dict[target_url]["body"].values()))
+                    body_list = [sentence for sentence in cur_dict[target_url]["body"].values() if detect(sentence)==target_lang]
+                    if len(body_list)==0:
+                        continue
+                        
+                    body_text = "\t".join(body_list)
 
                     for file_path, word in url_info_dict[target_url].items():
                         if target_url in url_info_dict and word.lower() in body_text.lower():
