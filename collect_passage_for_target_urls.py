@@ -13,13 +13,13 @@ def tokenize_sentence(input):
 url_info_dict = defaultdict(dict)
 num_url_lines = 0
 print("reading url info dict")
-# for line in open(os.path.abspath(sys.argv[1])):
-#     try:
-#         word, correspond_file_path, page_url, image_link = line.strip().split()
-#         url_info_dict[page_url][correspond_file_path] = word
-#         num_url_lines+=1
-#     except:
-#         pass
+for line in open(os.path.abspath(sys.argv[1])):
+    try:
+        word, correspond_file_path, page_url, image_link = line.strip().split()
+        url_info_dict[page_url][correspond_file_path] = word
+        num_url_lines+=1
+    except:
+        pass
 print("length of url info dict", len(url_info_dict), num_url_lines)
 
 pickle_folder = os.path.abspath(sys.argv[2])
