@@ -46,8 +46,6 @@ for line in open(os.path.abspath(sys.argv[1])):
         word, correspond_file_path, page_url, image_link = line.strip().split()
         url_info_dict[page_url][correspond_file_path] = tokenize_label(tokenizer, word)
         num_url_lines+=1
-        if num_url_lines%10000==0:
-            print(num_url_lines)
     except:
         pass
 print("length of url info dict", len(url_info_dict), num_url_lines)
