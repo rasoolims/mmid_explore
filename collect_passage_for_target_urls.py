@@ -24,7 +24,7 @@ def tokenize_label(tokenizer, input):
     for x in tokenizer.cut(input):
         if len(x[0].strip())>0:
             cur_output.append(x[0].strip())
-    return " ".join(current_output)
+    return " ".join(cur_output)
 
 
 pickle_folder = os.path.abspath(sys.argv[2])
