@@ -44,14 +44,10 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.
                     for line in cur_dict[target_url]["body"].values():
                         if "::" in line:
                             continue
-                        print(line)
                         body_list += tokenize_sentence(tokenizer, line)
-                    print(body_list)
+
                     fasttext_pred = fasttext_model.predict(body_list)
-                    print(fasttext_pred)
                     body_list = [sentence for i, sentence in enumerate(body_list) if fasttext_pred[0][i][0]==fasttext_lang and fasttext_pred[1][i][0]>0.95]
-                    print(body_list)
-                    if True: sys.exit(0)
 
                     if len(body_list)==0:
                         continue
