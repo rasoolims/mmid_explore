@@ -4,22 +4,6 @@ import sys
 import gzip
 from collections import defaultdict
 import fasttext
-import cutter
-
-def tokenize_sentence(tokenizer, input):
-    outputs = []
-    cur_output = []
-    for x in tokenizer.cut(input):
-        if len(x[0].strip())>0:
-            cur_output.append(x[0].strip())
-        else:
-            outputs.append(" ".join(current_output))
-            cur_output = []
-    if len(current_output)>0:
-        outputs.append(" ".join(current_output))
-    return outputs
-
-
 
 url_info_dict = defaultdict(dict)
 num_url_lines = 0
@@ -39,11 +23,6 @@ fasttext_path = os.path.abspath(sys.argv[6])
 fasttext_model = fasttext.load_model(fasttext_path)
 fasttext_lang = "__label__"+target_lang
 
-try:
-    tokenizer = cutter.Cutter(profile=target_lang)
-except:
-    tokenizer = cutter.Cutter(profile="en")
-
 write_count = 0
 with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.abspath(sys.argv[4]), "wt") as short_writer:
     for f in os.listdir(pickle_folder):
@@ -56,13 +35,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.
             cur_dict = pickle.load(fin)
             for target_url in cur_dict.keys():
                 try:
-                    body_list = []
-                    for line in cur_dict[target_url]["body"].values():
-                        if "::" in line:
-                            continue
-                        sentences = tokenize_sentence(tokenizer, line)
-                        body_list += sentences
-
+                    body_list = [sentence for sentence in cur_dict[target_url]["body"].values() if "::" not in sentence]
                     fasttext_pred = fasttext_model.predict(body_list)
                     body_list = [sentence for i, sentence in enumerate(body_list) if fasttext_pred[0][i][0]==fasttext_lang and fasttext_pred[1][i][0]>0.95]
 
