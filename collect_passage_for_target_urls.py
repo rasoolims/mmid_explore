@@ -13,10 +13,10 @@ def tokenize_sentence(tokenizer, input):
         if len(x[0].strip())>0:
             cur_output.append(x[0].strip())
         else:
-            outputs.append(" ".join(cur_output))
+            outputs.append(" ".join(current_output))
             cur_output = []
-    if len(cur_output)>0:
-        outputs.append(" ".join(cur_output))
+    if len(current_output)>0:
+        outputs.append(" ".join(current_output))
     return outputs
 
 
