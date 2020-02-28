@@ -4,7 +4,7 @@ import sys
 import gzip
 from collections import defaultdict
 import fasttext
-import cutter
+import Cutter
 
 def tokenize_sentence(tokenizer, input):
     outputs = []
@@ -19,19 +19,13 @@ def tokenize_sentence(tokenizer, input):
         outputs.append(" ".join(cur_output))
     return outputs
 
+def tokenize_label(tokenizer, input):
+    cur_output = []
+    for x in tokenizer.cut(input):
+        if len(x[0].strip())>0:
+            cur_output.append(x[0].strip())
+    return " ".join(current_output)
 
-
-url_info_dict = defaultdict(dict)
-num_url_lines = 0
-print("reading url info dict")
-for line in open(os.path.abspath(sys.argv[1])):
-    try:
-        word, correspond_file_path, page_url, image_link = line.strip().split()
-        url_info_dict[page_url][correspond_file_path] = word
-        num_url_lines+=1
-    except:
-        pass
-print("length of url info dict", len(url_info_dict), num_url_lines)
 
 pickle_folder = os.path.abspath(sys.argv[2])
 target_lang = sys.argv[5]
@@ -40,9 +34,22 @@ fasttext_model = fasttext.load_model(fasttext_path)
 fasttext_lang = "__label__"+target_lang
 
 try:
-    tokenizer = cutter.Cutter(profile=target_lang)
+    tokenizer = Cutter.Cutter(profile=target_lang)
 except:
-    tokenizer = cutter.Cutter(profile="en")
+    tokenizer = Cutter.Cutter(profile="en")
+
+url_info_dict = defaultdict(dict)
+num_url_lines = 0
+print("reading url info dict")
+for line in open(os.path.abspath(sys.argv[1])):
+    try:
+        word, correspond_file_path, page_url, image_link = line.strip().split()
+        url_info_dict[page_url][correspond_file_path] = tokenize_label(tokenizer, word)
+        num_url_lines+=1
+    except:
+        pass
+print("length of url info dict", len(url_info_dict), num_url_lines)
+
 
 write_count = 0
 with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer, gzip.open(os.path.abspath(sys.argv[4]), "wt") as short_writer:
