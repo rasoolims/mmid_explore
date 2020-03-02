@@ -21,7 +21,7 @@ popopens = []
 for i in range(40):
     start, end = i*split_len, min(len(all_lines), (i+1)*split_len)
     content = "\n".join(all_lines[start:end])
-    with open(output_path+"."+str(i+1)+".input.gz","w") as writer:
+    with gzip.open(output_path+"."+str(i+1)+".input.gz","wt") as writer:
         writer.write(content)
 
     command = ["python3", path_dir_name + "/tokenize_and_filter_text.py", output_path+"."+str(i+1)+".input.gz",
