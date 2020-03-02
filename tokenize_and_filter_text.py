@@ -61,7 +61,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
             writer.write(output)
             write_count+=1
             write_sen_count+=len(output_sentences)
-        if sen_count%10==0:
+        if sen_count%100==0:
             print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
 
 print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
