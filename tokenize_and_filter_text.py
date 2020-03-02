@@ -44,7 +44,7 @@ except:
 sen_count, write_count, write_sen_count, all_sent_count = 0, 0, 0, 0
 outputs = []
 with open(os.path.abspath(sys.argv[3]), "w") as writer:
-    for line in open(os.path.abspath(sys.argv[1]), "t"):
+    for line in open(os.path.abspath(sys.argv[1]), "r"):
         sen_count+=1
         spl = line.strip().split("\t")
         label = tokenize_label(tokenizer, spl[0])
