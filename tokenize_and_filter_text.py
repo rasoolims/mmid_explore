@@ -41,7 +41,7 @@ try:
 except:
     tokenizer = Cutter.Cutter(profile="en")
 
-sen_count, write_count, write_sen_count = 0, 0, 0
+sen_count, write_count, write_sen_count, all_sent_count = 0, 0, 0, 0
 with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
     for line in gzip.open(os.path.abspath(sys.argv[1]), "rt"):
         sen_count+=1
@@ -59,7 +59,8 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
             writer.write(output)
             write_count+=1
             write_sen_count+=len(output_sentences)
+            all_sent_count+=len(passages)
         if sen_count%10==0:
-            print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+")")
+            print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
 
 print("finished")
