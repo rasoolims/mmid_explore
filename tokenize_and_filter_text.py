@@ -51,7 +51,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
         passages = spl[2:]
         output_sentences = []
         for passage in passages:
-            for sentence in tokenize_sentence(tokenizer, passages):
+            for sentence in tokenize_sentence(tokenizer, passage):
                 if label in sentence:
                     output_sentences.append(sentence)
         if len(output_sentences)>0:
