@@ -14,7 +14,8 @@ for line in gzip.open(os.path.abspath(sys.argv[1]), "rt"):
 
 split_len = math.ceil(len(all_lines)/40)
 
-output_path = os.path.abspath(sys.argv[2])
+target_lang = sys.argv[2]
+output_path = os.path.abspath(sys.argv[3])
 
 popopens = []
 for i in range(40):
@@ -24,7 +25,7 @@ for i in range(40):
         writer.write(content)
 
     command = ["python3", path_dir_name + "/tokenize_and_filter_text.py", output_path+"."+str(i+1)+".input.gz",
-               output_path+"."+str(i+1)+".output.gz"]
+               target_lang, output_path+"."+str(i+1)+".output.gz"]
     popopen = subprocess.Popen(command)
     popopens.append(popopen)
     print("ran", output_path+"."+str(i+1)+".input.gz")
