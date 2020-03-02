@@ -42,6 +42,7 @@ except:
     tokenizer = Cutter.Cutter(profile="en")
 
 sen_count, write_count, write_sen_count, all_sent_count = 0, 0, 0, 0
+outputs = []
 with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
     for line in gzip.open(os.path.abspath(sys.argv[1]), "rt"):
         sen_count+=1
@@ -57,12 +58,18 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
                     output_sentences.append(sentence)
             all_sent_count += len(tokenized_sentences)
         if len(output_sentences)>0:
-            output = label+image_path+"\t"+"\t".join(output_sentences)+"\n"
-            writer.write(output)
+            outputs.append(label+image_path+"\t"+"\t".join(output_sentences))
             write_count+=1
             write_sen_count+=len(output_sentences)
         if sen_count%100==0:
             print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
+            writer.write("\n".join(outputs))
+            outputs = []
+            writer.write("\n")
+            
+if len(outputs)>0:
+    writer.write("\n".join(outputs))
+    writer.write("\n")
 
 print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
 print("finished")
