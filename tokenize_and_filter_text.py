@@ -58,7 +58,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
                     output_sentences.append(sentence)
             all_sent_count += len(tokenized_sentences)
         if len(output_sentences)>0:
-            outputs.append(label+image_path+"\t"+"\t".join(output_sentences))
+            outputs.append(label+"\t"+image_path+"\t"+"\t".join(output_sentences))
             write_count+=1
             write_sen_count+=len(output_sentences)
         if sen_count%100==0:
@@ -66,7 +66,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
             writer.write("\n".join(outputs))
             outputs = []
             writer.write("\n")
-            
+
 if len(outputs)>0:
     writer.write("\n".join(outputs))
     writer.write("\n")
