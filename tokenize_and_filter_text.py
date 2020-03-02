@@ -42,7 +42,7 @@ except:
     tokenizer = cutter.Cutter(profile="en")
 
 sen_count, write_count, write_sen_count = 0, 0, 0
-with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer
+with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
     for line in gzip.open(os.path.abspath(sys.argv[1]), "rt"):
         sen_count+=1
         spl = line.strip().split("\t")
