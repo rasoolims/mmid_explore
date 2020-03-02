@@ -1,7 +1,7 @@
 import os
 import sys
 import gzip
-import cutter
+import Cutter
 
 tokenized_label_dict = {}
 tokenized_input_dict = {}
@@ -37,9 +37,9 @@ def tokenize_sentence(tokenizer, input):
 target_lang = sys.argv[2]
 
 try:
-    tokenizer = cutter.Cutter(profile=target_lang)
+    tokenizer = Cutter.Cutter(profile=target_lang)
 except:
-    tokenizer = cutter.Cutter(profile="en")
+    tokenizer = Cutter.Cutter(profile="en")
 
 sen_count, write_count, write_sen_count = 0, 0, 0
 with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
@@ -59,7 +59,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
             writer.write(output)
             write_count+=1
             write_sen_count+=len(output_sentences)
-        if sen_count%1000==0:
+        if sen_count%10==0:
             print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+")")
 
 print("finished")
