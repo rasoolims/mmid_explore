@@ -52,7 +52,7 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
         output_sentences = []
         for passage in passages:
             for sentence in tokenize_sentence(tokenizer, passage):
-                if label in sentence:
+                if label.lower() in sentence.lower():
                     output_sentences.append(sentence)
         if len(output_sentences)>0:
             output = label+image_path+"\t"+"\t".join(output_sentences)+"\n"
