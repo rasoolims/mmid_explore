@@ -51,16 +51,18 @@ with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
         passages = spl[2:]
         output_sentences = []
         for passage in passages:
-            for sentence in tokenize_sentence(tokenizer, passage):
+            tokenized_sentences = tokenize_sentence(tokenizer, passage)
+            for sentence in tokenized_sentences:
                 if label.lower() in sentence.lower():
                     output_sentences.append(sentence)
+            all_sent_count += len(tokenized_sentences)
         if len(output_sentences)>0:
             output = label+image_path+"\t"+"\t".join(output_sentences)+"\n"
             writer.write(output)
             write_count+=1
             write_sen_count+=len(output_sentences)
-            all_sent_count+=len(passages)
         if sen_count%10==0:
             print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
 
+print(str(sen_count)+"("+str(write_count)+","+str(write_sen_count)+"->",str(all_sent_count)+")")
 print("finished")
