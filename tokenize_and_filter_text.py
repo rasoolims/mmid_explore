@@ -43,7 +43,7 @@ except:
 
 sen_count, write_count, write_sen_count, all_sent_count = 0, 0, 0, 0
 outputs = []
-with gzip.open(os.path.abspath(sys.argv[3]), "wt") as writer:
+with open(os.path.abspath(sys.argv[3]), "w") as writer:
     for line in gzip.open(os.path.abspath(sys.argv[1]), "rt"):
         sen_count+=1
         spl = line.strip().split("\t")

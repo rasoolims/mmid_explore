@@ -21,20 +21,20 @@ popopens = []
 for i in range(40):
     start, end = i*split_len, min(len(all_lines), (i+1)*split_len)
     content = "\n".join(all_lines[start:end])
-    with gzip.open(output_path+"."+str(i+1)+".input.gz","wt") as writer:
+    with open(output_path+"."+str(i+1)+".input.gz","wt") as writer:
         writer.write(content)
 
-    command = ["python3", path_dir_name + "/tokenize_and_filter_text.py", output_path+"."+str(i+1)+".input.gz",
+    command = ["python3", path_dir_name + "/tokenize_and_filter_text.py", output_path+"."+str(i+1)+".input.txt",
                target_lang, output_path+"."+str(i+1)+".output.gz"]
     popopen = subprocess.Popen(command)
     popopens.append(popopen)
-    print("ran", output_path+"."+str(i+1)+".input.gz")
+    print("ran", output_path+"."+str(i+1)+".input.txt")
 
 for popopen in popopens:
     popopen.wait()
 
 print("Concatenating")
-os.system("cat "+ output_path+".*.output.gz > "+output_path)
-os.system("rm "+ output_path+".*.output.gz")
-os.system("rm "+ output_path+".*.input.gz")
+os.system("cat "+ output_path+".*.output.txt > "+output_path)
+os.system("rm "+ output_path+".*.output.txt")
+os.system("rm "+ output_path+".*.input.txt")
 print("finished")
