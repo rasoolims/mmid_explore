@@ -21,11 +21,11 @@ popopens = []
 for i in range(40):
     start, end = i*split_len, min(len(all_lines), (i+1)*split_len)
     content = "\n".join(all_lines[start:end])
-    with open(output_path+"."+str(i+1)+".input.gz","wt") as writer:
+    with open(output_path+"."+str(i+1)+".input.txt","wt") as writer:
         writer.write(content)
 
     command = ["python3", path_dir_name + "/tokenize_and_filter_text.py", output_path+"."+str(i+1)+".input.txt",
-               target_lang, output_path+"."+str(i+1)+".output.gz"]
+               target_lang, output_path+"."+str(i+1)+".output.txt"]
     popopen = subprocess.Popen(command)
     popopens.append(popopen)
     print("ran", output_path+"."+str(i+1)+".input.txt")
