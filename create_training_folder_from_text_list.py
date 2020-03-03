@@ -1,16 +1,20 @@
 import os, sys
+import subprocess
+
 """
 Input: text file, tab-separated, first: label, second: image path, others: sentences corresponding to image
 Output: A folder with 2 subfolders and one text file: image and text folders where the last contains text files 
 containing sentences each in one line. Label file: each line contains the label for each image.
 """
+path_dir_name = os.path.dirname(os.path.realpath(__file__))
+writer_script = os.path.join(path_dir_name, "write_txt_to_file.py")
 
 target_path = os.path.abspath(sys.argv[2])
 image_folder = os.path.join(target_path, "img")
 label_path = os.path.join(target_path, "labels.txt")
 text_path = os.path.join(target_path, "txt")
 
-paths = [target_path, image_folder, label_path, text_path]
+paths = [target_path, image_folder, text_path]
 for path in paths:
     if not os.path.exists(path):
         os.makedirs(path)
@@ -33,10 +37,14 @@ for line in open(os.path.abspath(sys.argv[1]), "r"):
 
         labels.append(label)
 
-        with open(os.path.join(text_path, txt_file_name), "w") as writer:
-            writer.write(content)
+        passed_content = content.replace(" ", "_^_^_")
+
+        popopen = subprocess.Popen(["python3", passed_content, txt_file_name])
 
         image_counter+=1
+
+        if image_counter%40==0:
+            popopen.wait()
 
         if image_counter%1000==0:
             print(image_counter)
