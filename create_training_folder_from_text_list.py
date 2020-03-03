@@ -25,20 +25,22 @@ for line in open(os.path.abspath(sys.argv[1]), "r"):
 
     img_file_name = str(image_counter) + "."+image_extension
     txt_file_name = str(image_counter) + ".txt"
+    if not os.path.exists(image_path):
+        print(image_path, "does not exist")
+    else:
+        copy_command = " ".join(["cp", image_path, os.path.join(image_folder, img_file_name), "&"])
+        os.system(copy_command)
 
-    copy_command = " ".join(["cp", image_path, os.path.join(image_folder, img_file_name), "&"])
-    os.system(copy_command)
+        with open(os.path.join(label_path, txt_file_name), "w") as writer:
+            writer.write(label)
 
-    with open(os.path.join(label_path, txt_file_name), "w") as writer:
-        writer.write(label)
+        with open(os.path.join(text_path, txt_file_name), "w") as writer:
+            writer.write(content)
 
-    with open(os.path.join(text_path, txt_file_name), "w") as writer:
-        writer.write(content)
+        image_counter+=1
 
-    image_counter+=1
-
-    if image_counter%1000==0:
-        print(image_counter)
+        if image_counter%1000==0:
+            print(image_counter)
 
 print(image_counter)
 print("finished")
