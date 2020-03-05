@@ -25,7 +25,7 @@ for line in open(os.path.abspath(sys.argv[1]), "r"):
     content = "\t".join(spl[2:])
 
     img_file_name = str(image_counter) + "."+image_extension
-
+    txt_file_name = str(image_counter) + ".txt"
     if not os.path.exists(image_path):
         print(image_path, "does not exist")
     else:
