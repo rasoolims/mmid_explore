@@ -28,7 +28,10 @@ for line in open(os.path.abspath(sys.argv[1]), "r"):
     if not os.path.exists(image_path):
         print(image_path, "does not exist")
     else:
-        copy_command = " ".join(["cp", image_path, os.path.join(image_folder, img_file_name), "&"])
+        if image_counter%100==0:
+            copy_command = " ".join(["cp", image_path, os.path.join(image_folder, img_file_name)])
+        else:
+            copy_command = " ".join(["cp", image_path, os.path.join(image_folder, img_file_name), "&"])
         os.system(copy_command)
         output = label +"\t"+ os.path.join(image_folder, img_file_name)+"\t"+content
         lines.append(output)
