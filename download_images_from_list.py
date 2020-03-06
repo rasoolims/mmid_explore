@@ -41,7 +41,7 @@ for url, text in image_list:
         except:
             pass
 
-    sys.stdout.write(str(url_count)+"("+str(time.time()-start_time)+")"+"...")
+    print(str(url_count)+"("+str(time.time()-start_time)+")")
     start_time = time.time()
 
 sys.stdout.write(str(url_count)+"\n")
