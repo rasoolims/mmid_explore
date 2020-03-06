@@ -11,10 +11,10 @@ if not os.path.exists(output_folder):
 
 file_indices = []
 
-image_list = [line.strip().split("\t") for line in gzip.open(input_file, 'r').read().strip().split("\n") if
+image_list = [line.strip().split("\t") for line in gzip.open(input_file, 'rt').read().strip().split("\n") if
               len(line.strip().split("\t")) == 2]
 file_number = 0
-default_set = set(["png", "jpg", "jpeg"])
+default_set = {"png", "jpg", "jpeg"}
 url_count = 0
 for url, text in image_list:
     url_count += 1
