@@ -41,8 +41,9 @@ for url, text in image_list:
         except:
             pass
 
-    print(str(url_count)+"("+str(time.time()-start_time)+")")
-    start_time = time.time()
+    if url_count%100==0:
+        print(url_count, file_number, time.time()-start_time)
+        start_time = time.time()
 
 sys.stdout.write(str(url_count)+"\n")
 
