@@ -32,7 +32,7 @@ for url, text in image_list:
 
     file_path = os.path.join(output_folder, str(file_number) + file_extension)
 
-    for tries in range(3):
+    for tries in range(2):
         try:
             urllib.request.urlretrieve(fixed_url, file_path)
             file_indices.append(str(file_number)+"\t"+fixed_url+"\t"+text)
