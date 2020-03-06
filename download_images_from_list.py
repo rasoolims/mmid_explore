@@ -13,6 +13,7 @@ file_indices = []
 
 image_list = [line.strip().split("\t") for line in gzip.open(input_file, 'rt').read().strip().split("\n") if
               len(line.strip().split("\t")) == 2]
+print("loaded image_list", len(image_list))
 file_number = 0
 default_set = {"png", "jpg", "jpeg"}
 url_count = 0
