@@ -10,9 +10,9 @@ if not os.path.exists(output_folder):
 
 num_process = 0
 for file in os.listdir(input_folder):
-    if file.endswith(".image_list.txt.gz"):
+    if file.endswith(".gz.pickle.gz.image_list.txt.gz"):
         file_number = file[:-len(".gz.pickle.gz.image_list.txt.gz")]
-    elif file.endswith("image_list.txt.gz"):
+    elif file.endswith(".json.image_list.txt.gz"):
         file_number = file[:-len(".json.image_list.txt.gz")]
     else:
         continue
