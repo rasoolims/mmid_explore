@@ -1,8 +1,9 @@
 import os
 import sys
-from collections import defaultdict
 import urllib.request
 import gzip
+import urllib3
+import time
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -17,6 +18,7 @@ print("loaded image_list", len(image_list))
 file_number = 0
 default_set = {"png", "jpg", "jpeg"}
 url_count = 0
+start_time = time.time()
 for url, text in image_list:
     url_count += 1
     fixed_url = url
@@ -38,8 +40,9 @@ for url, text in image_list:
             break
         except:
             pass
-    if url_count%100==0:
-        sys.stdout.write(str(url_count)+"...")
+    if url_count%10==0:
+        sys.stdout.write(str(url_count)+"("+str(time.time()-start_time)+")"+"...")
+        start_time = time.time()
 
 sys.stdout.write(str(url_count)+"\n")
 
