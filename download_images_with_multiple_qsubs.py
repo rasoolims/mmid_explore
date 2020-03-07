@@ -34,11 +34,11 @@ for file in sorted(os.listdir(input_folder)):
     output_folders.append(new_folder)
 
 
-print("finished listing all!")
+print("finished listing all!", len(output_folders))
 path_dir_name = os.path.dirname(os.path.realpath(__file__))+"/download_images_from_list.py"
 
 for i in range(len(folders)):
-    content = ["#$ -N "+process_name++str(i)]
+    content = ["#$ -N "+process_name+str(i)]
     content += ["$ -o "+process_name+str(i)+".out"]
     content += ["$ -e "+process_name+str(i)+".err"]
     content += ["#$ -cwd"]
