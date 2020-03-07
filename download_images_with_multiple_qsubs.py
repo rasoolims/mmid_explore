@@ -39,8 +39,10 @@ path_dir_name = os.path.dirname(os.path.realpath(__file__))+"/download_images_fr
 
 for i in range(len(folders)):
     content = ["#$ -N "+process_name+str(i)]
-    content += ["$ -o "+process_name+str(i)+".out"]
-    content += ["$ -e "+process_name+str(i)+".err"]
+    content += ["$ -o "+os.path.join(config_folder, process_name+str(i)+".stdout")]
+    content += ["$ -e "+os.path.join(config_folder, process_name+str(i)+".stderr")]
+    content += ["-M rasooli@seas.upenn.edu"]
+    content += ["-l h_vmem=48G"]
     content += ["#$ -cwd"]
     command = "python3 -u " + path_dir_name +" "+folders[i]+" "+output_folders[i]
     content += [command]
