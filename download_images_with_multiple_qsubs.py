@@ -27,8 +27,6 @@ for file in sorted(os.listdir(input_folder)):
 
     file_number = int(file_number[file_number.rfind(".")+1:])
     new_folder = os.path.join(output_folder, str(file_number))
-    if not os.path.exists(new_folder):
-        os.makedirs(new_folder)
 
     folders.append(os.path.join(input_folder, file))
     output_folders.append(new_folder)
