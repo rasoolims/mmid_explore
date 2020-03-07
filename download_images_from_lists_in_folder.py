@@ -31,7 +31,7 @@ for file in sorted(os.listdir(input_folder)):
 
 
     command = ["python3", path_dir_name + "/download_images_from_list.py", os.path.join(input_folder, file), new_folder]
-    popopen = subprocess.Popen(command)
+    popopen = subprocess.call(command)
     print(os.path.join(input_folder, file))
 
 print("finished downloading all!")
