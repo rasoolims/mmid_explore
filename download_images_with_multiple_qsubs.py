@@ -64,4 +64,4 @@ for i in range(len(folders)):
         print(command)
         os.system(command)
 print("already_downloaded", already_downloaded)
-print("ro_run", to_run, "completed", completed)
+print("to_run", to_run, "completed", completed)
