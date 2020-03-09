@@ -36,6 +36,7 @@ print("finished listing all!", len(output_folders))
 path_dir_name = os.path.dirname(os.path.realpath(__file__))+"/download_images_from_list.py"
 
 already_downloaded = 0
+ro_run, completed = 0, 0
 for i in range(len(folders)):
     content = ["#$ -N "+process_name+str(i)]
     content += ["#$ -o "+os.path.join(config_folder, process_name+str(i)+".stdout")]
@@ -47,6 +48,7 @@ for i in range(len(folders)):
     if os.path.exists(os.path.join(output_folders[i], "index.txt")):
         print("found", os.path.join(output_folders[i], "index.txt"))
         already_downloaded+=len(os.listdir(output_folders[i]))-1
+        completed+=1
     else:
         command = "python3 -u " + path_dir_name +" "+folders[i]+" "+output_folders[i]
         content += [command]
@@ -55,6 +57,8 @@ for i in range(len(folders)):
         with open(config_path, "w") as writer:
             writer.write(content)
         command = "qsub " + config_path
+        ro_run+=1
         #print(command)
         #os.system(command)
 print("already_downloaded", already_downloaded)
+print("ro_run", ro_run, "completed", completed)
