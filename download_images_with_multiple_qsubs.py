@@ -5,6 +5,7 @@ input_folder = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
 config_folder = sys.argv[3]
 process_name = sys.argv[4]
+max_jobs = int(sys.argv[5])
 
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
@@ -36,7 +37,7 @@ print("finished listing all!", len(output_folders))
 path_dir_name = os.path.dirname(os.path.realpath(__file__))+"/download_images_from_list.py"
 
 already_downloaded = 0
-ro_run, completed = 0, 0
+to_run, completed = 0, 0
 for i in range(len(folders)):
     content = ["#$ -N "+process_name+str(i)]
     content += ["#$ -o "+os.path.join(config_folder, process_name+str(i)+".stdout")]
@@ -57,8 +58,10 @@ for i in range(len(folders)):
         with open(config_path, "w") as writer:
             writer.write(content)
         command = "qsub " + config_path
-        ro_run+=1
+        to_run+=1
+        if to_run>max_jobs:
+            break
         #print(command)
         #os.system(command)
 print("already_downloaded", already_downloaded)
-print("ro_run", ro_run, "completed", completed)
+print("ro_run", to_run, "completed", completed)
