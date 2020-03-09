@@ -47,7 +47,7 @@ for i in range(len(folders)):
     content += ["#$ -cwd"]
 
     if os.path.exists(os.path.join(output_folders[i], "index.txt")):
-        print("found", os.path.join(output_folders[i], "index.txt"))
+        # print("found", os.path.join(output_folders[i], "index.txt"))
         already_downloaded+=len(os.listdir(output_folders[i]))-1
         completed+=1
     else:
@@ -61,7 +61,7 @@ for i in range(len(folders)):
         to_run+=1
         if to_run>max_jobs:
             break
-        #print(command)
-        #os.system(command)
+        print(command)
+        os.system(command)
 print("already_downloaded", already_downloaded)
 print("ro_run", to_run, "completed", completed)
