@@ -42,12 +42,16 @@ for i in range(len(folders)):
     content += ["#$ -M rasooli@seas.upenn.edu"]
     content += ["#$ -l h_vmem=48G"]
     content += ["#$ -cwd"]
-    command = "python3 -u " + path_dir_name +" "+folders[i]+" "+output_folders[i]
-    content += [command]
-    content = "\n".join(content)
-    config_path =  os.path.join(config_folder, str(i))+ ".sh"
-    with open(config_path, "w") as writer:
-        writer.write(content)
-    command = "qsub " + config_path
-    print(command)
-    os.system(command)
+
+    if os.path.exists(os.path.join(output_folders[i], "index.txt")):
+        print("found", os.path.join(output_folders[i], "index.txt"))
+    else:
+        command = "python3 -u " + path_dir_name +" "+folders[i]+" "+output_folders[i]
+        content += [command]
+        content = "\n".join(content)
+        config_path =  os.path.join(config_folder, str(i))+ ".sh"
+        with open(config_path, "w") as writer:
+            writer.write(content)
+        command = "qsub " + config_path
+        #print(command)
+        #os.system(command)
