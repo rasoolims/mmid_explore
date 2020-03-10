@@ -2,7 +2,7 @@ import os
 import sys
 import urllib.request
 import gzip
-import urllib3
+import datetime
 import time
 
 input_file = os.path.abspath(sys.argv[1])
@@ -42,7 +42,7 @@ with open(file_path, "w") as writer:
             pass
 
         if url_count%100==0:
-            print(time.time(), url_count, file_number, time.time()-start_time)
+            print(datetime.datetime.now(), url_count, file_number, time.time()-start_time)
             start_time = time.time()
             writer.write("\n".join(file_indices))
             writer.write("\n")
