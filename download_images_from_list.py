@@ -38,7 +38,6 @@ with open(file_path, "w") as writer:
             urllib.request.urlretrieve(fixed_url, file_path)
             file_indices.append(str(file_number)+"\t"+fixed_url+"\t"+text)
             file_number += 1
-            break
         except:
             pass
 
