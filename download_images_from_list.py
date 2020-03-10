@@ -4,6 +4,35 @@ import urllib.request
 import gzip
 import datetime
 import time
+from functools import wraps
+import errno
+import os
+import signal
+
+class TimeoutError(Exception):
+    pass
+
+def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
+    def decorator(func):
+        def _handle_timeout(signum, frame):
+            raise TimeoutError(error_message)
+
+        def wrapper(*args, **kwargs):
+            signal.signal(signal.SIGALRM, _handle_timeout)
+            signal.alarm(seconds)
+            try:
+                result = func(*args, **kwargs)
+            finally:
+                signal.alarm(0)
+            return result
+
+        return wraps(func)(wrapper)
+
+    return decorator
+
+@timeout(5, "time out")
+def download_one_image(fixed_url, file_path):
+    urllib.request.urlretrieve(fixed_url, file_path)
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -35,7 +64,7 @@ with open(file_path, "w") as writer:
         file_path = os.path.join(output_folder, str(file_number) + file_extension)
 
         try:
-            urllib.request.urlretrieve(fixed_url, file_path)
+            download_one_image(fixed_url, file_path)
             file_indices.append(str(file_number)+"\t"+fixed_url+"\t"+text)
             file_number += 1
         except:
