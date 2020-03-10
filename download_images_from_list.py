@@ -30,7 +30,7 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
     return decorator
 
-@timeout(10, "time out")
+@timeout(30, "time out")
 def download_one_image(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
 
