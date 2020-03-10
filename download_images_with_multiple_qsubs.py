@@ -38,6 +38,7 @@ path_dir_name = os.path.dirname(os.path.realpath(__file__))+"/download_images_fr
 
 already_downloaded = 0
 to_run, completed = 0, 0
+skipped = 0
 for i in range(len(folders)):
     content = ["#$ -N "+process_name+str(i)]
     content += ["#$ -o "+os.path.join(config_folder, process_name+str(i)+".stdout")]
@@ -60,10 +61,11 @@ for i in range(len(folders)):
         with open(config_path, "w") as writer:
             writer.write(content)
         command = "qsub " + config_path
-        to_run+=1
-        if to_run>max_jobs:
-            break
-        print(command)
-        os.system(command)
+        if to_run<max_jobs:
+            to_run += 1
+            print(command)
+            os.system(command)
+        else:
+            skipped += 1
 print("already_downloaded", already_downloaded)
-print("to_run", to_run, "completed", completed)
+print("to_run", to_run, "completed", completed, "skipped", skipped)
