@@ -19,20 +19,21 @@ file_number = 0
 default_set = {"png", "jpg", "jpeg"}
 url_count = 0
 start_time = time.time()
-for url, text in image_list:
-    url_count += 1
-    fixed_url = url
-    if "?" in fixed_url:
-        fixed_url = fixed_url[:fixed_url.find("?")]
-    extension = fixed_url[fixed_url.rfind(".") + 1:].lower()
-    if extension not in default_set:
-        continue
-    else:
-        file_extension = "."+extension
+file_path = os.path.join(output_folder, "index.txt")
+with open(file_path, "w") as writer:
+    for url, text in image_list:
+        url_count += 1
+        fixed_url = url
+        if "?" in fixed_url:
+            fixed_url = fixed_url[:fixed_url.find("?")]
+        extension = fixed_url[fixed_url.rfind(".") + 1:].lower()
+        if extension not in default_set:
+            continue
+        else:
+            file_extension = "."+extension
 
-    file_path = os.path.join(output_folder, str(file_number) + file_extension)
+        file_path = os.path.join(output_folder, str(file_number) + file_extension)
 
-    for tries in range(2):
         try:
             urllib.request.urlretrieve(fixed_url, file_path)
             file_indices.append(str(file_number)+"\t"+fixed_url+"\t"+text)
@@ -41,14 +42,15 @@ for url, text in image_list:
         except:
             pass
 
-    if url_count%100==0:
-        print(url_count, file_number, time.time()-start_time)
-        start_time = time.time()
+        if url_count%100==0:
+            print(time.time(), url_count, file_number, time.time()-start_time)
+            start_time = time.time()
+            writer.write("\n".join(file_indices))
+            writer.write("\n")
+            file_indices = []
 
-sys.stdout.write(str(url_count)+"\n")
-
-file_path = os.path.join(output_folder, "index.txt")
-open(file_path, "w").write("\n".join(file_indices))
+    sys.stdout.write(str(url_count)+"\n")
+    writer.write("\n".join(file_indices))
 
 print("Written files", file_number)
 

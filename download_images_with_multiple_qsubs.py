@@ -43,7 +43,9 @@ for i in range(len(folders)):
     content += ["#$ -o "+os.path.join(config_folder, process_name+str(i)+".stdout")]
     content += ["#$ -e "+os.path.join(config_folder, process_name+str(i)+".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
-    content += ["#$ -l h_vmem=48G"]
+    content += ["#$ -l h_vmem=20G"]
+    content += ["#$ -l mem=20G"]
+    content += ["#$ -l h_rt=48:00:00"]
     content += ["#$ -cwd"]
 
     if os.path.exists(os.path.join(output_folders[i], "index.txt")):
