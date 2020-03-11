@@ -55,7 +55,7 @@ with open(input_file) as reader:
             download_one_file(fixed_url, html_file_path)
             file_number += 1
         except:
-            sys.stdout.write("unable to download" +  fixed_url + "\n")
+            sys.stdout.write("unable to download " +  fixed_url + "\n")
             pass
 
         if url_count%100==0:
