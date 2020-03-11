@@ -51,7 +51,7 @@ with open(input_file) as reader:
 
         html_file_path = os.path.join(output_folder, file_name)
 
-        for t in range(100):
+        for t in range(10):
             try:
                 download_one_file(fixed_url, html_file_path)
                 file_number += 1
