@@ -46,7 +46,7 @@ with open(input_file) as reader:
     for line in reader:
         spl = line.strip().split("\t")
         file_name = spl[0]
-        fixed_url = spl[2]
+        fixed_url = spl[2].replace(" ", "_") 
         url_count += 1
 
         html_file_path = os.path.join(output_folder, file_name)

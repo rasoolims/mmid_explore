@@ -25,7 +25,7 @@ def process_info_line(lang, line):
     if len(caption) < 3:
         return None
 
-    return lang + "\t" + wikipedia_path + "\t" + caption
+    return lang + "\t" + wikipedia_path.replace(" ", "_") + "\t" + caption
 
 
 wikimedia_url_prefix = "https://commons.wikimedia.org/wiki/File:"
@@ -56,5 +56,6 @@ for wiki_lang_folder in os.listdir(wiki_folder):
                         cur_output = []
         if len(cur_output) > 0:
             writer.write("\n".join(cur_output))
+            writer.write("\n")
 
 print("finished")
