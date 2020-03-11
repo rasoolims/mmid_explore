@@ -9,8 +9,8 @@ root_pic_dir_name = os.path.basename(root_pic_dir)
 with open(os.path.join(root_pic_dir, "index.filtered.txt"), "w") as writer:
     for image_folder in os.listdir(root_pic_dir):
         image_folder_dir_name = os.path.basename(image_folder)
-        index_path = os.path.join(image_folder, "index.txt")
-        print(index_path)
+        index_path = os.path.join(root_pic_dir, image_folder, "index.txt")
+        print(image_folder_dir_name, index_path)
         if not os.path.exists(index_path):
             continue
         with open(index_path, "r") as reader:
@@ -32,5 +32,4 @@ with open(os.path.join(root_pic_dir, "index.filtered.txt"), "w") as writer:
         if len(accepted_content) > 0:
             writer.write("\n".join(accepted_content))
             writer.write("\n")
-        print(image_folder_dir_name)
 print("done!")
