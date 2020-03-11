@@ -23,7 +23,7 @@ with open(os.path.join(root_pic_dir, "index.filtered.txt"), "w") as writer:
                 url = spl[1]
                 extension = url[url.rfind("."):]
                 file_name = spl[0] + extension
-                new_file_name = root_pic_dir_name + "/" + image_folder_dir_name + file_name
+                new_file_name = image_folder_dir_name + "/" + file_name
 
                 sentence = spl[2]
 
