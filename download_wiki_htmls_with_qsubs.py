@@ -4,7 +4,6 @@ import sys
 input_folder = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
 config_folder = sys.argv[3]
-max_jobs = int(sys.argv[4])
 
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
@@ -25,9 +24,6 @@ for file in sorted(os.listdir(input_folder)):
 print("finished listing all!", len(output_folders))
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/download_html_from_wiki_list.py"
 
-already_downloaded = 0
-to_run, completed = 0, 0
-skipped = 0
 for i in range(len(folders)):
     content = ["#$ -N " + langs[i]]
     content += ["#$ -o " + os.path.join(config_folder, langs[i] + ".stdout")]
@@ -46,11 +42,5 @@ for i in range(len(folders)):
         writer.write(content)
 
     command = "qsub " + config_path
-    if to_run < max_jobs:
-        to_run += 1
-        print(command)
-        os.system(command)
-    else:
-        skipped += 1
-print("already_downloaded", already_downloaded)
-print("to_run", to_run, "completed", completed, "skipped", skipped)
+    print(command)
+    os.system(command)
