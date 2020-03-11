@@ -46,17 +46,21 @@ with open(input_file) as reader:
     for line in reader:
         spl = line.strip().split("\t")
         file_name = spl[0]
-        fixed_url = spl[2].replace(" ", "_") 
+        fixed_url = spl[2].replace(" ", "_")
         url_count += 1
 
         html_file_path = os.path.join(output_folder, file_name)
 
-        try:
-            download_one_file(fixed_url, html_file_path)
-            file_number += 1
-        except:
-            sys.stdout.write("unable to download " +  fixed_url + "\n")
-            pass
+        for t in range(100):
+            try:
+                download_one_file(fixed_url, html_file_path)
+                file_number += 1
+                break
+            except:
+                if t==99:
+                    sys.stdout.write("unable to download " + fixed_url + "\n")
+                time.sleep(5)
+                pass
 
         if url_count%100==0:
             print(datetime.datetime.now(), url_count, file_number, time.time()-start_time)
