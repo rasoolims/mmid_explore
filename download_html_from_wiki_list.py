@@ -28,7 +28,7 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
     return decorator
 
-@timeout(30, "time out")
+@timeout(300, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
 
@@ -55,6 +55,7 @@ with open(input_file) as reader:
             download_one_file(fixed_url, html_file_path)
             file_number += 1
         except:
+            sys.stdout.write("unable to download" +  fixed_url + "\n")
             pass
 
         if url_count%100==0:
