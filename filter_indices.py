@@ -19,15 +19,17 @@ with open(os.path.join(root_pic_dir, "index.filtered.txt"), "w") as writer:
         accepted_content = []
         for line in index_content:
             spl = line.strip().split("\t")
+            try:
+                url = spl[1]
+                extension = url[url.rfind("."):]
+                file_name = spl[0] + extension
+                new_file_name = root_pic_dir_name + "/" + image_folder_dir_name + file_name
 
-            url = spl[1]
-            extension = url[url.rfind("."):]
-            file_name = spl[0] + extension
-            new_file_name = root_pic_dir_name + "/" + image_folder_dir_name + file_name
+                sentence = spl[2]
 
-            sentence = spl[2]
-
-            accepted_content.append("\t".join([new_file_name, url, sentence]))
+                accepted_content.append("\t".join([new_file_name, url, sentence]))
+            except:
+                pass
 
         if len(accepted_content) > 0:
             writer.write("\n".join(accepted_content))
