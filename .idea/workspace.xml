@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/filter_indices.py" beforeDir="false" afterPath="$PROJECT_DIR$/filter_indices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extract_wiki_png_jpg_candidates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extract_wikimedia_image_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.read_warc">
+  <component name="RunManager" selected="Python.extract_wikimedia_image_urls">
     <configuration name="collect_passage_for_target_urls" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="mmid_explore" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -67,6 +69,48 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" />
       <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/scale-persian-package/ $USER_HOME$/Documents/mmid/scale-persian-package/index.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extract_wiki_png_jpg_candidates" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/extract_wiki_png_jpg_candidates.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/wiki/dump $USER_HOME$/Documents/wiki/raw_grep" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extract_wikimedia_image_urls" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/extract_wikimedia_image_urls.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/wiki/raw_grep/ $USER_HOME$/Documents/wiki/urls/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -185,6 +229,8 @@
       <item itemvalue="Python.find_matching_passage_for_images" />
       <item itemvalue="Python.move_data" />
       <item itemvalue="Python.read_warc" />
+      <item itemvalue="Python.extract_wiki_png_jpg_candidates" />
+      <item itemvalue="Python.extract_wikimedia_image_urls" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
       <item itemvalue="Python.unify_entries" />
     </list>
@@ -203,41 +249,46 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="351" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583251494011">
-      <screen x="0" y="23" width="2560" height="1338" />
+    <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583948570400">
+      <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state x="910" y="351" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583251494011" />
     <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582751211224" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
+    <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1583948570400" />
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1581109929880">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581109929880" />
     <state x="1017" y="341" key="#com.intellij.ide.macro.MacrosDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580845578761" />
-    <state width="2534" height="269" key="GridCell.Tab.0.bottom" timestamp="1582752770605">
-      <screen x="0" y="23" width="2560" height="1342" />
+    <state width="2534" height="369" key="GridCell.Tab.0.bottom" timestamp="1583959494103">
+      <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929324" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="269" key="GridCell.Tab.0.center" timestamp="1582752770605">
-      <screen x="0" y="23" width="2560" height="1342" />
+    <state width="2534" height="369" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1583959494103" />
+    <state width="2534" height="369" key="GridCell.Tab.0.center" timestamp="1583959494103">
+      <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="269" key="GridCell.Tab.0.left" timestamp="1582752770604">
-      <screen x="0" y="23" width="2560" height="1342" />
+    <state width="2534" height="369" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1583959494103" />
+    <state width="2534" height="369" key="GridCell.Tab.0.left" timestamp="1583959494102">
+      <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770604" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929322" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="269" key="GridCell.Tab.0.right" timestamp="1582752770605">
-      <screen x="0" y="23" width="2560" height="1342" />
+    <state width="2534" height="369" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1583959494102" />
+    <state width="2534" height="369" key="GridCell.Tab.0.right" timestamp="1583959494103">
+      <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
+    <state width="2534" height="369" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1583959494103" />
     <state width="2534" height="269" key="GridCell.Tab.1.bottom" timestamp="1582752772975">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
@@ -277,10 +328,11 @@
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
     <state x="758" y="223" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1581698728902" />
-    <state x="861" y="322" width="838" height="1032" key="search.everywhere.popup" timestamp="1582296565797">
-      <screen x="0" y="23" width="2560" height="1342" />
+    <state x="861" y="320" width="838" height="1026" key="search.everywhere.popup" timestamp="1583950191232">
+      <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state x="861" y="322" width="838" height="1032" key="search.everywhere.popup/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582296565797" />
+    <state x="861" y="320" width="838" height="1026" key="search.everywhere.popup/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1583950191232" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
