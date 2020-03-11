@@ -26,6 +26,7 @@ with open(os.path.join(root_pic_dir, "index.filtered.txt"), "w") as writer:
                 new_file_name = image_folder_dir_name + "/" + file_name
 
                 sentence = spl[2]
+                #todo filtering here!
 
                 accepted_content.append("\t".join([new_file_name, url, sentence]))
             except:
