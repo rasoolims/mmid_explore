@@ -6,7 +6,7 @@ root_pic_dir = os.path.abspath(sys.argv[1])
 root_pic_dir_name = os.path.basename(root_pic_dir)
 
 with open(os.path.join(root_pic_dir, "index.filtered.txt"), "w") as writer:
-    for image_folder in root_pic_dir:
+    for image_folder in os.listdir(root_pic_dir):
         image_folder_dir_name = os.path.basename(image_folder)
         index_path = os.path.join(image_folder, "index.txt")
 
