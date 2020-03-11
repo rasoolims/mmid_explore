@@ -2,6 +2,7 @@ import os
 import sys
 
 root_pic_dir = os.path.abspath(sys.argv[1])
+print(root_pic_dir)
 
 root_pic_dir_name = os.path.basename(root_pic_dir)
 
