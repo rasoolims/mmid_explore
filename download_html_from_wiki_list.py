@@ -57,7 +57,7 @@ with open(input_file) as reader:
             try:
                 download_one_file(fixed_url, html_file_path)
                 file_number += 1
-                time.sleep(3)
+                time.sleep(5)
                 break
             except:
                 if t==totol_tries-1:
@@ -68,6 +68,7 @@ with open(input_file) as reader:
         if url_count%100==0:
             print(datetime.datetime.now(), url_count, file_number, time.time()-start_time)
             start_time = time.time()
+            time.sleep(10) # more respect to wiki servers
 
     sys.stdout.write(str(url_count)+"\n")
 
