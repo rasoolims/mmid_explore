@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/extract_urls_for_folders_qsubs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.extract_image_url_from_wiki_html">
+  <component name="RunManager" selected="Python.extract_urls_for_folders_qsubs">
     <configuration name="collect_passage_for_target_urls" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="mmid_explore" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,6 +89,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" />
       <option name="PARAMETERS" value="$USER_HOME$/Downloads/test_urls/ $USER_HOME$/Downloads/urls.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extract_urls_for_folders_qsubs" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/extract_urls_for_folders_qsubs.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Downloads/test_urls_folders $USER_HOME$/Downloads/output_urls $USER_HOME$/Downloads/qsubs" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -252,6 +273,7 @@
       <item itemvalue="Python.extract_wiki_png_jpg_candidates" />
       <item itemvalue="Python.extract_wikimedia_image_urls" />
       <item itemvalue="Python.extract_image_url_from_wiki_html" />
+      <item itemvalue="Python.extract_urls_for_folders_qsubs" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
       <item itemvalue="Python.unify_entries" />
     </list>
@@ -270,13 +292,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584051260166">
+    <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584051573611">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state x="910" y="351" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583251494011" />
     <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582751211224" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
-    <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051260166" />
+    <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051573611" />
     <state x="1017" y="340" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1581109929880">
       <screen x="0" y="23" width="2560" height="1342" />
     </state>
@@ -286,34 +308,34 @@
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state x="942" y="395" key="#xdebugger.XInspectDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051224983" />
-    <state width="2534" height="267" key="GridCell.Tab.0.bottom" timestamp="1584051244334">
+    <state width="2534" height="369" key="GridCell.Tab.0.bottom" timestamp="1584051575701">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929324" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="267" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051244334" />
-    <state width="2534" height="267" key="GridCell.Tab.0.center" timestamp="1584051244333">
+    <state width="2534" height="369" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051575701" />
+    <state width="2534" height="369" key="GridCell.Tab.0.center" timestamp="1584051575701">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="267" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051244333" />
-    <state width="2534" height="267" key="GridCell.Tab.0.left" timestamp="1584051244333">
+    <state width="2534" height="369" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051575701" />
+    <state width="2534" height="369" key="GridCell.Tab.0.left" timestamp="1584051575700">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770604" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929322" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="267" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051244333" />
-    <state width="2534" height="267" key="GridCell.Tab.0.right" timestamp="1584051244334">
+    <state width="2534" height="369" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051575700" />
+    <state width="2534" height="369" key="GridCell.Tab.0.right" timestamp="1584051575701">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="267" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051244334" />
+    <state width="2534" height="369" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051575701" />
     <state width="2534" height="267" key="GridCell.Tab.1.bottom" timestamp="1584051244335">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
@@ -389,17 +411,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/extract_image_url_from_wiki_html.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="27" />
+          <line>25</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="reader.read()" language="Python" />
         <watch expression="content" language="Python" />
         <watch expression="reader.read()" language="Python" />
-        <watch expression="content.decode('windows-1250').encode(&quot;utf-8&quot;).decode()" language="Python" />
         <watch expression="reader.readline()" language="Python" />
       </configuration>
     </watches-manager>
