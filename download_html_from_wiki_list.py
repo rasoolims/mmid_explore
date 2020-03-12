@@ -61,7 +61,7 @@ with open(input_file) as reader:
 
         url_count += 1
 
-        total_tries = 5
+        total_tries = 3
         for t in range(total_tries):
             try:
                 download_one_file(fixed_url, html_file_path)
