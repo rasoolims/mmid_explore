@@ -66,7 +66,7 @@ with open(input_file) as reader:
             try:
                 download_one_file(fixed_url, html_file_path)
                 file_number += 1
-                time.sleep(5)
+                time.sleep(1)
                 break
             except:
                 if t==total_tries-1:
