@@ -6,6 +6,8 @@ from functools import wraps
 import errno
 import os
 import signal
+import urllib.parse as urlparse
+
 
 class TimeoutError(Exception):
     pass
@@ -46,24 +48,28 @@ with open(input_file) as reader:
     for line in reader:
         spl = line.strip().split("\t")
         file_name = spl[0]
-        lang = spl[1]
-        fixed_url = spl[2].replace(" ", "_")
-
         html_file_path = os.path.join(output_folder, file_name)
         if os.path.exists(html_file_path):
             continue
 
+        lang = spl[1]
+        fixed_url = spl[2].replace(" ", "_")
+
+        parsed_link = urlparse.urlsplit(fixed_url)
+        parsed_link = parsed_link._replace(path=urllib.parse.quote(parsed_link.path))
+        fixed_url = parsed_link.geturl()
+
         url_count += 1
 
-        totol_tries = 5
-        for t in range(totol_tries):
+        total_tries = 5
+        for t in range(total_tries):
             try:
                 download_one_file(fixed_url, html_file_path)
                 file_number += 1
                 time.sleep(5)
                 break
             except:
-                if t==totol_tries-1:
+                if t==total_tries-1:
                     print("unable to download\t" + file_name + "\t"+ lang +"\t"+ fixed_url)
                 time.sleep(5)
                 pass
