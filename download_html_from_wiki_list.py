@@ -1,16 +1,17 @@
-import sys
-import urllib.request
 import datetime
-import time
-from functools import wraps
 import errno
 import os
 import signal
+import sys
+import time
 import urllib.parse as urlparse
+import urllib.request
+from functools import wraps
 
 
 class TimeoutError(Exception):
     pass
+
 
 def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
     def decorator(func):
@@ -30,26 +31,29 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
     return decorator
 
+
 @timeout(300, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
+
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
-
 file_number = 0
 url_count = 0
 start_time = time.time()
 file_path = os.path.join(output_folder, "index.txt")
+alread_downloaded = 0
 with open(input_file) as reader:
     for line in reader:
         spl = line.strip().split("\t")
         file_name = spl[0]
         html_file_path = os.path.join(output_folder, file_name)
         if os.path.exists(html_file_path):
+            alread_downloaded += 1
             continue
 
         lang = spl[1]
@@ -69,17 +73,17 @@ with open(input_file) as reader:
                 time.sleep(1)
                 break
             except:
-                if t==total_tries-1:
-                    print("unable to download\t" + file_name + "\t"+ lang +"\t"+ fixed_url)
+                if t == total_tries - 1:
+                    print("unable to download\t" + file_name + "\t" + lang + "\t" + fixed_url)
                 time.sleep(5)
                 pass
 
-        if url_count%100==0:
-            print(datetime.datetime.now(), url_count, file_number, time.time()-start_time)
+        if url_count % 100 == 0:
+            print(datetime.datetime.now(), url_count, file_number, time.time() - start_time, "alread_downloaded:",
+                  alread_downloaded)
             start_time = time.time()
-            time.sleep(10) # more respect to wiki servers
+            time.sleep(10)  # more respect to wiki servers
 
-    sys.stdout.write(str(url_count)+"\n")
+    sys.stdout.write(str(url_count) + "\n")
 
 print("Written files", file_number)
-
