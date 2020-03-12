@@ -57,6 +57,7 @@ with open(input_file) as reader:
             try:
                 download_one_file(fixed_url, html_file_path)
                 file_number += 1
+                time.sleep(3)
                 break
             except:
                 if t==totol_tries-1:
