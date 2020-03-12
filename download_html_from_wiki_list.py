@@ -48,9 +48,12 @@ with open(input_file) as reader:
         file_name = spl[0]
         lang = spl[1]
         fixed_url = spl[2].replace(" ", "_")
-        url_count += 1
 
         html_file_path = os.path.join(output_folder, file_name)
+        if os.path.exists(html_file_path):
+            continue
+
+        url_count += 1
 
         totol_tries = 5
         for t in range(totol_tries):
