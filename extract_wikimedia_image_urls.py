@@ -3,7 +3,10 @@ import sys
 
 
 def process_info_line(lang, line):
-    wiki_prefix = "https://" + lang + ".wikipedia.org/wiki/"
+    lang_prefix = lang
+    if "_" in lang_prefix:
+        lang_prefix = lang_prefix[:lang_prefix.find("_")]
+    wiki_prefix = "https://" + lang_prefix + ".wikipedia.org/wiki/"
     line = line.strip()
     if not line.startswith("[[") or not line.endswith("]]"):
         return None

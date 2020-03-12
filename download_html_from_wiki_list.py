@@ -78,7 +78,7 @@ with open(input_file) as reader:
                 pass
 
         if url_count % 100 == 0:
-            print(datetime.datetime.now(), url_count, file_number, time.time() - start_time, "alread_downloaded:",
+            print(datetime.datetime.now(), url_count, file_number, time.time() - start_time, "already_downloaded:",
                   alread_downloaded)
             start_time = time.time()
             time.sleep(10)  # more respect to wiki servers
