@@ -51,15 +51,17 @@ with open(input_file) as reader:
 
         html_file_path = os.path.join(output_folder, file_name)
 
-        for t in range(10):
+        totol_tries = 3
+        for t in range(totol_tries):
             try:
                 download_one_file(fixed_url, html_file_path)
                 file_number += 1
                 break
             except:
-                if t==99:
-                    sys.stdout.write("unable to download " + fixed_url + "\n")
-                time.sleep(5)
+                if t==totol_tries-1:
+                    print("unable to download " + fixed_url)
+                else:
+                    time.sleep(5)
                 pass
 
         if url_count%100==0:
