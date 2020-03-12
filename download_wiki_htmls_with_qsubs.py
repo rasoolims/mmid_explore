@@ -16,8 +16,9 @@ output_folders = []
 
 langs = []
 for file in sorted(os.listdir(input_folder)):
-    new_folder = os.path.join(output_folder, file)
     folders.append(os.path.join(input_folder, file))
+    outfile_name = file[:file.rfind(".")]
+    new_folder = os.path.join(output_folder, outfile_name)
     output_folders.append(new_folder)
     langs.append(file)
 
