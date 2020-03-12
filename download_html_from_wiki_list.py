@@ -43,6 +43,7 @@ url_count = 0
 start_time = time.time()
 file_path = os.path.join(output_folder, "index.txt")
 with open(input_file) as reader:
+    file_base = os.path.basename(input_file)
     for line in reader:
         spl = line.strip().split("\t")
         file_name = spl[0]
@@ -59,7 +60,7 @@ with open(input_file) as reader:
                 break
             except:
                 if t==totol_tries-1:
-                    print("unable to download " + fixed_url)
+                    print("unable to download\t" + file_base + "\t"+ file_name +"\t"+ fixed_url)
                 else:
                     time.sleep(5)
                 pass
