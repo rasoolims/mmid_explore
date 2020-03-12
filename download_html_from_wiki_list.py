@@ -43,16 +43,16 @@ url_count = 0
 start_time = time.time()
 file_path = os.path.join(output_folder, "index.txt")
 with open(input_file) as reader:
-    file_base = os.path.basename(input_file)
     for line in reader:
         spl = line.strip().split("\t")
         file_name = spl[0]
+        lang = spl[1]
         fixed_url = spl[2].replace(" ", "_")
         url_count += 1
 
         html_file_path = os.path.join(output_folder, file_name)
 
-        totol_tries = 3
+        totol_tries = 5
         for t in range(totol_tries):
             try:
                 download_one_file(fixed_url, html_file_path)
@@ -60,9 +60,8 @@ with open(input_file) as reader:
                 break
             except:
                 if t==totol_tries-1:
-                    print("unable to download\t" + file_base + "\t"+ file_name +"\t"+ fixed_url)
-                else:
-                    time.sleep(5)
+                    print("unable to download\t" + file_name + "\t"+ lang +"\t"+ fixed_url)
+                time.sleep(5)
                 pass
 
         if url_count%100==0:
