@@ -32,7 +32,7 @@ output_file = os.path.abspath(sys.argv[2])
 
 contents = []
 with open(output_file, "w") as writer:
-    for f in os.listdir(input_folder):
+    for c, f in enumerate(os.listdir(input_folder)):
         if f.startswith("."):
             continue # ignore os-specific files
         url = retrieve_url(os.path.join(input_folder, f))
@@ -42,6 +42,7 @@ with open(output_file, "w") as writer:
                 writer.write("\n".join(contents))
                 writer.write("\n")
                 contents = []
+                print(input_folder, c+1)
     if len(contents)>0:
         writer.write("\n".join(contents))
         writer.write("\n")

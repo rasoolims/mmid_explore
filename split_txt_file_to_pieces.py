@@ -5,10 +5,10 @@ f = os.path.abspath(sys.argv[1])
 contents = open(f, "r").read().strip().split("\n")
 
 clen = len(contents)
-split_len = math.ceil(clen/10)
+split_len = math.ceil(clen/int(sys.argv[2]))
 
 print(clen, split_len)
-for i in range(10):
+for i in range(int(sys.argv[2])):
     start = i*split_len
     end = min((i+1)*split_len, clen)
     print(start, end)
