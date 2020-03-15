@@ -2,7 +2,7 @@ import os,sys
 
 input_folder = os.path.abspath(sys.argv[1])
 
-url_set = {}
+url_set = set()
 for f in os.listdir(input_folder):
     print(f)
     with open(os.path.join(input_folder,f), "r") as reader:
