@@ -58,24 +58,25 @@ with open(input_file) as reader:
             alread_downloaded += 1
             continue
 
-        parsed_link = urlparse.urlsplit(url)
-        parsed_link = parsed_link._replace(path=urllib.parse.quote(parsed_link.path))
-        fixed_url = parsed_link.geturl()
-
         url_count += 1
-
         total_tries = 2
         for t in range(total_tries):
             try:
-                download_one_file(fixed_url, img_file_path)
+                download_one_file(url, img_file_path)
                 file_number += 1
                 break
             except:
-                if t == total_tries - 1:
-                    print(spl, extension, n, url, file_name, fixed_url)
-                    print("unable to download\t" + file_name + "\t" + fixed_url)
-                time.sleep(5)
-                pass
+                try:
+                    parsed_link = urlparse.urlsplit(url)
+                    parsed_link = parsed_link._replace(path=urllib.parse.quote(parsed_link.path))
+                    fixed_url = parsed_link.geturl()
+                    download_one_file(fixed_url, img_file_path)
+                except:
+                    if t == total_tries - 1:
+                        print(spl, extension, n, url, file_name, fixed_url)
+                        print("unable to download\t" + file_name + "\t" + url)
+                    time.sleep(5)
+                    pass
 
         if url_count % 100 == 0:
             print(datetime.datetime.now(), url_count, file_number, time.time() - start_time, "already_downloaded:",
