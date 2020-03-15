@@ -3,35 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean_wiki_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/clean_wiki_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect_image_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_image_urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect_passage_for_target_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_passage_for_target_urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/convert_metadata_to_txt_for_all_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_training_folder_from_text_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_training_folder_from_text_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download_images_from_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_images_from_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download_images_from_lists_in_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_images_from_lists_in_folder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download_images_with_multiple_qsubs.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_images_with_multiple_qsubs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download_wiki_img_from_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_wiki_img_from_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extract_urls_for_folders_qsubs.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_urls_for_folders_qsubs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract_wiki_png_jpg_candidates.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_wiki_png_jpg_candidates.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filter_indices.py" beforeDir="false" afterPath="$PROJECT_DIR$/filter_indices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/find_matching_passage_for_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/find_matching_passage_for_images.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index2roberta.py" beforeDir="false" afterPath="$PROJECT_DIR$/index2roberta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move_back_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/move_back_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/move_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process_warcs_for_lang.py" beforeDir="false" afterPath="$PROJECT_DIR$/process_warcs_for_lang.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_warc.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_warc_raw.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc_raw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resize_all_images_in_subfolders.py" beforeDir="false" afterPath="$PROJECT_DIR$/resize_all_images_in_subfolders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resize_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/resize_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample_data_as_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/sample_data_as_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/split_txt_file_to_pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/split_txt_file_to_pieces.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokenize_and_filter_multiple_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokenize_and_filter_multiple_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokenize_and_filter_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokenize_and_filter_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unify_entries.py" beforeDir="false" afterPath="$PROJECT_DIR$/unify_entries.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unify_mmid_based_on_target_langs.py" beforeDir="false" afterPath="$PROJECT_DIR$/unify_mmid_based_on_target_langs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wget_wiki_dumps_qsub.py" beforeDir="false" afterPath="$PROJECT_DIR$/wget_wiki_dumps_qsub.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

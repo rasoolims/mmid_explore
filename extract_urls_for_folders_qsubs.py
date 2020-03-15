@@ -15,7 +15,10 @@ folders = []
 output_files = []
 
 langs = []
+remained_langs = {"de", "en", "pt", "es", "fr", "ja", "it"}
 for file in sorted(os.listdir(input_folder)):
+    if file not in remained_langs:
+        continue
     folders.append(os.path.join(input_folder, file))
     outfile_name = file
     if "." in file:
