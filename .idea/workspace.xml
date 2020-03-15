@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clean_wiki_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect_image_urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/download_wiki_img_from_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/download_wiki_imgs_with_qsubs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_image_url_from_wiki_html.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/split_txt_file_to_pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/split_txt_file_to_pieces.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
