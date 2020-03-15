@@ -6,11 +6,12 @@ already_used = {}
 longest_id = 0
 
 if len(sys.argv)>3:
-    with open(os.path.abspath(sys.argv[1]), "r") as reader:
+    with open(os.path.abspath(sys.argv[3]), "r") as reader:
         for line in reader:
             spl = line.strip().split("\t")
             n, url = int(spl[0]), spl[1]
             longest_id = max(n, longest_id)
+    print("already used urls", len(already_used))
 
 url_set = set()
 url_counts = 0
