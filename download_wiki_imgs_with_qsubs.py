@@ -14,23 +14,20 @@ file_num = 0
 folders = []
 output_folders = []
 
-langs = []
+files = []
 for file in sorted(os.listdir(input_folder)):
     folders.append(os.path.join(input_folder, file))
-    outfile_name = file
-    if "." in file:
-        outfile_name = file[:file.find(".")]
-    new_folder = os.path.join(output_folder, outfile_name)
+    new_folder = os.path.join(output_folder, file)
     output_folders.append(new_folder)
-    langs.append(file)
+    files.append(file)
 
 print("finished listing all!", len(output_folders))
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/download_wiki_img_from_list.py"
 
 for i in range(len(folders)):
-    content = ["#$ -N " + langs[i]]
-    content += ["#$ -o " + os.path.join(config_folder, langs[i] + ".stdout")]
-    content += ["#$ -e " + os.path.join(config_folder, langs[i] + ".stderr")]
+    content = ["#$ -N " + files[i]]
+    content += ["#$ -o " + os.path.join(config_folder, files[i] + ".stdout")]
+    content += ["#$ -e " + os.path.join(config_folder, files[i] + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
     content += ["#$ -l h_vmem=20G"]
     content += ["#$ -l mem=20G"]
@@ -40,7 +37,7 @@ for i in range(len(folders)):
     command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_folders[i]
     content += [command]
     content = "\n".join(content)
-    config_path = os.path.join(config_folder, langs[i]) + ".sh"
+    config_path = os.path.join(config_folder, files[i]) + ".sh"
     with open(config_path, "w") as writer:
         writer.write(content)
 
