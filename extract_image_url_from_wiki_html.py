@@ -34,10 +34,10 @@ r = int(sys.argv[3])
 
 contents = []
 with open(output_file, "w") as writer:
-    for c, f in enumerate(os.listdir(input_folder)):
+    for c, f in enumerate(sorted(os.listdir(input_folder))):
         if f.startswith("."):
             continue  # ignore os-specific files
-        rm = int(f) % 20
+        rm = c % 20
         if r != rm:
             continue
         url = retrieve_url(os.path.join(input_folder, f))
