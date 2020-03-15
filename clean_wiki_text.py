@@ -29,7 +29,7 @@ for line in zf:
     if c % 10000 == 0: sys.stdout.write(str(c) + '...')
 
 writer.close()
-print ('gzipping...')
+print('gzipping...')
 
 os.system('gzip ' + os.path.abspath(sys.argv[2]))
 print('done!')

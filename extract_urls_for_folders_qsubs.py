@@ -29,22 +29,23 @@ print("finished listing all!", len(output_files))
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/extract_image_url_from_wiki_html.py"
 
 for i in range(len(folders)):
-    content = ["#$ -N " + langs[i]]
-    content += ["#$ -o " + os.path.join(config_folder, langs[i] + ".stdout")]
-    content += ["#$ -e " + os.path.join(config_folder, langs[i] + ".stderr")]
-    content += ["#$ -M rasooli@seas.upenn.edu"]
-    content += ["#$ -l h_vmem=20G"]
-    content += ["#$ -l mem=20G"]
-    content += ["#$ -l h_rt=1200:00:00"]
-    content += ["#$ -cwd"]
+    for j in range(20):
+        content = ["#$ -N " + langs[i] + str(j)]
+        content += ["#$ -o " + os.path.join(config_folder, langs[i] + str(j) + ".stdout")]
+        content += ["#$ -e " + os.path.join(config_folder, langs[i] + str(j) + ".stderr")]
+        content += ["#$ -M rasooli@seas.upenn.edu"]
+        content += ["#$ -l h_vmem=20G"]
+        content += ["#$ -l mem=20G"]
+        content += ["#$ -l h_rt=1200:00:00"]
+        content += ["#$ -cwd"]
 
-    command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_files[i]
-    content += [command]
-    content = "\n".join(content)
-    config_path = os.path.join(config_folder, langs[i]) + ".sh"
-    with open(config_path, "w") as writer:
-        writer.write(content)
+        command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_files[i] + str(j) + " " + str(j)
+        content += [command]
+        content = "\n".join(content)
+        config_path = os.path.join(config_folder, langs[i]) + ".sh"
+        with open(config_path, "w") as writer:
+            writer.write(content)
 
-    command = "qsub " + config_path
-    print(command)
-    os.system(command)
+        command = "qsub " + config_path
+        print(command)
+        os.system(command)

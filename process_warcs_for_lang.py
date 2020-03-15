@@ -1,5 +1,6 @@
-import os,sys
+import os
 import subprocess
+import sys
 
 # warc_path_prefix = os.path.abspath(sys.argv[1])
 warc_info_path = os.path.abspath(sys.argv[1])
@@ -19,18 +20,19 @@ num_sim_process = 0
 process_counter = 0
 
 dir_list = os.listdir(warc_info_path)
-for i,f in enumerate(dir_list):
-    process_counter+=1
-    command = ["python3", path_dir_name+"/read_warc.py", os.path.join(warc_info_path, f), os.path.join(warc_json_path, f+".pickle.gz")]
+for i, f in enumerate(dir_list):
+    process_counter += 1
+    command = ["python3", path_dir_name + "/read_warc.py", os.path.join(warc_info_path, f),
+               os.path.join(warc_json_path, f + ".pickle.gz")]
     popopen = subprocess.Popen(command)
     # subprocess.call()
-    #command = "python3 -u "+path_dir_name+"/read_warc.py " + os.path.join(warc_info_path, f)+" "+os.path.join(warc_json_path, f+".pickle.gz")
+    # command = "python3 -u "+path_dir_name+"/read_warc.py " + os.path.join(warc_info_path, f)+" "+os.path.join(warc_json_path, f+".pickle.gz")
     print(os.path.join(warc_info_path, f))
-    if process_counter%40 ==0:
+    if process_counter % 40 == 0:
         print("waiting")
         popopen.wait()
     #    command+=" &"
-    #print(command)
-    #os.system(command)
+    # print(command)
+    # os.system(command)
 
 print("done!")

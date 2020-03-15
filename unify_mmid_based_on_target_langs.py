@@ -1,6 +1,7 @@
-import glob, os,sys
+import glob
+import os
+import sys
 from collections import defaultdict
-
 
 english_prefix = os.path.abspath(sys.argv[1])
 bilingual_dict_folder = os.path.abspath(sys.argv[2])
@@ -62,20 +63,20 @@ for folder in glob.glob(english_prefix + "*"):
     index_path = os.path.join(folder, "index.tsv")
     path_dict = {}
     for line in open(index_path, 'r'):
-        spl = line.strip().replace("\\t","\t").split("\t")
+        spl = line.strip().replace("\\t", "\t").split("\t")
         path_dict[spl[0]] = spl[1]
 
     for word in path_dict.keys():
         if word in allowed_english_entries:
-            copy_command = "cp -r " + os.path.join(folder, path_dict[word]) + " " + os.path.join(output_en_folder, str(copy_counter))
-            copy_counter+=1
-            if copy_counter%40==0:
-                copy_command+=" &"
+            copy_command = "cp -r " + os.path.join(folder, path_dict[word]) + " " + os.path.join(output_en_folder,
+                                                                                                 str(copy_counter))
+            copy_counter += 1
+            if copy_counter % 40 == 0:
+                copy_command += " &"
             os.system(copy_command)
-            new_index_dict.append(word+"\t"+ str(copy_counter))
+            new_index_dict.append(word + "\t" + str(copy_counter))
             to_fetch_folders.add(os.path.join(folder, path_dict[word]))
 
 print("number of fetched english folders", copy_counter)
 with open(os.path.join(output_en_folder, "index.tsv"), "w") as writer:
     writer.write("\n".join(new_index_dict))
-

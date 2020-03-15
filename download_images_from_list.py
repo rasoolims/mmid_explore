@@ -1,16 +1,17 @@
-import os
-import sys
-import urllib.request
-import gzip
 import datetime
-import time
-from functools import wraps
 import errno
+import gzip
 import os
 import signal
+import sys
+import time
+import urllib.request
+from functools import wraps
+
 
 class TimeoutError(Exception):
     pass
+
 
 def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
     def decorator(func):
@@ -30,9 +31,11 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
     return decorator
 
+
 @timeout(300, "time out")
 def download_one_image(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
+
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -59,26 +62,25 @@ with open(file_path, "w") as writer:
         if extension not in default_set:
             continue
         else:
-            file_extension = "."+extension
+            file_extension = "." + extension
 
         file_path = os.path.join(output_folder, str(file_number) + file_extension)
 
         try:
             download_one_image(fixed_url, file_path)
-            file_indices.append(str(file_number)+"\t"+fixed_url+"\t"+text)
+            file_indices.append(str(file_number) + "\t" + fixed_url + "\t" + text)
             file_number += 1
         except:
             pass
 
-        if url_count%100==0:
-            print(datetime.datetime.now(), url_count, file_number, time.time()-start_time)
+        if url_count % 100 == 0:
+            print(datetime.datetime.now(), url_count, file_number, time.time() - start_time)
             start_time = time.time()
             writer.write("\n".join(file_indices))
             writer.write("\n")
             file_indices = []
 
-    sys.stdout.write(str(url_count)+"\n")
+    sys.stdout.write(str(url_count) + "\n")
     writer.write("\n".join(file_indices))
 
 print("Written files", file_number)
-

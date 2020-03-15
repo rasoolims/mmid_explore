@@ -1,5 +1,7 @@
+import os
+import sys
+
 from PIL import Image
-import os,sys
 
 # Opens a image in RGB mode
 input_folder = os.path.abspath(sys.argv[1])
@@ -17,7 +19,7 @@ for dir in os.listdir(input_folder):
                 file_path = os.path.join(dir_path, f)
                 im = Image.open(os.path.abspath(file_path))
                 x, y = im.size
-                if x*y > new_width*new_height:
+                if x * y > new_width * new_height:
                     new_im = im.resize((new_width, new_height))
                     new_im.save(file_path)
         except:

@@ -42,8 +42,8 @@ for lang in langs:
     content += ["#$ -l h_rt=3:00:00"]
     content += ["#$ -cwd"]
 
-    url = "http://download.wikimedia.org/"+lang+"wiki/latest/"+lang+"wiki-latest-pages-articles.xml.bz2"
-    command = "wget -O " + os.path.join(output_folder, lang+".xml.bz2") +" " + url
+    url = "http://download.wikimedia.org/" + lang + "wiki/latest/" + lang + "wiki-latest-pages-articles.xml.bz2"
+    command = "wget -O " + os.path.join(output_folder, lang + ".xml.bz2") + " " + url
     content += [command]
     content = "\n".join(content)
     config_path = os.path.join(config_folder, lang) + ".sh"

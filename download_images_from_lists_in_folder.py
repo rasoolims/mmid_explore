@@ -1,5 +1,6 @@
-import os,sys
+import os
 import subprocess
+import sys
 
 input_folder = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -20,15 +21,14 @@ for file in sorted(os.listdir(input_folder)):
     else:
         continue
     file_num += 1
-    if file_num>range_end or file_num<range_start-1:
+    if file_num > range_end or file_num < range_start - 1:
         continue
 
-    file_number = int(file_number[file_number.rfind(".")+1:])
+    file_number = int(file_number[file_number.rfind(".") + 1:])
     new_folder = os.path.join(output_folder, str(file_number))
     if not os.path.exists(new_folder):
         os.makedirs(new_folder)
-    num_process+=1
-
+    num_process += 1
 
     command = ["python3", path_dir_name + "/download_images_from_list.py", os.path.join(input_folder, file), new_folder]
     popopen = subprocess.call(command)

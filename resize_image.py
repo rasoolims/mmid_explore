@@ -1,5 +1,7 @@
+import os
+import sys
+
 from PIL import Image
-import os,sys
 
 # Opens a image in RGB mode
 image_path = os.path.abspath(sys.argv[1])

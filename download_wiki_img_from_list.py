@@ -52,9 +52,9 @@ with open(input_file) as reader:
         spl = line.strip().split("\t")
         n, url = spl[0].strip(), spl[1].strip()
         extension = url[url.rfind("."):]
-        file_name = n+extension
+        file_name = n + extension
 
-        specific_folder_path =  os.path.join(output_folder,str(int(n)%1000))
+        specific_folder_path = os.path.join(output_folder, str(int(n) % 1000))
         if not os.path.exists(specific_folder_path):
             os.makedirs(specific_folder_path)
         img_file_path = os.path.join(specific_folder_path, file_name)

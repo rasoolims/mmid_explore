@@ -1,11 +1,11 @@
 import glob
 import os
+import pickle
 import sys
 import warnings
-import json
+
 import warc
 from bs4 import BeautifulSoup
-import pickle
 
 warnings.filterwarnings("ignore")
 warnings.filterwarnings("ignore", module='bs4')
@@ -66,6 +66,7 @@ def write_dict(file_path, text_information):
     with open(file_path, "wb") as writer:
         pickle.dump(text_information, writer)
 
+
 warc_path_prefix = os.path.abspath(sys.argv[1])
 file_path = os.path.abspath(sys.argv[2])
 
@@ -93,12 +94,12 @@ for warc_path in glob.glob(warc_path_prefix + "*"):
                 pass
             counter += 1
             if counter % 10000 == 0:
-                write_dict(file_path=file_path+"."+str(part_number),text_information=warc_records)
-                part_number+=1
+                write_dict(file_path=file_path + "." + str(part_number), text_information=warc_records)
+                part_number += 1
                 warc_records = {}
     except:
         print("problem with", warc_path)
         pass
 
-if len(warc_records) >0:
+if len(warc_records) > 0:
     write_dict(file_path=file_path + "." + str(part_number), text_information=warc_records)

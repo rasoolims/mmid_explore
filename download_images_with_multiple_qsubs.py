@@ -1,5 +1,5 @@
-import os,sys
-import subprocess
+import os
+import sys
 
 input_folder = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -26,23 +26,22 @@ for file in sorted(os.listdir(input_folder)):
         continue
     file_num += 1
 
-    file_number = int(file_number[file_number.rfind(".")+1:])
+    file_number = int(file_number[file_number.rfind(".") + 1:])
     new_folder = os.path.join(output_folder, str(file_number))
 
     folders.append(os.path.join(input_folder, file))
     output_folders.append(new_folder)
 
-
 print("finished listing all!", len(output_folders))
-path_dir_name = os.path.dirname(os.path.realpath(__file__))+"/download_images_from_list.py"
+path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/download_images_from_list.py"
 
 already_downloaded = 0
 to_run, completed = 0, 0
 skipped = 0
 for i in range(len(folders)):
-    content = ["#$ -N "+process_name+str(i)]
-    content += ["#$ -o "+os.path.join(config_folder, process_name+str(i)+".stdout")]
-    content += ["#$ -e "+os.path.join(config_folder, process_name+str(i)+".stderr")]
+    content = ["#$ -N " + process_name + str(i)]
+    content += ["#$ -o " + os.path.join(config_folder, process_name + str(i) + ".stdout")]
+    content += ["#$ -e " + os.path.join(config_folder, process_name + str(i) + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
     content += ["#$ -l h_vmem=20G"]
     content += ["#$ -l mem=20G"]
@@ -51,17 +50,17 @@ for i in range(len(folders)):
 
     if os.path.exists(os.path.join(output_folders[i], "index.txt")):
         # print("found", os.path.join(output_folders[i], "index.txt"))
-        already_downloaded+=len(os.listdir(output_folders[i]))-1
-        completed+=1
+        already_downloaded += len(os.listdir(output_folders[i])) - 1
+        completed += 1
     else:
-        command = "python3 -u " + path_dir_name +" "+folders[i]+" "+output_folders[i]
+        command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_folders[i]
         content += [command]
         content = "\n".join(content)
-        config_path =  os.path.join(config_folder, str(i))+ ".sh"
+        config_path = os.path.join(config_folder, str(i)) + ".sh"
         with open(config_path, "w") as writer:
             writer.write(content)
         command = "qsub " + config_path
-        if to_run<max_jobs:
+        if to_run < max_jobs:
             to_run += 1
             print(command)
             os.system(command)

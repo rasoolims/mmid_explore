@@ -1,4 +1,6 @@
-import os, sys, re
+import os
+import re
+import sys
 from collections import defaultdict
 
 indices_folder = os.path.abspath(sys.argv[1])

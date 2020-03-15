@@ -1,11 +1,11 @@
+import gzip
 import os
+import pickle
 import sys
 import warnings
-import json
-from bs4 import BeautifulSoup
-import  pickle
+
 import validators
-import gzip
+from bs4 import BeautifulSoup
 
 warnings.filterwarnings("ignore")
 warnings.filterwarnings("ignore", module='bs4')
@@ -16,7 +16,7 @@ def is_good_text(text):
     text = text.lower()
     if len(text) < 2:
         return False
-    if len(text.split(" "))<4:
+    if len(text.split(" ")) < 4:
         return False
     if "{" in text or "}" in text or "::" in text:
         return False
@@ -35,7 +35,7 @@ def is_good_text(text):
 
     if "loading" in text:
         return False
-    if "~" in text or "_" in text or "+" in text or  "|" in text or  "\\" in text:
+    if "~" in text or "_" in text or "+" in text or "|" in text or "\\" in text:
         return False
     if "©" in text:
         return False
@@ -54,6 +54,7 @@ def is_good_text(text):
         return False
     return True
 
+
 def is_relevant_image(url, text):
     if not is_good_text(text):
         return False
@@ -61,7 +62,7 @@ def is_relevant_image(url, text):
         return False
     url = url.lower()
     if ".svg" in url:
-        return False # Usually these extensions do not have good images
+        return False  # Usually these extensions do not have good images
     if text.lower() in url.lower():
         return False
     banned_words = ["logo", "icon", "avatar", "thumbnail"]
@@ -69,6 +70,7 @@ def is_relevant_image(url, text):
         if word in text or word in url:
             return False
     return True
+
 
 def process_warc_record(text_information, target_uri):
     try:
@@ -99,7 +101,7 @@ def process_warc_record(text_information, target_uri):
                     continue
                 if b.isdigit():
                     continue
-                if b in added: # Skip repeats
+                if b in added:  # Skip repeats
                     continue
                 added.add(b)
                 if is_good_text(b):
@@ -122,17 +124,17 @@ def process_warc_record(text_information, target_uri):
                     src = src[2:]
                 if is_relevant_image(src, alt_text):
                     images[src] = alt_text
-            if len(body_text)>0:
+            if len(body_text) > 0:
                 text_information[target_uri] = {"body": body_text, "images_with_alt": images}
     except:
         pass
-
 
 
 def write_pickle(file_path, text_information):
     print("writing ", file_path)
     with gzip.open(file_path, "wb") as writer:
         pickle.dump(text_information, writer)
+
 
 input_file_path = os.path.abspath(sys.argv[1])
 with gzip.open(input_file_path, "rb") as fin:
@@ -148,7 +150,7 @@ for i, name in enumerate(warc_records.keys()):
 
 write_pickle(file_path, text_information)
 
-with gzip.open(file_path+".image_list.txt.gz", "wt") as writer:
+with gzip.open(file_path + ".image_list.txt.gz", "wt") as writer:
     content_list = []
     for values in text_information.values():
         if "images_with_alt" not in values:
