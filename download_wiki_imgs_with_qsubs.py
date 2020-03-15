@@ -12,16 +12,14 @@ if not os.path.exists(config_folder):
 
 file_num = 0
 folders = []
-output_folders = []
 
 files = []
 for file in sorted(os.listdir(input_folder)):
     folders.append(os.path.join(input_folder, file))
     new_folder = os.path.join(output_folder, file)
-    output_folders.append(new_folder)
     files.append(file)
 
-print("finished listing all!", len(output_folders))
+print("finished listing all!", len(files))
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/download_wiki_img_from_list.py"
 
 for i in range(len(folders)):
@@ -34,7 +32,7 @@ for i in range(len(folders)):
     content += ["#$ -l h_rt=1200:00:00"]
     content += ["#$ -cwd"]
 
-    command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_folders[i]
+    command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_folder
     content += [command]
     content = "\n".join(content)
     config_path = os.path.join(config_folder, files[i]) + ".sh"

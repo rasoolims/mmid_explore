@@ -46,16 +46,20 @@ file_number = 0
 url_count = 0
 start_time = time.time()
 file_path = os.path.join(output_folder, "index.txt")
-alread_downloaded = 0
+already_downloaded = 0
 with open(input_file) as reader:
     for line in reader:
         spl = line.strip().split("\t")
         n, url = spl[0].strip(), spl[1].strip()
         extension = url[url.rfind("."):]
         file_name = n+extension
-        img_file_path = os.path.join(output_folder, file_name)
+
+        specific_folder_path =  os.path.join(output_folder,str(n%1000))
+        if not os.path.exists(specific_folder_path):
+            os.makedirs(specific_folder_path)
+        img_file_path = os.path.join(specific_folder_path, file_name)
         if os.path.exists(img_file_path):
-            alread_downloaded += 1
+            already_downloaded += 1
             continue
 
         url_count += 1
@@ -80,7 +84,7 @@ with open(input_file) as reader:
 
         if url_count % 100 == 0:
             print(datetime.datetime.now(), url_count, file_number, time.time() - start_time, "already_downloaded:",
-                  alread_downloaded)
+                  already_downloaded)
             start_time = time.time()
             time.sleep(10)  # more respect to wiki servers
 
