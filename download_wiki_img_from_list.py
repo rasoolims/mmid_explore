@@ -54,7 +54,7 @@ with open(input_file) as reader:
         extension = url[url.rfind("."):]
         file_name = n+extension
 
-        specific_folder_path =  os.path.join(output_folder,str(n%1000))
+        specific_folder_path =  os.path.join(output_folder,str(int(n)%1000))
         if not os.path.exists(specific_folder_path):
             os.makedirs(specific_folder_path)
         img_file_path = os.path.join(specific_folder_path, file_name)
