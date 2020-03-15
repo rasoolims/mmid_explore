@@ -72,7 +72,7 @@ with open(input_file) as reader:
                 break
             except:
                 if t == total_tries - 1:
-                    print(spl, extension, n, extension)
+                    print(spl, extension, n, url, fixed_url)
                     print("unable to download\t" + file_name + "\t" + fixed_url)
                 time.sleep(5)
                 pass
