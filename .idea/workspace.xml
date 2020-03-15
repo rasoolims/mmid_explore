@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collect_image_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_image_urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -266,13 +267,13 @@
     <list>
       <item itemvalue="Python.collect_passage_for_target_urls" />
       <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
+      <item itemvalue="Python.extract_image_url_from_wiki_html" />
+      <item itemvalue="Python.extract_urls_for_folders_qsubs" />
+      <item itemvalue="Python.extract_wiki_png_jpg_candidates" />
+      <item itemvalue="Python.extract_wikimedia_image_urls" />
       <item itemvalue="Python.find_matching_passage_for_images" />
       <item itemvalue="Python.move_data" />
       <item itemvalue="Python.read_warc" />
-      <item itemvalue="Python.extract_wiki_png_jpg_candidates" />
-      <item itemvalue="Python.extract_wikimedia_image_urls" />
-      <item itemvalue="Python.extract_image_url_from_wiki_html" />
-      <item itemvalue="Python.extract_urls_for_folders_qsubs" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
       <item itemvalue="Python.unify_entries" />
     </list>
@@ -368,12 +369,12 @@
     </state>
     <state width="1280" height="671" key="XDebugger.FullValuePopup/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582319470627" />
     <state width="1280" height="667" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051109338" />
-    <state x="438" y="852" key="com.intellij.ide.util.TipDialog" timestamp="1584107110845">
+    <state x="438" y="852" key="com.intellij.ide.util.TipDialog" timestamp="1584283300083">
       <screen x="0" y="23" width="2560" height="1334" />
     </state>
     <state x="626" y="695" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583508757596" />
     <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582652016417" />
-    <state x="438" y="852" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584107110845" />
+    <state x="438" y="852" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584283300083" />
     <state x="626" y="695" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583599921077" />
     <state x="758" y="223" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581698728902">
       <screen x="0" y="23" width="2560" height="1342" />

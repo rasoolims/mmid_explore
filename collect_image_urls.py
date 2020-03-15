@@ -5,8 +5,8 @@ input_folder = os.path.abspath(sys.argv[1])
 already_used = {}
 longest_id = 0
 
-if len(sys.argv)>3:
-    with open(os.path.abspath(sys.argv[3]), "r") as reader:
+for a in  range(3, len(sys.argv)):
+    with open(os.path.abspath(sys.argv[a]), "r") as reader:
         for line in reader:
             spl = line.strip().split("\t")
             n, url = int(spl[0]), spl[1]
