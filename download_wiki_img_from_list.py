@@ -50,9 +50,9 @@ alread_downloaded = 0
 with open(input_file) as reader:
     for line in reader:
         spl = line.strip().split("\t")
-        file_number, url = spl[0].strip(), spl[1].strip()
+        n, url = spl[0].strip(), spl[1].strip()
         extension = url[:url.rfind(".")]
-        file_name = file_number+"."+extension
+        file_name = n+"."+extension
         img_file_path = os.path.join(output_folder, file_name)
         if os.path.exists(img_file_path):
             alread_downloaded += 1
@@ -72,6 +72,7 @@ with open(input_file) as reader:
                 break
             except:
                 if t == total_tries - 1:
+                    print(spl, extension, n, extension)
                     print("unable to download\t" + file_name + "\t" + fixed_url)
                 time.sleep(5)
                 pass
