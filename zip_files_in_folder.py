@@ -2,7 +2,7 @@ import os
 import sys
 
 input_folder = os.path.abspath(sys.argv[1])
-for folder in enumerate(os.listdir(input_folder)):
+for folder in os.listdir(input_folder):
     print(folder)
     folder_path = os.path.join(input_folder, folder)
     for c, f in enumerate(os.listdir(folder_path)):
