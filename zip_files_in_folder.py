@@ -2,7 +2,7 @@ import os
 import sys
 
 input_folder = os.path.abspath(sys.argv[1])
-for c, f in os.listdir(input_folder):
+for c, f in enumerate(os.listdir(input_folder)):
     if f.endswith("gz"):
         continue
     command = "gzip " + os.path.join(input_folder, f)
