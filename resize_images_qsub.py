@@ -3,7 +3,7 @@ import sys
 
 input_folder = os.path.abspath(sys.argv[1])
 config_folder =  os.path.abspath(sys.argv[2])
-path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/download_wiki_img_from_list.py"
+path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/resize_images_in_folder.py"
 
 if not os.path.exists(config_folder):
     os.makedirs(config_folder)
