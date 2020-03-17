@@ -7,7 +7,7 @@ import time
 import urllib.parse as urlparse
 import urllib.request
 from functools import wraps
-
+from PIL import Image
 
 class TimeoutError(Exception):
     pass
@@ -35,6 +35,11 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 @timeout(300, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
+    im = Image.open(file_path)
+    x, y = im.size
+    if x * y > 512 * 512:
+        new_im = im.resize((512, 512))
+        new_im.save(file_path)
 
 
 input_file = os.path.abspath(sys.argv[1])
