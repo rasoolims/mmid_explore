@@ -22,7 +22,8 @@ for f in os.listdir(dir_path):
     file_path = os.path.join(dir_path, f)
     try:
         if f.lower().endswith(".svg"):
-            file_path = svg2png(file_path)
+            continue
+            #file_path = svg2png(file_path)
         im = Image.open(file_path)
         orig_sizes += os.path.getsize(file_path)/(1024*1024)
         x, y = im.size
