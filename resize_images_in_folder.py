@@ -11,6 +11,8 @@ resized, all = 0, 0
 for f in os.listdir(dir_path):
     all += 1
     file_path = os.path.join(dir_path, f)
+    if f.lower().endswith(".svg"):
+        continue
     try:
         im = Image.open(file_path)
         orig_sizes += os.path.getsize(file_path)/(1024*1024)
