@@ -28,6 +28,6 @@ for i in range(0, len(all_folders), 10) :
         writer.write(content)
     command = "qsub " + config_path
     print(command)
-    #os.system(command)
+    os.system(command)
 
 print("done")
