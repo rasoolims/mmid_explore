@@ -20,10 +20,9 @@ resized, all = 0, 0
 for f in os.listdir(dir_path):
     all += 1
     file_path = os.path.join(dir_path, f)
-
-    if f.lower().endswith(".svg"):
-        file_path = svg2png(file_path)
     try:
+        if f.lower().endswith(".svg"):
+            file_path = svg2png(file_path)
         im = Image.open(file_path)
         orig_sizes += os.path.getsize(file_path)/(1024*1024)
         x, y = im.size
@@ -33,7 +32,7 @@ for f in os.listdir(dir_path):
             resized+=1
     except:
         print("problem resizing", f)
-    if all%1000==0:
+    if all%100==0:
         print(dir_path, all, "->", resized, orig_sizes, new_sizes)
     new_sizes += os.path.getsize(file_path) / (1024 * 1024)
 
