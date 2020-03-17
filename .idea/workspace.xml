@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/unzip_image_gz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resize_images_in_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/resize_images_in_folder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unzip_image_gz.py" beforeDir="false" afterPath="$PROJECT_DIR$/unzip_image_gz.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
