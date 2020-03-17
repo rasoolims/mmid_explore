@@ -20,7 +20,7 @@ for i in range(0, len(all_folders), 10) :
     content += ["#$ -l h_rt=48:00:00"]
     content += ["#$ -cwd"]
     for j in range(i, min(i+10, len(all_folders))):
-        content += ["python3 -u " + path_dir_name  +"  "+ all_folders[j] + " 512 512"]
+        content += ["python3 -u " + path_dir_name  +"  "+ os.path.join(input_folder, all_folders[j]) + " 512 512"]
 
     content = "\n".join(content)
     config_path = os.path.join(config_folder, all_folders[i]) + ".sh"
