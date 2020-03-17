@@ -5,6 +5,8 @@ input_folder = os.path.abspath(sys.argv[1])
 config_folder =  os.path.abspath(sys.argv[2])
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/download_wiki_img_from_list.py"
 
+if not os.path.exists(config_folder):
+    os.makedirs(config_folder)
 
 for folder in os.listdir(input_folder):
     print(folder)
