@@ -3,7 +3,6 @@ import sys
 
 from PIL import Image
 
-# Opens a image in RGB mode
 dir_path = os.path.abspath(sys.argv[1])
 new_width, new_height = int(sys.argv[2]), int(sys.argv[3])
 
