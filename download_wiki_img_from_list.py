@@ -45,7 +45,6 @@ if not os.path.exists(output_folder):
 file_number = 0
 url_count = 0
 start_time = time.time()
-file_path = os.path.join(output_folder, "index.txt")
 already_downloaded = 0
 with open(input_file) as reader:
     for line in reader:
@@ -77,7 +76,6 @@ with open(input_file) as reader:
                     download_one_file(fixed_url, img_file_path)
                 except:
                     if t == total_tries - 1:
-                        print(spl, extension, n, url, file_name, fixed_url)
                         print("unable to download\t" + file_name + "\t" + url)
                     time.sleep(5)
                     pass
