@@ -33,6 +33,8 @@ for f in os.listdir(dir_path):
             resized+=1
     except:
         print("problem resizing", f)
+    if all%1000==0:
+        print(dir_path, all, "->", resized, orig_sizes, new_sizes)
     new_sizes += os.path.getsize(file_path) / (1024 * 1024)
 
 print("finished resizing", resized, all, orig_sizes, new_sizes)
