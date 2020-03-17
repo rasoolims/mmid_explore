@@ -11,7 +11,7 @@ if not os.path.exists(config_folder):
 all_folders = os.listdir(input_folder)
 for i in range(0, len(all_folders), 10) :
     folder_path = os.path.join(input_folder, all_folders[i])
-    content = ["#$ -N " + all_folders[i]]
+    content = ["#$ -N resize_" + all_folders[i]]
     content += ["#$ -o " + os.path.join(config_folder, all_folders[i] + ".stdout")]
     content += ["#$ -e " + os.path.join(config_folder, all_folders[i] + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
