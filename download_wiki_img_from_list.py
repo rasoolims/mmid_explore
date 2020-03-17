@@ -45,14 +45,14 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
 
-    if file_path.lower().endswith(".svg"):
-        file_path = svg2png(file_path)
+    if not file_path.lower().endswith(".svg"):
+        #file_path = svg2png(file_path) #todo
 
-    im = Image.open(file_path)
-    x, y = im.size
-    if x * y > 512 * 512:
-        new_im = im.resize((512, 512))
-        new_im.save(file_path)
+        im = Image.open(file_path)
+        x, y = im.size
+        if x * y > 512 * 512:
+            new_im = im.resize((512, 512))
+            new_im.save(file_path)
 
 
 input_file = os.path.abspath(sys.argv[1])
