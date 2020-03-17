@@ -1,6 +1,7 @@
 import os
 import sys
 
+
 input_folder = os.path.abspath(sys.argv[1])
 config_folder =  os.path.abspath(sys.argv[2])
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/resize_images_in_folder.py"
@@ -19,6 +20,7 @@ for i in range(0, len(all_folders), 10) :
     content += ["#$ -l mem=20G"]
     content += ["#$ -l h_rt=48:00:00"]
     content += ["#$ -cwd"]
+    content += ["source /nlp/data/rasooli/my_env/bin/active"]
     for j in range(i, min(i+10, len(all_folders))):
         content += ["python3 -u " + path_dir_name  +"  "+ os.path.join(input_folder, all_folders[j]) + " 512 512"]
 
