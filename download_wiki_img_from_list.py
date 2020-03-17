@@ -8,6 +8,15 @@ import urllib.parse as urlparse
 import urllib.request
 from functools import wraps
 from PIL import Image
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPDF, renderPM
+
+def svg2png(file_path):
+    drawing = svg2rlg(file_path)
+    new_file_path = file_path[:-3] + "png"
+    renderPM.drawToFile(drawing, new_file_path, fmt="PNG")
+    os.system("rm "+ file_path)
+    return new_file_path
 
 class TimeoutError(Exception):
     pass
@@ -35,12 +44,15 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 @timeout(300, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
-    if not file_path.lower().endswith(".svg"):
-        im = Image.open(file_path)
-        x, y = im.size
-        if x * y > 512 * 512:
-            new_im = im.resize((512, 512))
-            new_im.save(file_path)
+
+    if file_path.lower().endswith(".svg"):
+        file_path = svg2png(file_path)
+
+    im = Image.open(file_path)
+    x, y = im.size
+    if x * y > 512 * 512:
+        new_im = im.resize((512, 512))
+        new_im.save(file_path)
 
 
 input_file = os.path.abspath(sys.argv[1])
