@@ -7,9 +7,11 @@ import time
 import urllib.parse as urlparse
 import urllib.request
 from functools import wraps
+
 from PIL import Image
+from reportlab.graphics import renderPM
 from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPDF, renderPM
+
 
 def svg2png(file_path):
     try:
@@ -17,11 +19,12 @@ def svg2png(file_path):
         new_file_path = file_path[:-3] + "png"
         renderPM.drawToFile(drawing, new_file_path, fmt="PNG")
         if file_path is not None:
-            os.system("rm "+ file_path + " &")
+            os.system("rm " + file_path + " &")
         return new_file_path
     except:
         if file_path is not None:
             os.system("rm " + file_path + " &")
+
 
 class TimeoutError(Exception):
     pass
@@ -54,6 +57,7 @@ def download_one_file(fixed_url, file_path):
         file_path = svg2png(file_path)
     resize_image(file_path)
 
+
 def resize_image(file_path):
     im = Image.open(file_path)
     x, y = im.size
@@ -63,18 +67,24 @@ def resize_image(file_path):
 
 
 def check_image(filepath):
+    if filepath.lower().endswith(".svg"):
+        filepath = filepath[:-3] + "png"
     if not os.path.exists(filepath):
         return False
-    try:
-        if filepath.lower().endswith(".svg"):
-            filepath = svg2png(filepath)
-        resize_image(filepath)
-    except:
-        if filepath is not None:
-            print("removing", filepath)
-            os.system("rm " + filepath + " &")
-        return False
     return True
+    # if not os.path.exists(filepath):
+    #     return False
+    # try:
+    #     if filepath.lower().endswith(".svg"):
+    #         filepath = svg2png(filepath)
+    #     resize_image(filepath)
+    # except:
+    #     if filepath is not None:
+    #         print("removing", filepath)
+    #         os.system("rm " + filepath + " &")
+    #     return False
+    # return True
+
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
