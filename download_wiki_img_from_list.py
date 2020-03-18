@@ -52,8 +52,8 @@ def download_one_file(fixed_url, file_path):
 def resize_image(file_path):
     im = Image.open(file_path)
     x, y = im.size
-    if x * y > 512 * 512:
-        new_im = im.resize((512, 512))
+    if x * y > 1024 * 1024:
+        new_im = im.resize((1024, 1024))
         new_im.save(file_path)
 
 
