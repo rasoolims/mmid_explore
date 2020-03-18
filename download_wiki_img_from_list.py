@@ -109,7 +109,7 @@ with open(input_file) as reader:
                     parsed_link = parsed_link._replace(path=urllib.parse.quote(parsed_link.path))
                     fixed_url = parsed_link.geturl()
                     download_one_file(fixed_url, img_file_path)
-                    print("Downloaded\t" + img_file_path + "\t" + fixed_url)
+                    #print("Downloaded\t" + img_file_path + "\t" + fixed_url)
                 except:
                     if t == total_tries - 1:
                         print("unable to download\t" + file_name + "\t" + url)
