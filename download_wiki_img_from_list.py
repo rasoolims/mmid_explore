@@ -52,9 +52,6 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 @timeout(6000, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
-
-    if file_path.lower().endswith(".svg"):
-        file_path = svg2png(file_path)
     resize_image(file_path)
 
 
@@ -68,22 +65,10 @@ def resize_image(file_path):
 
 def check_image(filepath):
     if filepath.lower().endswith(".svg"):
-        filepath = filepath[:-3] + "png"
-    if not os.path.exists(filepath):
-        return False
-    return True
-    # if not os.path.exists(filepath):
-    #     return False
-    # try:
-    #     if filepath.lower().endswith(".svg"):
-    #         filepath = svg2png(filepath)
-    #     resize_image(filepath)
-    # except:
-    #     if filepath is not None:
-    #         print("removing", filepath)
-    #         os.system("rm " + filepath + " &")
-    #     return False
-    # return True
+        return True # do not download svg
+    if os.path.exists(filepath):
+        return True
+    return False
 
 
 input_file = os.path.abspath(sys.argv[1])
