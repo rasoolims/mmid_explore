@@ -16,10 +16,12 @@ def svg2png(file_path):
         drawing = svg2rlg(file_path)
         new_file_path = file_path[:-3] + "png"
         renderPM.drawToFile(drawing, new_file_path, fmt="PNG")
-        os.system("rm "+ file_path + " &")
+        if file_path is not None:
+            os.system("rm "+ file_path + " &")
         return new_file_path
     except:
-        os.system("rm " + file_path + " &")
+        if file_path is not None:
+            os.system("rm " + file_path + " &")
 
 class TimeoutError(Exception):
     pass
@@ -68,8 +70,9 @@ def check_image(filepath):
             filepath = svg2png(filepath)
         resize_image(filepath)
     except:
-        print("removing", filepath)
-        os.system("rm " + filepath + " &")
+        if filepath is not None:
+            print("removing", filepath)
+            os.system("rm " + filepath + " &")
         return False
     return True
 
