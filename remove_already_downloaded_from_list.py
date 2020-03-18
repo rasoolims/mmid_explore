@@ -14,6 +14,8 @@ with open(output_file, "w") as writer:
             spl = line.strip().split("\t")
             n, url = spl[0].strip(), spl[1].strip()
             extension = url[url.rfind("."):]
+            if extension.lower() == ".svg":
+                extension = ".png"
             file_name = n + extension
             specific_folder_path = os.path.join(folders, str(int(n) % 1000))
             img_file_path = os.path.join(specific_folder_path, file_name)
