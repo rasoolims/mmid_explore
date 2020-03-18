@@ -12,11 +12,14 @@ from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF, renderPM
 
 def svg2png(file_path):
-    drawing = svg2rlg(file_path)
-    new_file_path = file_path[:-3] + "png"
-    renderPM.drawToFile(drawing, new_file_path, fmt="PNG")
-    os.system("rm "+ file_path + " &")
-    return new_file_path
+    try:
+        drawing = svg2rlg(file_path)
+        new_file_path = file_path[:-3] + "png"
+        renderPM.drawToFile(drawing, new_file_path, fmt="PNG")
+        os.system("rm "+ file_path + " &")
+        return new_file_path
+    except:
+        os.system("rm " + file_path + " &")
 
 class TimeoutError(Exception):
     pass
