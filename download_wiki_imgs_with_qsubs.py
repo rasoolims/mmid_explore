@@ -31,7 +31,7 @@ for i in range(len(folders)):
     content += ["#$ -l mem=20G"]
     content += ["#$ -l h_rt=1200:00:00"]
     content += ["#$ -cwd"]
-
+    content += ["source /nlp/data/rasooli/my_env/bin/activate"]
     command = "python3 -u " + path_dir_name + " " + folders[i] + " " + output_folder
     content += [command]
     content = "\n".join(content)

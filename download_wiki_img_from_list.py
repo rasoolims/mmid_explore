@@ -41,19 +41,32 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
     return decorator
 
 
-@timeout(300, "time out")
+@timeout(600, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
 
-    if not file_path.lower().endswith(".svg"):
-        #file_path = svg2png(file_path) #todo
+    if file_path.lower().endswith(".svg"):
+        file_path = svg2png(file_path)
+    resize_image(file_path)
 
-        im = Image.open(file_path)
-        x, y = im.size
-        if x * y > 512 * 512:
-            new_im = im.resize((512, 512))
-            new_im.save(file_path)
+def resize_image(file_path):
+    im = Image.open(file_path)
+    x, y = im.size
+    if x * y > 512 * 512:
+        new_im = im.resize((512, 512))
+        new_im.save(file_path)
 
+
+def check_image(filepath):
+    if not os.path.exists(filepath):
+        return False
+    try:
+        if filepath.lower().endswith(".svg"):
+            filepath = svg2png(filepath)
+        resize_image(filepath)
+    except:
+        return False
+    return True
 
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
@@ -75,7 +88,8 @@ with open(input_file) as reader:
         if not os.path.exists(specific_folder_path):
             os.makedirs(specific_folder_path)
         img_file_path = os.path.join(specific_folder_path, file_name)
-        if os.path.exists(img_file_path):
+
+        if check_image(img_file_path):
             already_downloaded += 1
             continue
 
@@ -102,7 +116,6 @@ with open(input_file) as reader:
             print(datetime.datetime.now(), url_count, file_number, time.time() - start_time, "already_downloaded:",
                   already_downloaded)
             start_time = time.time()
-            time.sleep(10)  # more respect to wiki servers
 
     sys.stdout.write(str(url_count) + "\n")
 
