@@ -15,7 +15,7 @@ def svg2png(file_path):
     drawing = svg2rlg(file_path)
     new_file_path = file_path[:-3] + "png"
     renderPM.drawToFile(drawing, new_file_path, fmt="PNG")
-    os.system("rm "+ file_path)
+    os.system("rm "+ file_path + " &")
     return new_file_path
 
 class TimeoutError(Exception):
