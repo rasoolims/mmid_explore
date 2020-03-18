@@ -41,7 +41,7 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
     return decorator
 
 
-@timeout(600, "time out")
+@timeout(6000, "time out")
 def download_one_file(fixed_url, file_path):
     urllib.request.urlretrieve(fixed_url, file_path)
 
@@ -65,6 +65,8 @@ def check_image(filepath):
             filepath = svg2png(filepath)
         resize_image(filepath)
     except:
+        print("removing", filepath)
+        os.system("rm " + filepath + " &")
         return False
     return True
 
