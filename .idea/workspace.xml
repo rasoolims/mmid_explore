@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/count_files_in_subdirs.py" beforeDir="false" afterPath="$PROJECT_DIR$/count_files_in_subdirs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rm_files_with_qsub.py" beforeDir="false" afterPath="$PROJECT_DIR$/rm_files_with_qsub.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -6,7 +6,7 @@ config_folder =  os.path.abspath(sys.argv[2])
 for folder in os.listdir(input_folder):
     print(folder)
     folder_path = os.path.join(input_folder, folder)
-    content = ["#$ -N " + folder]
+    content = ["#$ -N rm_" + folder]
     content += ["#$ -o " + os.path.join(config_folder, folder + ".stdout")]
     content += ["#$ -e " + os.path.join(config_folder, folder + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
