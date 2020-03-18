@@ -94,7 +94,7 @@ with open(input_file) as reader:
             continue
 
         url_count += 1
-        total_tries = 2
+        total_tries = 1
         for t in range(total_tries):
             try:
                 download_one_file(url, img_file_path)
