@@ -40,7 +40,7 @@ def extract_image_info(line):
                                                                               "")  # Remove anything between brackets
     caption = caption.replace("[", "").replace("]", "")
 
-    if len(caption) < 3 or "{" in caption:
+    if len(caption) < 3:
         return None
 
     return wikipedia_path, caption
