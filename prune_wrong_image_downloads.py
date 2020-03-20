@@ -29,9 +29,13 @@ with open(image_url_file, "r") as reader:
         for image_file in image_paths[file_num]:
             image_extension = image_file[image_file.rfind("."):]
             if extension != image_extension:
-                command = "rm " + os.path.join(image_folder, image_file) + "&"
-                os.system(command)
                 removed += 1
+                if removed % 100 == 0:
+                    command = "rm " + os.path.join(image_folder, image_file)
+                else:
+                    command = "rm " + os.path.join(image_folder, image_file) + " &"
+                print(command)
+                os.system(command)
 
         if (c + 1) % 1000000 == 0:
             print(c + 1)
