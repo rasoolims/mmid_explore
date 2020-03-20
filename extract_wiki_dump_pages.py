@@ -185,7 +185,7 @@ def extract_pages(xmlfile):
                 current_page_content.append(line)
 
 
-input_folder = os.path.abspath(sys.argv[1])
+input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
@@ -198,7 +198,7 @@ if not os.path.exists(current_folder):
 
 image_link_dict = {}
 all_images = 0
-for page in extract_pages(input_folder):
+for page in extract_pages(input_file):
     current_file = os.path.join(current_folder, str(written_files) + ".txt")
     with open(current_file, "w") as writer:
         writer.write(page[0])
@@ -215,7 +215,7 @@ for page in extract_pages(input_folder):
             os.makedirs(current_folder)
         print("written", written_files)
 
-print("Done with texts", input_folder, written_files)
+print("Done with texts", input_file, written_files)
 
 with open(os.path.join(output_folder, 'images.json'), 'w') as fp:
     json.dump(image_link_dict, fp)

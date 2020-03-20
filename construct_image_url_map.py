@@ -18,11 +18,11 @@ def fix_caption(caption):
 html_url_file = os.path.abspath(sys.argv[1])
 html2image_map = os.path.abspath(sys.argv[2])
 image_url_file = os.path.abspath(sys.argv[3])
-output_file = os.path.abspath(sys.argv[4])
+image_paths = os.path.abspath(sys.argv[4])
+output_file = os.path.abspath(sys.argv[5])
 
 html_file_to_caption_dict = {}
 image_url_to_html_file_dict = defaultdict(set)
-caption_maps = defaultdict(dict)
 
 url_set = set()
 url_counts = 0
@@ -41,7 +41,7 @@ with open(html_url_file, "r") as reader:
             continue
         if caption is None:
             continue
-        html_file_to_caption_dict[file_num] = caption, lang
+        html_file_to_caption_dict[file_num] = caption, lang, url
         if (c+1)%1000000==0:
             print(c+1)
 
@@ -56,26 +56,47 @@ with open(html2image_map, "r") as reader:
         if (c+1)%1000000==0:
             print(c+1)
 
+
+image_file_paths = {}
+print("reading image file paths")
+with open(image_paths, "r") as reader:
+    for c, line in enumerate(reader):
+        spl = line.strip().split("\t")
+        if len(spl) != 2:
+            print("hi!")
+            continue
+        file_num, path = spl
+        image_file_paths[file_num] = path
+        if (c+1)%1000000==0:
+            print(c+1)
+
 print("Merging captions")
+caption_maps = defaultdict(dict)
 total_images = 0
+file_num_exists = 0
 with open(image_url_file, "r") as reader:
     for c, line in enumerate(reader):
         spl = line.strip().split("\t")
         if len(spl) < 2: continue
 
         file_num, url = spl
+        if file_num not in image_file_paths:
+            continue
+        else:
+            file_num_exists += 1
+        file_path = image_file_paths[file_num]
 
         if url in image_url_to_html_file_dict:
             for html_file_num in image_url_to_html_file_dict[url]:
-                caption, lang = html_file_to_caption_dict[html_file_num]
+                caption, lang, url = html_file_to_caption_dict[html_file_num]
                 if lang not in caption_maps:
-                    caption_maps[url][lang] = defaultdict(set)
-
-                caption_maps[file_num][lang].add(caption)
+                    caption_maps[file_path][lang] = {}
+                cur_len = len(caption_maps[file_path][lang])
+                caption_maps[file_path][lang][cur_len] = {"caption": caption, "url": url}
                 total_images += 1
         if (c+1)%1000000==0:
             print(c+1)
 
 with open(output_file, 'w') as fp:
     json.dump(caption_maps, fp)
-print("wrote everything", len(caption_maps), total_images)
+print("wrote everything", len(caption_maps), total_images, file_num_exists)
