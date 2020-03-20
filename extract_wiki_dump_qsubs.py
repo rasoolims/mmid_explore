@@ -29,7 +29,7 @@ for file in os.listdir(input_folder):
     content += ["#$ -l h_rt=48:00:00"]
     content += ["#$ -cwd"]
     command = "python3 -u " + path_dir_name + " " + file_path + " " + lang_folder
-    content += command
+    content += [command]
 
     content = "\n".join(content)
     config_path = os.path.join(config_folder, lang_name) + ".sh"
