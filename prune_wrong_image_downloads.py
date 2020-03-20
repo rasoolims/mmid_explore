@@ -19,7 +19,7 @@ with open(output_file, "w") as writer:
             for image_file in image_files:
                 image_extension = image_file[image_file.rfind("."):]
                 if extension != image_extension:
-                    writer.write(os.path.join(image_folder, folder, image_file))
+                    writer.write(os.path.join(image_folder, folder, image_file)+"\n")
 
             if (c + 1) % 10000 == 0:
                 print(c + 1)
