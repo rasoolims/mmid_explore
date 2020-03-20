@@ -1,7 +1,7 @@
 import os,sys
 
 input_folder = os.path.abspath(sys.argv[1])
-config_folder = os.path.abspath(sys.argv[1])
+config_folder = os.path.abspath(sys.argv[2])
 output_folder = os.path.abspath(sys.argv[3])
 
 if not os.path.exists(config_folder):
