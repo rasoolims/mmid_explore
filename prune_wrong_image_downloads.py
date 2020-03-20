@@ -37,7 +37,7 @@ with open(image_url_file, "r") as reader:
                 else:
                     command = "rm " + image_file + " &"
                 print(command)
-                # os.system(command)
+                os.system(command)
 
         if (c + 1) % 1000000 == 0:
             print(c + 1)
