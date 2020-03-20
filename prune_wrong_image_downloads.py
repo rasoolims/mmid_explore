@@ -41,8 +41,8 @@ with open(image_url_file, "r") as reader:
                     command = "rm " + image_file
                 else:
                     command = "rm " + image_file + " &"
-                #print(command)
-                #os.system(command)
+                print(command)
+                os.system(command)
 
         if (c + 1) % 1000000 == 0:
             print(c + 1)
@@ -63,6 +63,6 @@ for folder in os.listdir(image_folder):
             else:
                 command = "rm " + file_path + " &"
             print(command)
-            #os.system(command)
+            os.system(command)
 
 print("removed files", removed)
