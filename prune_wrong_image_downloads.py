@@ -17,7 +17,7 @@ with open(output_file, "w") as writer:
 
             extension = url[url.rfind("."):]
             file_name = file_num + extension
-            folder = str(int(file_name)%1000)
+            folder = str(int(file_num)%1000)
 
             image_files = glob.glob(os.path.join(image_folder, folder, file_name+"*"))
 
