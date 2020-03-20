@@ -10,21 +10,16 @@ with open(output_file, "w") as writer:
     with open(image_url_file, "r") as reader:
         for c, line in enumerate(reader):
             spl = line.strip().split("\t")
-
             if len(spl) != 2: continue
 
             file_num, url = spl
-
             extension = url[url.rfind("."):]
-            file_name = file_num + extension
             folder = str(int(file_num)%1000)
-
-            image_files = glob.glob(os.path.join(image_folder, folder, file_name+"*"))
-
+            image_files = glob.glob(os.path.join(image_folder, folder, file_num+"*"))
             for image_file in image_files:
                 image_extension = image_file[image_file.rfind("."):]
                 if extension != image_extension:
                     writer.write(os.path.join(image_folder, folder, image_file))
 
-            if (c + 1) % 100000 == 0:
+            if (c + 1) % 10000 == 0:
                 print(c + 1)
