@@ -3,6 +3,7 @@ import sys
 from collections import defaultdict
 import re
 import json
+import urllib.parse as urlparse
 
 def fix_caption(caption):
     caption = re.sub("(([0-9]+x)?[0-9]+)px", "", caption)
@@ -51,8 +52,11 @@ with open(html2image_map, "r") as reader:
         spl = line.strip().split("\t")
         if len(spl) != 2: continue
         file_num, url = spl
+        parsed_link = urlparse.urlsplit(url)
+        parsed_link = parsed_link._replace(path=urlparse.quote(parsed_link.path))
+        fixed_url = parsed_link.geturl()
         if file_num in html_file_to_caption_dict:
-            image_url_to_html_file_dict[url].add(file_num)
+            image_url_to_html_file_dict[fixed_url].add(file_num)
         if (c+1)%1000000==0:
             print(c+1)
 
@@ -70,6 +74,8 @@ with open(image_paths, "r") as reader:
         if (c+1)%1000000==0:
             print(c+1)
 
+html_to_jpg_maps = {}
+to_remove_writer = open(output_file+".remove", "w")
 print("Merging captions")
 caption_maps = defaultdict(dict)
 total_images = 0
@@ -80,6 +86,11 @@ with open(image_url_file, "r") as reader:
         if len(spl) < 2: continue
 
         file_num, url = spl
+        extension = url[url.rfind("."):]
+        parsed_link = urlparse.urlsplit(url)
+        parsed_link = parsed_link._replace(path=urlparse.quote(parsed_link.path))
+        url = parsed_link.geturl()
+
         if file_num not in image_file_paths:
             continue
         else:
@@ -88,15 +99,22 @@ with open(image_url_file, "r") as reader:
 
         if url in image_url_to_html_file_dict:
             for html_file_num in image_url_to_html_file_dict[url]:
-                caption, lang, url = html_file_to_caption_dict[html_file_num]
+                caption, lang, html_url = html_file_to_caption_dict[html_file_num]
                 if lang not in caption_maps:
                     caption_maps[file_path][lang] = {}
                 cur_len = len(caption_maps[file_path][lang])
-                caption_maps[file_path][lang][cur_len] = {"caption": caption, "url": url}
+                caption_maps[file_path][lang][cur_len] = {"caption": caption, "url": url, "html_url":html_url}
+                html_to_jpg_maps[html_url] = {"file_path": file_path, "image_url": url}
                 total_images += 1
+        else:
+            folder_num = str(int(file_num)%1000)
+            to_remove_writer.write("rm " + folder_num+"/"+file_num+extension+" \n")
         if (c+1)%1000000==0:
             print(c+1)
 
-with open(output_file, 'w') as fp:
-    json.dump(caption_maps, fp)
-print("wrote everything", len(caption_maps), total_images, file_num_exists)
+with open(output_file, 'w', encoding="utf-8") as fp:
+    json.dump(caption_maps, fp, indent=4)
+with open(output_file+".html_info.json", 'w', encoding="utf-8") as fp:
+    json.dump(html_to_jpg_maps, fp, indent=4)
+print("wrote everything", len(caption_maps), total_images, file_num_exists, len(html_to_jpg_maps))
+to_remove_writer.close()
