@@ -31,16 +31,7 @@ def clean_text(sen, target_lang="en"):
     if sen.startswith("--"):
         return None
     if len(sen.split(" ")) == 1:
-        return None # Skip one-words
-    # has_eos = False
-    # for e in eos:
-    #     if sen.endswith(e):
-    #         has_eos = True
-    #         break
-    # if has_eos:
-    #     return sen
-    # else:
-    #     return None
+        return None  # Skip one-words
     return sen
 
 
@@ -74,10 +65,13 @@ wiki_prefix = "https://" + lang_prefix + ".wikipedia.org/wiki/"
 
 fasttext_model = fasttext.load_model(os.path.abspath(sys.argv[3]))
 
-output_folder = os.path.abspath(sys.argv[4])
+image_folder_prefix = sys.argv[4]
+
+output_folder = os.path.abspath(sys.argv[5])
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 output_json_file = output_folder + "/image_index." + lang + ".json"
+output_cat_file = output_folder + "/txt." + lang
 
 with open(os.path.abspath(sys.argv[2]), 'r', encoding="utf-8") as fp:
     html_to_jpg_maps = json.load(fp)
@@ -85,22 +79,33 @@ with open(os.path.abspath(sys.argv[2]), 'r', encoding="utf-8") as fp:
 output_dict = {}
 
 print("revising wiki pages")
-for subdir in os.listdir(txt_dir_name):
-    subdir_path = os.path.join(txt_dir_name, subdir)
-    if not os.path.isdir(subdir_path):
-        continue
-    for f in os.listdir(subdir_path):
-        f_path = os.path.join(subdir_path, f)
-        title, sen = get_text_content(f_path, lang == "en")
+with open(output_cat_file, "w") as cat_writer:
+    for subdir in os.listdir(txt_dir_name):
+        subdir_path = os.path.join(txt_dir_name, subdir)
+        if not os.path.isdir(subdir_path):
+            continue
+        for f in os.listdir(subdir_path):
+            f_path = os.path.join(subdir_path, f)
+            if not f_path.endswith(".gz"):
+                if os.path.exists(f_path + ".gz"):
+                    os.system("rm " + f_path)
+                    continue
+                else:
+                    os.system("gzip " + f_path)
+                    f_path += ".gz"
+            title, sen = get_text_content(f_path, lang == "en")
 
-        output_dir = os.path.join(output_folder, subdir)
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        outputfile = os.path.join(output_dir, f)
-        with gzip.open(outputfile, "wt") as fp:
-            fp.write(title + "\n")
-            fp.write("\n".join(sen))
-            fp.write("\n")
+            output_dir = os.path.join(output_folder, subdir)
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir)
+            outputfile = os.path.join(output_dir, f)
+            with gzip.open(outputfile, "wt") as fp:
+                fp.write(title + "\n")
+                fp.write("\n".join(sen))
+                fp.write("\n")
+            if len(sen) > 0:
+                cat_writer.write("\n".join(sen))
+                cat_writer.write("\n")
 
 print("revising caption indices")
 with open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8") as fp:
@@ -134,10 +139,12 @@ with open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8") as fp:
             fasttext_pred = fasttext_model.predict(corrected_caption)
             if fasttext_pred[0][0] == "__label__en" and fasttext_pred[1][0] > 0.9:
                 continue  # English caption
+            if image_folder_prefix != "_":
+                img_file_path = os.path.join(image_folder_prefix, img_file_path)
             image = {"caption": corrected_caption, "img_info_url": url, "img_url": img_url, "file": img_file_path}
             images[len(images)] = image
         if len(images) > 0:
-            output_dict[file] = images
+            output_dict["pages/"+lang+"/"+file] = images
 
 with open(output_json_file, 'w', encoding="utf-8") as fp:
     json.dump(output_dict, fp, indent=4)
