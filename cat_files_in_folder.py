@@ -1,4 +1,5 @@
-import os,sys
+import os
+import sys
 
 input_folder = os.path.abspath(sys.argv[1])
 with open(os.path.abspath(sys.argv[2]), "w") as writer:

@@ -65,7 +65,7 @@ def resize_image(file_path):
 
 def check_image(filepath):
     if filepath.lower().endswith(".svg"):
-        return True # do not download svg
+        return True  # do not download svg
     if os.path.exists(filepath):
         return True
     return False

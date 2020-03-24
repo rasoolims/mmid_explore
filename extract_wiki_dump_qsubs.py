@@ -1,4 +1,5 @@
-import os,sys
+import os
+import sys
 
 input_folder = os.path.abspath(sys.argv[1])
 config_folder = os.path.abspath(sys.argv[2])
@@ -9,7 +10,6 @@ if not os.path.exists(config_folder):
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/extract_wiki_dump_pages.py"
-
 
 for file in os.listdir(input_folder):
     if not file.endswith(".xml"):

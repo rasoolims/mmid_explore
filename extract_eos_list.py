@@ -1,6 +1,6 @@
+import gzip
 import os
 import sys
-import gzip
 
 input_folder = os.path.abspath(sys.argv[1])
 
@@ -15,11 +15,10 @@ for folder in os.listdir(input_folder):
             content = reader.read().strip().split("\n")
             for line in content:
                 words = line.strip().split(' ')
-                if len(words)>8:
+                if len(words) > 8:
                     if words[-1][-1] not in puncs:
                         print(line)
                         puncs.add(words[-1][-1])
-
 
 output_file = os.path.abspath(sys.argv[2])
 with open(output_file, "w") as writer:

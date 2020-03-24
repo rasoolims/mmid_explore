@@ -15,7 +15,7 @@ for folder in os.listdir(input_folder):
 
         os.system(command)
 
-        if c % 10000==0:
+        if c % 10000 == 0:
             print(c, f)
 
 print("done")

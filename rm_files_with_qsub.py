@@ -2,7 +2,7 @@ import os
 import sys
 
 input_folder = os.path.abspath(sys.argv[1])
-config_folder =  os.path.abspath(sys.argv[2])
+config_folder = os.path.abspath(sys.argv[2])
 job_limit = int(sys.argv[3])
 job_count = 0
 for folder in os.listdir(input_folder):
@@ -25,8 +25,8 @@ for folder in os.listdir(input_folder):
     command = "qsub " + config_path
     print(command)
     os.system(command)
-    job_count +=1
-    if job_count>job_limit:
+    job_count += 1
+    if job_count > job_limit:
         break
 
 print("done")

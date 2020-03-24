@@ -11,7 +11,7 @@ for a in range(3, len(sys.argv)):
         for line in reader:
             spl = line.strip().split("\t")
             n, url = int(spl[0]), spl[1]
-            longest_id = max(n+1, longest_id)
+            longest_id = max(n + 1, longest_id)
             already_used[url] = n
     print("already used urls", len(already_used))
 

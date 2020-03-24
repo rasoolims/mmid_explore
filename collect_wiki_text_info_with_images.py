@@ -4,6 +4,7 @@ import os
 import re
 import sys
 import urllib.parse as urlparse
+
 import fasttext
 
 sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|\。|\!|\!)\s"
@@ -29,6 +30,8 @@ def clean_text(sen, target_lang="en"):
         return None
     if sen.startswith("--"):
         return None
+    if len(sen.split(" ")) == 1:
+        return None # Skip one-words
     # has_eos = False
     # for e in eos:
     #     if sen.endswith(e):
@@ -51,7 +54,7 @@ def get_text_content(gzip_file, is_en):
             if not is_en:
                 fasttext_pred = fasttext_model.predict(spl)
                 spl = [sentence for i, sentence in enumerate(spl) if
-                         fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.9]
+                       fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.9]
 
             for s in spl:
                 clean_s = clean_text(s)
@@ -71,7 +74,6 @@ wiki_prefix = "https://" + lang_prefix + ".wikipedia.org/wiki/"
 
 fasttext_model = fasttext.load_model(os.path.abspath(sys.argv[3]))
 
-
 output_folder = os.path.abspath(sys.argv[4])
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
@@ -89,7 +91,7 @@ for subdir in os.listdir(txt_dir_name):
         continue
     for f in os.listdir(subdir_path):
         f_path = os.path.join(subdir_path, f)
-        title, sen = get_text_content(f_path, lang=="en")
+        title, sen = get_text_content(f_path, lang == "en")
 
         output_dir = os.path.join(output_folder, subdir)
         if not os.path.exists(output_dir):
@@ -130,11 +132,11 @@ with open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8") as fp:
             if corrected_caption is None:
                 continue
             fasttext_pred = fasttext_model.predict(corrected_caption)
-            if fasttext_pred[0][0] == "__label__en" and fasttext_pred[1][0]>0.9:
-                continue # English caption
+            if fasttext_pred[0][0] == "__label__en" and fasttext_pred[1][0] > 0.9:
+                continue  # English caption
             image = {"caption": corrected_caption, "img_info_url": url, "img_url": img_url, "file": img_file_path}
             images[len(images)] = image
-        if len(images)>0:
+        if len(images) > 0:
             output_dict[file] = images
 
 with open(output_json_file, 'w', encoding="utf-8") as fp:
