@@ -26,7 +26,7 @@ def fix_caption(caption):
 
 
 def clean_text(sen):
-    sen = sen.strip()
+    sen = sen.replace("。", "。 ").strip()
     sen = html.unescape(sen.strip())
     sen = re.sub("([<]).*?([>])", "", sen)
     if sen.startswith("http:") or sen.startswith("https:"):
@@ -103,10 +103,11 @@ with open(output_cat_file, "w") as cat_writer:
             if not os.path.exists(output_dir):
                 os.makedirs(output_dir)
             outputfile = os.path.join(output_dir, f)
-            with gzip.open(outputfile, "wt") as fp:
+            with open(outputfile, "w") as fp:
                 fp.write(title + "\n")
                 fp.write("\n".join(sen))
                 fp.write("\n")
+            os.system("gzip " + outputfile + " &")
             if len(sen) > 0:
                 cat_writer.write("\n".join(sen))
                 cat_writer.write("\n")
