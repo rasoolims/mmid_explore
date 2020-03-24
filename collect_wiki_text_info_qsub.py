@@ -26,6 +26,7 @@ for folder in os.listdir(dump_folder):
     content += ["#$ -l mem=20G"]
     content += ["#$ -l h_rt=48:00:00"]
     content += ["#$ -cwd"]
+    content += ["source /home1/r/rasooli/torch_env/bin/activate"]
     command = "python3 -u " + path_dir_name + " " + " ".join(
         [txt_json_folder, json_info_file, fasttext_model, image_folder_prefix, output_folder])
     content += [command]
