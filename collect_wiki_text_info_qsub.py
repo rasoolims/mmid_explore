@@ -17,6 +17,7 @@ path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/collect_wiki_tex
 for folder in os.listdir(dump_folder):
     folder_path = os.path.join(dump_folder, folder)
     txt_json_folder = os.path.join(folder_path, "images.json")
+    lang_out_folder = os.path.join(output_folder, os.path.basename(folder))
 
     content = ["#$ -N c_" + folder]
     content += ["#$ -o " + os.path.join(config_folder, folder + ".stdout")]
@@ -28,7 +29,7 @@ for folder in os.listdir(dump_folder):
     content += ["#$ -cwd"]
     content += ["source /home1/r/rasooli/torch_env/bin/activate"]
     command = "python3 -u " + path_dir_name + " " + " ".join(
-        [txt_json_folder, json_info_file, fasttext_model, image_folder_prefix, output_folder])
+        [txt_json_folder, json_info_file, fasttext_model, image_folder_prefix, lang_out_folder])
     content += [command]
 
     content = "\n".join(content)
