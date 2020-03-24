@@ -18,7 +18,7 @@ for folder in os.listdir(dump_folder):
     folder_path = os.path.join(dump_folder, folder)
     txt_json_folder = os.path.join(folder_path, "images.json")
 
-    content = ["#$ -N resize_" + folder]
+    content = ["#$ -N c_" + folder]
     content += ["#$ -o " + os.path.join(config_folder, folder + ".stdout")]
     content += ["#$ -e " + os.path.join(config_folder, folder + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
