@@ -4,7 +4,7 @@ import os
 import re
 import sys
 import urllib.parse as urlparse
-
+import html
 import fasttext
 
 sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|\。|\!|\!)\s"
@@ -12,24 +12,30 @@ eos = [".", "?", ".", "؟", "。", "!", "!"]
 
 
 def fix_caption(caption):
+    caption = html.unescape(caption.strip())
     caption = re.sub("(([0-9]+x)?[0-9]+)px", "", caption)
     caption = re.sub("([\[]).*?([\]])", "", caption)  # Remove anything between brackets
     caption = re.sub("([{+]).*?([}+])", "", caption).replace("}", "").replace("{",
                                                                               "")  # Remove anything between brackets
+    caption = re.sub("([<]).*?([>])", "", caption)  # Remove anything between brackets
     caption = caption.replace("[", "").replace("]", "")
+    caption = re.sub("\s+", " ", caption)
     if len(caption) < 3 or "{" in caption:
         return None
     return caption
 
 
-def clean_text(sen, target_lang="en"):
+def clean_text(sen):
     sen = sen.strip()
+    sen = html.unescape(sen.strip())
+    sen = re.sub("([<]).*?([>])", "", sen)
     if sen.startswith("http:") or sen.startswith("https:"):
         return None  # most likely a url
     if "_" in sen:
         return None
     if sen.startswith("--"):
         return None
+    sen = re.sub("\s+", " ", sen)
     if len(sen.split(" ")) == 1:
         return None  # Skip one-words
     return sen
@@ -65,9 +71,7 @@ wiki_prefix = "https://" + lang_prefix + ".wikipedia.org/wiki/"
 
 fasttext_model = fasttext.load_model(os.path.abspath(sys.argv[3]))
 
-image_folder_prefix = sys.argv[4]
-
-output_folder = os.path.abspath(sys.argv[5])
+output_folder = os.path.abspath(sys.argv[4])
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 output_json_file = output_folder + "/image_index." + lang + ".json"
@@ -139,8 +143,6 @@ with open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8") as fp:
             fasttext_pred = fasttext_model.predict(corrected_caption)
             if fasttext_pred[0][0] == "__label__en" and fasttext_pred[1][0] > 0.9:
                 continue  # English caption
-            if image_folder_prefix != "_":
-                img_file_path = os.path.join(image_folder_prefix, img_file_path)
             image = {"caption": corrected_caption, "img_info_url": url, "img_url": img_url, "file": img_file_path}
             images[len(images)] = image
         if len(images) > 0:

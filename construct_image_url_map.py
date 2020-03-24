@@ -2,17 +2,19 @@ import json
 import os
 import re
 import sys
-import urllib.parse as urlparse
 from collections import defaultdict
 import fasttext
-
+import html
 
 def fix_caption(caption):
+    caption = html.unescape(caption.strip())
     caption = re.sub("(([0-9]+x)?[0-9]+)px", "", caption)
     caption = re.sub("([\[]).*?([\]])", "", caption)  # Remove anything between brackets
     caption = re.sub("([{+]).*?([}+])", "", caption).replace("}", "").replace("{",
                                                                               "")  # Remove anything between brackets
+    caption = re.sub("([<]).*?([>])", "", caption)  # Remove anything between brackets
     caption = caption.replace("[", "").replace("]", "")
+    caption = re.sub("\s+", " ", caption)
     if len(caption) < 3 or "{" in caption:
         return None
 
@@ -64,11 +66,8 @@ with open(html2image_map, "r") as reader:
         spl = line.strip().split("\t")
         if len(spl) != 2: continue
         file_num, url = spl
-        parsed_link = urlparse.urlsplit(url)
-        parsed_link = parsed_link._replace(path=urlparse.quote(parsed_link.path))
-        fixed_url = parsed_link.geturl()
         if file_num in html_file_to_caption_dict:
-            image_url_to_html_file_dict[fixed_url].add(file_num)
+            image_url_to_html_file_dict[url].add(file_num)
         if (c + 1) % 1000000 == 0:
             print(c + 1)
 
@@ -98,23 +97,20 @@ with open(image_url_file, "r") as reader:
 
         file_num, url = spl
         extension = url[url.rfind("."):]
-        parsed_link = urlparse.urlsplit(url)
-        parsed_link = parsed_link._replace(path=urlparse.quote(parsed_link.path))
-        url = parsed_link.geturl()
 
         if file_num not in image_file_paths:
             continue
         else:
             file_num_exists += 1
-        file_path = image_file_paths[file_num]
+        file_path = "images/"+image_file_paths[file_num]
 
         if url in image_url_to_html_file_dict:
             for html_file_num in image_url_to_html_file_dict[url]:
                 caption, lang, html_url = html_file_to_caption_dict[html_file_num]
                 if lang not in caption_maps:
-                    caption_maps[file_path][lang] = {}
+                    caption_maps[file_path][lang] = []
                 cur_len = len(caption_maps[file_path][lang])
-                caption_maps[file_path][lang][cur_len] = {"caption": caption, "url": url, "html_url": html_url}
+                caption_maps[file_path][lang]+= [{"caption": caption, "url": url, "html_url": html_url}]
                 html_to_jpg_maps[html_url] = {"file_path": file_path, "image_url": url}
                 total_images += 1
         else:
