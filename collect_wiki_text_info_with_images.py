@@ -100,7 +100,7 @@ if mode == "txt":
                         os.system("rm " + f_path)
                         continue
                     else:
-                        os.system("gzip " + f_path)
+                        os.system("gzip -f " + f_path)
                         f_path += ".gz"
                 title, sen = get_text_content(f_path, lang == "en")
 
@@ -112,7 +112,7 @@ if mode == "txt":
                     fp.write(title + "\n")
                     fp.write("\n".join(sen))
                     fp.write("\n")
-                os.system("gzip " + outputfile + " &")
+                os.system("gzip -f " + outputfile + " &")
                 if len(sen) > 0:
                     cat_writer.write("\n".join(sen))
                     cat_writer.write("\n")

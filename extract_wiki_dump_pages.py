@@ -218,7 +218,7 @@ for page in extract_pages(input_file):
         if len(page[1]) > 0:
             image_link_dict[str(folder_num) + "/" + str(written_files) + ".txt.gz"] = page[1]
             all_images += len(page[1])
-    os.system("gzip " + current_file + " &")  # Should be faster that python gzip writer.
+    os.system("gzip -f " + current_file + " &")  # Should be faster that python gzip writer.
 
     written_files += 1
     if written_files % 10000 == 0:
