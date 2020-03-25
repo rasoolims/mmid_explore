@@ -6,6 +6,7 @@ json_info_file = os.path.abspath(sys.argv[2])
 fasttext_model = os.path.abspath(sys.argv[3])
 config_folder = os.path.abspath(sys.argv[4])
 output_folder = os.path.abspath(sys.argv[5])
+mode = sys.argv[6]
 
 if not os.path.exists(config_folder):
     os.makedirs(config_folder)
@@ -28,7 +29,7 @@ for folder in os.listdir(dump_folder):
     content += ["#$ -cwd"]
     content += ["source /home1/r/rasooli/torch_env/bin/activate"]
     command = "python3 -u " + path_dir_name + " " + " ".join(
-        [txt_json_folder, json_info_file, fasttext_model, lang_out_folder])
+        [txt_json_folder, json_info_file, fasttext_model, lang_out_folder, mode])
     content += [command]
 
     content = "\n".join(content)
