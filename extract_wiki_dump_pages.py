@@ -51,7 +51,7 @@ def remove_html_tags(text):
     return TAG_RE.sub('', text).strip()
 
 
-def clean_line(line):
+def clean_line(line, is_title=False):
     content = html.unescape(line.strip())
     content = remove_html_tags(text=content)
     content = re.sub("([{+]).*?([}+])", "", content).replace("}", "").replace("{",
@@ -79,7 +79,20 @@ def clean_line(line):
         if len(w) > 0:
             output.append(w)
     output = " ".join(output).strip()
-    return output
+
+    sen = output.replace("。", "。 ").strip()
+    sen = re.sub("([<]).*?([>])", "", sen)
+    if sen.startswith("http:") or sen.startswith("https:"):
+        return None  # most likely a url
+    if "_" in sen:
+        return None
+    if sen.startswith("--"):
+        return None
+    sen = re.sub("\s+", " ", sen)
+    if not is_title and len(sen.split(" ")) == 1:
+        return None  # Skip one-words
+
+    return sen
 
 
 def is_eligible_line(line):
@@ -118,7 +131,7 @@ def extract_tile_and_text(xml_content):
     for c, line in enumerate(xml_content):
         line = line.strip()
         if line.startswith("<title>") and line.endswith("</title>"):
-            title = clean_line(line[7:-8].strip())
+            title = clean_line(line[7:-8].strip(), is_title=True)
             if ":" in title:
                 return None  # Usually (not always, these pages belong to redirect or category pages)
         else:
