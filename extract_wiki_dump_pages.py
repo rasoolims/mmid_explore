@@ -82,7 +82,7 @@ def clean_line(line, is_title=False):
 
     sen = output.replace("。", "。 ").strip()
     sen = re.sub("([<]).*?([>])", "", sen)
-    if sen.startswith("http:") or sen.startswith("https:"):
+    if sen.startswith("http:") or sen.startswith("https:") or sen.startswith("!"):
         return ""  # most likely a url
     if "_" in sen:
         return ""

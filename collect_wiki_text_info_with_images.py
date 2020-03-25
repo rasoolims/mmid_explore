@@ -30,7 +30,7 @@ def clean_text(sen):
     sen = sen.replace("。", "。 ").strip()
     sen = html.unescape(sen.strip())
     sen = re.sub("([<]).*?([>])", "", sen)
-    if sen.startswith("http:") or sen.startswith("https:"):
+    if sen.startswith("http:") or sen.startswith("https:") or sen.startswith("!"):
         return None  # most likely a url
     if "_" in sen:
         return None
