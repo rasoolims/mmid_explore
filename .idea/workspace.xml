@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/filter_bad_captions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get_caption_stat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collect_wiki_text_info_with_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_wiki_text_info_with_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/construct_image_url_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/construct_image_url_map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/download_wiki_img_from_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/download_wiki_img_from_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index2roberta.py" beforeDir="false" afterPath="$PROJECT_DIR$/index2roberta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_warc.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_warc_raw.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_warc_raw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resize_all_images_in_subfolders.py" beforeDir="false" afterPath="$PROJECT_DIR$/resize_all_images_in_subfolders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resize_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/resize_image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resize_images_in_folder.py" beforeDir="false" afterPath="$PROJECT_DIR$/resize_images_in_folder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +42,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.construct_image_url_map">
+  <component name="RunManager" selected="Python.filter_bad_captions">
     <configuration name="collect_passage_for_target_urls" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="mmid_explore" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,6 +232,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="filter_bad_captions" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/filter_bad_captions.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/wiki/images.json $USER_HOME$/Documents/wiki/images.filtered.json" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="find_matching_passage_for_images" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="mmid_explore" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -236,6 +267,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/find_matching_passage_for_images.py" />
       <option name="PARAMETERS" value="$USER_HOME$/Documents/mmid/spanish_warc_json/all.pickle $USER_HOME$/Documents/mmid/spanish_file_paths.txt $USER_HOME$/Documents/mmid/spanish_paths_with_txt.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get_caption_stat" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="mmid_explore" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_caption_stat.py" />
+      <option name="PARAMETERS" value="$USER_HOME$/Documents/wiki/images.filtered.json" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -355,6 +407,8 @@
       <item itemvalue="Python.extract_urls_for_folders_qsubs" />
       <item itemvalue="Python.extract_wiki_dump_pages" />
       <item itemvalue="Python.construct_image_url_map" />
+      <item itemvalue="Python.get_caption_stat" />
+      <item itemvalue="Python.filter_bad_captions" />
       <item itemvalue="Python.collect_wiki_text_info_with_images" />
       <item itemvalue="Python.prune_wrong_image_downloads" />
       <item itemvalue="Python.extract_wiki_png_jpg_candidates" />
@@ -380,13 +434,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="346" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585059855531">
+    <state x="910" y="346" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585146351329">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state x="910" y="351" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583251494011" />
     <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582751211224" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
-    <state x="910" y="346" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585059855531" />
+    <state x="910" y="346" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585146351329" />
     <state x="910" y="347" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584986901337" />
     <state x="910" y="348" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584969771294" />
     <state x="910" y="350" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051573611" />
@@ -405,79 +459,79 @@
       <screen x="0" y="23" width="2560" height="1326" />
     </state>
     <state width="2181" height="582" key="DebuggerActiveHint/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584652753584" />
-    <state width="2534" height="364" key="GridCell.Tab.0.bottom" timestamp="1585084765492">
+    <state width="2534" height="312" key="GridCell.Tab.0.bottom" timestamp="1585148155106">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929324" />
     <state width="2534" height="372" key="GridCell.Tab.0.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="364" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585084765492" />
+    <state width="2534" height="312" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585148155106" />
     <state width="2534" height="364" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584994286807" />
     <state width="2534" height="265" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584981654768" />
     <state width="2534" height="267" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958938" />
-    <state width="2534" height="364" key="GridCell.Tab.0.center" timestamp="1585084765491">
+    <state width="2534" height="312" key="GridCell.Tab.0.center" timestamp="1585148155105">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="364" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585084765491" />
+    <state width="2534" height="312" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585148155105" />
     <state width="2534" height="364" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584994286806" />
     <state width="2534" height="265" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584981654768" />
     <state width="2534" height="267" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958937" />
-    <state width="2534" height="364" key="GridCell.Tab.0.left" timestamp="1585084765491">
+    <state width="2534" height="312" key="GridCell.Tab.0.left" timestamp="1585148155104">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770604" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929322" />
     <state width="2534" height="372" key="GridCell.Tab.0.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891457" />
-    <state width="2534" height="364" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585084765491" />
+    <state width="2534" height="312" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585148155104" />
     <state width="2534" height="364" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584994286805" />
     <state width="2534" height="265" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584981654767" />
     <state width="2534" height="267" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958937" />
-    <state width="2534" height="364" key="GridCell.Tab.0.right" timestamp="1585084765492">
+    <state width="2534" height="312" key="GridCell.Tab.0.right" timestamp="1585148155105">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752770605" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580847929323" />
     <state width="2534" height="372" key="GridCell.Tab.0.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580936891458" />
-    <state width="2534" height="364" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585084765492" />
+    <state width="2534" height="312" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585148155105" />
     <state width="2534" height="364" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584994286806" />
     <state width="2534" height="265" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584981654768" />
     <state width="2534" height="267" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958937" />
-    <state width="2534" height="263" key="GridCell.Tab.1.bottom" timestamp="1585056991434">
+    <state width="2534" height="263" key="GridCell.Tab.1.bottom" timestamp="1585147449455">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.1.bottom/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752772975" />
     <state width="2534" height="457" key="GridCell.Tab.1.bottom/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
-    <state width="2534" height="263" key="GridCell.Tab.1.bottom/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585056991434" />
+    <state width="2534" height="263" key="GridCell.Tab.1.bottom/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585147449455" />
     <state width="2534" height="264" key="GridCell.Tab.1.bottom/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584985974635" />
     <state width="2534" height="265" key="GridCell.Tab.1.bottom/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584982707164" />
     <state width="2534" height="267" key="GridCell.Tab.1.bottom/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958938" />
-    <state width="2534" height="263" key="GridCell.Tab.1.center" timestamp="1585056991433">
+    <state width="2534" height="263" key="GridCell.Tab.1.center" timestamp="1585147449455">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.1.center/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752772974" />
     <state width="2534" height="457" key="GridCell.Tab.1.center/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
-    <state width="2534" height="263" key="GridCell.Tab.1.center/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585056991433" />
+    <state width="2534" height="263" key="GridCell.Tab.1.center/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585147449455" />
     <state width="2534" height="264" key="GridCell.Tab.1.center/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584985974635" />
     <state width="2534" height="265" key="GridCell.Tab.1.center/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584982707163" />
     <state width="2534" height="267" key="GridCell.Tab.1.center/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958938" />
-    <state width="2534" height="263" key="GridCell.Tab.1.left" timestamp="1585056991433">
+    <state width="2534" height="263" key="GridCell.Tab.1.left" timestamp="1585147449454">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.1.left/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752772974" />
     <state width="2534" height="457" key="GridCell.Tab.1.left/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937730" />
-    <state width="2534" height="263" key="GridCell.Tab.1.left/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585056991433" />
+    <state width="2534" height="263" key="GridCell.Tab.1.left/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585147449454" />
     <state width="2534" height="264" key="GridCell.Tab.1.left/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584985974635" />
     <state width="2534" height="265" key="GridCell.Tab.1.left/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584982707162" />
     <state width="2534" height="267" key="GridCell.Tab.1.left/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958938" />
-    <state width="2534" height="263" key="GridCell.Tab.1.right" timestamp="1585056991434">
+    <state width="2534" height="263" key="GridCell.Tab.1.right" timestamp="1585147449455">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state width="2534" height="269" key="GridCell.Tab.1.right/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582752772974" />
     <state width="2534" height="457" key="GridCell.Tab.1.right/0.23.2560.1342@0.23.2560.1342" timestamp="1580934937731" />
-    <state width="2534" height="263" key="GridCell.Tab.1.right/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585056991434" />
+    <state width="2534" height="263" key="GridCell.Tab.1.right/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585147449455" />
     <state width="2534" height="264" key="GridCell.Tab.1.right/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584985974635" />
     <state width="2534" height="265" key="GridCell.Tab.1.right/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584982707163" />
     <state width="2534" height="267" key="GridCell.Tab.1.right/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051958938" />
@@ -560,27 +614,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/construct_image_url_map.py</url>
-          <line>79</line>
+          <line>82</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/construct_image_url_map.py</url>
-          <line>115</line>
+          <line>118</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/construct_image_url_map.py</url>
-          <line>55</line>
+          <line>58</line>
           <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/filter_bad_captions.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="fasttext_pred" language="Python" />
-        <watch expression="fasttext_pred[1]" language="Python" />
-        <watch expression="fasttext_pred[0][0]" language="Python" />
-        <watch expression="lang" language="Python" />
+        <watch expression="caption_dict[k]" language="Python" />
+        <watch expression="caption_dict[k][lang][0][&quot;caption&quot;]" language="Python" />
+        <watch expression="(len(caption.split(&quot; &quot;)) &gt; 5 and caption in en_captions)" language="Python" />
+        <watch expression="(len(caption.split(&quot; &quot;)) &lt; 5 and caption in en_captions) " language="Python" />
       </configuration>
     </watches-manager>
   </component>

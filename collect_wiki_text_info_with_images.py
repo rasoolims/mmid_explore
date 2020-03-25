@@ -1,10 +1,11 @@
 import gzip
+import html
 import json
 import os
 import re
 import sys
 import urllib.parse as urlparse
-import html
+
 import fasttext
 
 sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|\。|\!|\!)\s"
@@ -147,7 +148,7 @@ with open(os.path.abspath(sys.argv[1]), 'r', encoding="utf-8") as fp:
             image = {"caption": corrected_caption, "img_info_url": url, "img_url": img_url, "file": img_file_path}
             images[len(images)] = image
         if len(images) > 0:
-            output_dict["pages/"+lang+"/"+file] = images
+            output_dict["pages/" + lang + "/" + file] = images
 
 with open(output_json_file, 'w', encoding="utf-8") as fp:
     json.dump(output_dict, fp, indent=4)

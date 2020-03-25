@@ -1,10 +1,12 @@
+import html
 import json
 import os
 import re
 import sys
 from collections import defaultdict
+
 import fasttext
-import html
+
 
 def fix_caption(caption):
     caption = html.unescape(caption.strip())
@@ -19,6 +21,7 @@ def fix_caption(caption):
         return None
 
     return caption
+
 
 fasttext_model = fasttext.load_model(os.path.abspath(sys.argv[1]))
 html_url_file = os.path.abspath(sys.argv[2])
@@ -102,7 +105,7 @@ with open(image_url_file, "r") as reader:
             continue
         else:
             file_num_exists += 1
-        file_path = "images/"+image_file_paths[file_num]
+        file_path = "images/" + image_file_paths[file_num]
 
         if url in image_url_to_html_file_dict:
             for html_file_num in image_url_to_html_file_dict[url]:
@@ -110,7 +113,7 @@ with open(image_url_file, "r") as reader:
                 if lang not in caption_maps:
                     caption_maps[file_path][lang] = []
                 cur_len = len(caption_maps[file_path][lang])
-                caption_maps[file_path][lang]+= [{"caption": caption, "url": url, "html_url": html_url}]
+                caption_maps[file_path][lang] += [{"caption": caption, "url": url, "html_url": html_url}]
                 html_to_jpg_maps[html_url] = {"file_path": file_path, "image_url": url}
                 total_images += 1
         else:
