@@ -83,14 +83,14 @@ def clean_line(line, is_title=False):
     sen = output.replace("。", "。 ").strip()
     sen = re.sub("([<]).*?([>])", "", sen)
     if sen.startswith("http:") or sen.startswith("https:"):
-        return None  # most likely a url
+        return ""  # most likely a url
     if "_" in sen:
-        return None
+        return ""
     if sen.startswith("--"):
-        return None
+        return ""
     sen = re.sub("\s+", " ", sen)
     if not is_title and len(sen.split(" ")) == 1:
-        return None  # Skip one-words
+        return ""  # Skip one-words
 
     return sen
 
