@@ -26,7 +26,7 @@ for file in os.listdir(input_folder):
     content += ["#$ -M rasooli@seas.upenn.edu"]
     content += ["#$ -l h_vmem=20G"]
     content += ["#$ -l mem=20G"]
-    content += ["#$ -l h_rt=48:00:00"]
+    content += ["#$ -l h_rt=2048:00:00"]
     content += ["#$ -cwd"]
     command = "python3 -u " + path_dir_name + " " + file_path + " " + lang_folder
     content += [command]
