@@ -8,7 +8,7 @@ import urllib.parse as urlparse
 
 import fasttext
 
-sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|。|\!|\!)\s"
+sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|。|\!|\!|।)\s"
 eos = [".", "?", ".", "؟", "。", "!", "!"]
 
 
@@ -41,23 +41,38 @@ def clean_text(sen):
     return sen
 
 
-def get_text_content(gzip_file, is_en):
+def get_text_content(gzip_file, lang):
     with gzip.open(gzip_file, "rt") as reader:
         content = reader.read().strip().split("\n")
         title = content[0]
         sentences = []
-        for sen in content[1:]:
-            sen = sen.replace("。", "。 ").strip()
-            spl = re.split(sen_split_reg, sen)
-            if not is_en:
-                fasttext_pred = fasttext_model.predict(spl)
-                spl = [sentence for i, sentence in enumerate(spl) if
-                       fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.9]
 
-            for s in spl:
-                clean_s = clean_text(s)
-                if clean_s is not None:
-                    sentences.append(clean_s)
+        full_stop = "\n"
+        if lang == "hy":
+            full_stop = ":"
+        elif lang == "am":
+            full_stop = "::"
+
+        for sens in content[1:]:
+            # Special treatment for Thai.
+            if lang == "th":
+                if "(" not in sens and re.search('[0-9a-z]', sens.lower()) is None:
+                    full_stop = " "
+                else:
+                    full_stop = "\n"
+
+            for sen in sens.split(full_stop):
+                sen = sen.replace("。", "。 ").strip()
+                spl = re.split(sen_split_reg, sen)
+                if lang != "en":
+                    fasttext_pred = fasttext_model.predict(spl)
+                    spl = [sentence for i, sentence in enumerate(spl) if
+                           fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.9]
+
+                for s in spl:
+                    clean_s = clean_text(s)
+                    if clean_s is not None:
+                        sentences.append(clean_s)
         return title, sentences
 
 
@@ -102,7 +117,7 @@ if mode == "txt":
                     else:
                         os.system("gzip -f " + f_path)
                         f_path += ".gz"
-                title, sen = get_text_content(f_path, lang == "en")
+                title, sen = get_text_content(f_path, lang)
 
                 output_dir = os.path.join(output_folder, subdir)
                 if not os.path.exists(output_dir):
