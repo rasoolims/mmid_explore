@@ -68,7 +68,7 @@ def get_text_content(gzip_file, lang):
                     # First make sure it has some English character before running fasttext.
                     fasttext_pred = fasttext_model.predict(spl)
                     spl = [sentence for i, sentence in enumerate(spl) if
-                           fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.9]
+                           fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.8]
 
                 for s in spl:
                     clean_s = clean_text(s)
