@@ -8,7 +8,7 @@ import urllib.parse as urlparse
 
 import fasttext
 
-sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|\。|\!|\!)\s"
+sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|。|\!|\!)\s"
 eos = [".", "?", ".", "؟", "。", "!", "!"]
 
 
@@ -27,7 +27,6 @@ def fix_caption(caption):
 
 
 def clean_text(sen):
-    sen = sen.replace("。", "。 ").strip()
     sen = html.unescape(sen.strip())
     sen = re.sub("([<]).*?([>])", "", sen)
     if sen.startswith("http:") or sen.startswith("https:") or sen.startswith("!"):
@@ -48,6 +47,7 @@ def get_text_content(gzip_file, is_en):
         title = content[0]
         sentences = []
         for sen in content[1:]:
+            sen = sen.replace("。", "。 ").strip()
             spl = re.split(sen_split_reg, sen)
             if not is_en:
                 fasttext_pred = fasttext_model.predict(spl)
