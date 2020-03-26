@@ -64,7 +64,8 @@ def get_text_content(gzip_file, lang):
             for sen in sens.split(full_stop):
                 sen = sen.replace("。", "。 ").strip()
                 spl = re.split(sen_split_reg, sen)
-                if lang != "en":
+                if lang != "en" and re.search('[a-z]', sen.lower()) is not None:
+                    # First make sure it has some English character before running fasttext.
                     fasttext_pred = fasttext_model.predict(spl)
                     spl = [sentence for i, sentence in enumerate(spl) if
                            fasttext_pred[0][i][0] != "__label__en" or fasttext_pred[1][i][0] < 0.9]
