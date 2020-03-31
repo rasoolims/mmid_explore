@@ -24,7 +24,7 @@ with open(output_file, "w") as writer:
             file_path = os.path.join(folder_path, file)
             with gzip.open(file_path, "rt") as reader:
                 content = reader.read().strip().split("\n")
-                content = lang_name + " " + " </s> ".join(content)
+                content = lang_name + " " + " </s> ".join(content) +" </s>"
                 output.append(content.strip())
 
         writer.write("\n".join(output))
