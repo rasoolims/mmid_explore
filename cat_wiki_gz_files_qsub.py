@@ -37,8 +37,9 @@ split_size = math.ceil(len(commands) / num_processes)
 print("split size", split_size)
 
 step = 0
-for com_num in range(0, len(commands), split_size):
-    end = min(len(commands), com_num + split_size)
+for step in range(num_processes):
+    start = step*split_size
+    end = min(len(commands), start + split_size)
 
     content = ["#$ -N c_" + str(step)]
     content += ["#$ -o " + os.path.join(config_folder, str(step) + ".stdout")]
@@ -49,7 +50,7 @@ for com_num in range(0, len(commands), split_size):
     content += ["#$ -l h_rt=2048:00:00"]
     content += ["#$ -cwd"]
     content += ["source /home1/r/rasooli/torch_env/bin/activate"]
-    content += commands[com_num:end]
+    content += commands[start:end]
     content = "\n".join(content)
     config_path = os.path.join(config_folder, str(step)) + ".sh"
     with open(config_path, "w") as writer:
