@@ -27,8 +27,8 @@ for folder in os.listdir(dump_folder):
         lang_out_folder = os.path.join(output_folder, os.path.basename(folder))
 
         content = ["#$ -N c_" + folder]
-        content += ["#$ -o " + os.path.join(config_folder, folder + ".stdout")]
-        content += ["#$ -e " + os.path.join(config_folder, folder + ".stderr")]
+        content += ["#$ -o " + os.path.join(config_folder, folder + "." + str(i) + ".stdout")]
+        content += ["#$ -e " + os.path.join(config_folder, folder + "." + str(i) + ".stderr")]
         content += ["#$ -M rasooli@seas.upenn.edu"]
         content += ["#$ -l h_vmem=20G"]
         content += ["#$ -l mem=20G"]
@@ -40,7 +40,7 @@ for folder in os.listdir(dump_folder):
         content += [command]
 
         content = "\n".join(content)
-        config_path = os.path.join(config_folder, folder) + ".sh"
+        config_path = os.path.join(config_folder, folder) + "." + str(i) + ".sh"
         with open(config_path, "w") as writer:
             writer.write(content)
         command = "qsub " + config_path
