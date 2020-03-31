@@ -16,6 +16,9 @@ path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/cat_wiki_gz_file
 commands = []
 for folder in os.listdir(page_folder):
     folder_path = os.path.join(page_folder, folder)
+    if not os.path.isdir(folder_path):
+        continue
+        
     output_file = os.path.join(output_folder, folder + ".txt")
 
     for sub_folder in os.listdir(folder_path):
