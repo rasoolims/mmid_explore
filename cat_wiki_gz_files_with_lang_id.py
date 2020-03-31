@@ -37,4 +37,4 @@ with open(output_file, "w") as writer:
         if len(output) > 0:
             writer.write("\n".join(output))
             writer.write("\n")
-print("done with", lang_name)
+print("done with", output_file)
