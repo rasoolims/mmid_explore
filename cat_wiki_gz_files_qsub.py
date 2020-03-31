@@ -33,6 +33,6 @@ for folder in os.listdir(page_folder):
         writer.write(content)
     command = "qsub " + config_path
     print(command)
-    # os.system(command)
+    os.system(command)
 
 print("Done!")
