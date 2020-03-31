@@ -125,6 +125,7 @@ if mode == "txt":
             subdir_int = int(subdir)
             if subdir_int < min_folder or subdir_int > max_folder:
                 continue
+            print("revising wiki pages", subdir)
             subdir_path = os.path.join(txt_dir_name, subdir)
             if not os.path.isdir(subdir_path):
                 continue
