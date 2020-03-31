@@ -37,7 +37,7 @@ split_size = int(len(commands) / num_processes)
 print("split size", split_size)
 
 step = 0
-for step in range(num_processes):
+for step in range(num_processes+1):
     start = step*split_size
     end = min(len(commands), start + split_size)
 
