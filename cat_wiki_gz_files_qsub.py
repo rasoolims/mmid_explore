@@ -32,7 +32,7 @@ for folder in os.listdir(page_folder):
 
 print("number of commands", len(commands))
 
-split_size = math.ceil(len(commands) / num_processes)
+split_size = int(len(commands) / num_processes)
 
 print("split size", split_size)
 
