@@ -27,6 +27,11 @@ with open(output_file, "w") as writer:
                 content = lang_name + " " + " </s> ".join(content) + " </s>"
                 output.append(content.strip())
 
-        writer.write("\n".join(output))
-        writer.write("\n")
+            if len(output) >= 1000:
+                writer.write("\n".join(output))
+                writer.write("\n")
+                output = []
+        if len(output) > 0:
+            writer.write("\n".join(output))
+            writer.write("\n")
 print("done with", lang_name)
