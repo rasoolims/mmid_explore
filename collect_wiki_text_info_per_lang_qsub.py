@@ -26,7 +26,7 @@ for folder in os.listdir(dump_folder):
         txt_json_folder = os.path.join(folder_path, "images.json")
         lang_out_folder = os.path.join(output_folder, os.path.basename(folder))
 
-        content = ["#$ -N c_" + folder]
+        content = ["#$ -N c_" + folder + "." + str(i)]
         content += ["#$ -o " + os.path.join(config_folder, folder + "." + str(i) + ".stdout")]
         content += ["#$ -e " + os.path.join(config_folder, folder + "." + str(i) + ".stderr")]
         content += ["#$ -M rasooli@seas.upenn.edu"]
