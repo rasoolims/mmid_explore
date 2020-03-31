@@ -19,15 +19,13 @@ for folder in os.listdir(page_folder):
     if not os.path.isdir(folder_path):
         continue
 
-    output_file = os.path.join(output_folder, folder + ".txt")
-
     for sub_folder in os.listdir(folder_path):
         sub_folder_path = os.path.join(folder_path, sub_folder)
         if not os.path.isdir(sub_folder_path):
             continue
         if not os.path.isdir(folder_path):
             continue
-        command = "python3 -u " + path_dir_name + " " + " ".join([folder_path, output_file, sub_folder])
+        command = "python3 -u " + path_dir_name + " " + " ".join([folder_path, sub_folder])
         commands += [command]
 
 print("number of commands", len(commands))
