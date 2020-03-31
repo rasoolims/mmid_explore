@@ -10,7 +10,7 @@ if input_folder.endswith("/"):
     input_folder = input_folder[-1]
 lang_name = os.path.basename(input_folder)
 
-output_file = os.path.join(folder_path, lang_name + folder + ".cat.txt")
+output_file = os.path.join(folder_path, lang_name + "." + folder + ".cat.txt")
 
 lang_name = "<" + lang_name + ">"
 
