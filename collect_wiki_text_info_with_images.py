@@ -103,7 +103,7 @@ if not os.path.exists(output_folder):
 min_folder, max_folder = -1, 1000000
 if len(sys.argv) > 7:
     min_folder = int(sys.argv[6])
-    max_folder = int(sys.argv[5])
+    max_folder = int(sys.argv[7])
 
 output_json_file = output_folder + "/image_index." + lang + ".json"
 output_cat_file = output_folder + "/txt." + lang
