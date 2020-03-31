@@ -3,16 +3,19 @@ import os
 import sys
 
 input_folder = os.path.abspath(sys.argv[1])
-output_file = os.path.abspath(sys.argv[2])
+folder = sys.argv[2]
+folder_path = os.path.join(input_folder, folder)
 
 if input_folder.endswith("/"):
     input_folder = input_folder[-1]
 lang_name = os.path.basename(input_folder)
+
+output_file = os.path.join(folder_path, lang_name + folder + ".cat.txt")
+
 lang_name = "<" + lang_name + ">"
 
 with open(output_file, "w") as writer:
     for folder in os.listdir(input_folder):
-        folder_path = os.path.join(input_folder, folder)
         if not os.path.isdir(folder_path):
             continue
         print("reading folder", folder_path)
