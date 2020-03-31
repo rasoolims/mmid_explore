@@ -13,6 +13,8 @@ lang_name = "<" + lang_name + ">"
 with open(output_file, "w") as writer:
     for folder in os.listdir(input_folder):
         folder_path = os.path.join(input_folder, folder)
+        if not os.path.isdir(folder_path):
+            continue
         print("reading folder", folder_path)
         output = []
         for file in os.listdir(folder_path):
