@@ -99,6 +99,12 @@ fasttext_model = fasttext.load_model(os.path.abspath(sys.argv[3]))
 output_folder = os.path.abspath(sys.argv[4])
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
+
+min_folder, max_folder = -1, 1000000
+if len(sys.argv) > 6:
+    min_folder = int(sys.argv[5])
+    max_folder = int(sys.argv[6])
+
 output_json_file = output_folder + "/image_index." + lang + ".json"
 output_cat_file = output_folder + "/txt." + lang
 
@@ -114,6 +120,9 @@ if mode == "txt":
     print("revising wiki pages")
     with open(output_cat_file, "w") as cat_writer:
         for subdir in os.listdir(txt_dir_name):
+            subdir_int = int(subdir)
+            if subdir_int < min_folder or subdir_int > max_folder:
+                continue
             subdir_path = os.path.join(txt_dir_name, subdir)
             if not os.path.isdir(subdir_path):
                 continue

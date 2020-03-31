@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/collect_wiki_text_info_per_lang_qsub.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collect_wiki_text_info_with_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_wiki_text_info_with_images.py" afterDir="false" />
     </list>
@@ -392,19 +393,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.collect_passage_for_target_urls" />
+      <item itemvalue="Python.collect_wiki_text_info_with_images" />
+      <item itemvalue="Python.construct_image_url_map" />
       <item itemvalue="Python.convert_metadata_to_txt_for_all_files" />
       <item itemvalue="Python.extract_image_url_from_wiki_html" />
       <item itemvalue="Python.extract_urls_for_folders_qsubs" />
       <item itemvalue="Python.extract_wiki_dump_pages" />
-      <item itemvalue="Python.construct_image_url_map" />
-      <item itemvalue="Python.get_caption_stat" />
-      <item itemvalue="Python.filter_bad_captions" />
-      <item itemvalue="Python.collect_wiki_text_info_with_images" />
-      <item itemvalue="Python.prune_wrong_image_downloads" />
       <item itemvalue="Python.extract_wiki_png_jpg_candidates" />
       <item itemvalue="Python.extract_wikimedia_image_urls" />
+      <item itemvalue="Python.filter_bad_captions" />
       <item itemvalue="Python.find_matching_passage_for_images" />
+      <item itemvalue="Python.get_caption_stat" />
       <item itemvalue="Python.move_data" />
+      <item itemvalue="Python.prune_wrong_image_downloads" />
       <item itemvalue="Python.read_warc" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
       <item itemvalue="Python.unify_entries" />
@@ -544,12 +545,12 @@
     <state width="1280" height="659" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1584996733471" />
     <state width="1280" height="663" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584644924914" />
     <state width="1280" height="667" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051109338" />
-    <state x="438" y="842" key="com.intellij.ide.util.TipDialog" timestamp="1585232469617">
+    <state x="438" y="842" key="com.intellij.ide.util.TipDialog" timestamp="1585599904617">
       <screen x="0" y="23" width="2560" height="1318" />
     </state>
     <state x="626" y="695" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583508757596" />
     <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582652016417" />
-    <state x="438" y="842" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585232469617" />
+    <state x="438" y="842" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585599904617" />
     <state x="438" y="847" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584969092295" />
     <state x="438" y="852" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584408069782" />
     <state x="626" y="695" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583599921077" />
