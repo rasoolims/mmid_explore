@@ -28,12 +28,13 @@ split_size = math.ceil(len(commands) / num_processes)
 
 print("split size", split_size)
 
+step = 0
 for com_num in range(0, len(commands), split_size):
     end = min(len(commands), com_num + split_size)
 
-    content = ["#$ -N c_" + str(com_num)]
-    content += ["#$ -o " + os.path.join(config_folder, str(com_num) + ".stdout")]
-    content += ["#$ -e " + os.path.join(config_folder, str(com_num) + ".stderr")]
+    content = ["#$ -N c_" + str(step)]
+    content += ["#$ -o " + os.path.join(config_folder, str(step) + ".stdout")]
+    content += ["#$ -e " + os.path.join(config_folder, str(step) + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
     content += ["#$ -l h_vmem=20G"]
     content += ["#$ -l mem=20G"]
@@ -42,11 +43,12 @@ for com_num in range(0, len(commands), split_size):
     content += ["source /home1/r/rasooli/torch_env/bin/activate"]
     content += commands[com_num:end]
     content = "\n".join(content)
-    config_path = os.path.join(config_folder, str(com_num)) + ".sh"
+    config_path = os.path.join(config_folder, str(step)) + ".sh"
     with open(config_path, "w") as writer:
         writer.write(content)
     command = "qsub " + config_path
     print(command)
+    step += 1
     # os.system(command)
 
 print("Done!")
