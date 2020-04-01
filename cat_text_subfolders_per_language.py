@@ -25,3 +25,4 @@ for lang_folder in os.listdir(input_folder):
 
     command = " ".join(["cat"] + txt_files + ["> ", os.path.join(output_folder, lang_folder + ".txt"), "&"])
     print(command)
+    os.system(command)
