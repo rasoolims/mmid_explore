@@ -23,5 +23,5 @@ for lang_folder in os.listdir(input_folder):
         if os.path.exists(file_path):
             txt_files.append(file_path)
 
-    command = (["cat"] + txt_files + ["> ", os.path.join(output_folder, lang_folder + ".txt"), "&"])
+    command = " ".join(["cat"] + txt_files + ["> ", os.path.join(output_folder, lang_folder + ".txt"), "&"])
     print(command)
