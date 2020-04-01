@@ -22,10 +22,13 @@ with open(output_file, "w") as writer:
             continue
 
         file_path = os.path.join(folder_path, file)
-        with gzip.open(file_path, "rt") as reader:
-            content = reader.read().strip().split("\n")
-            content = lang_name + " " + " </s> ".join(content) + " </s>"
-            output.append(content.strip())
+        try:
+            with gzip.open(file_path, "rt") as reader:
+                content = reader.read().strip().split("\n")
+                content = lang_name + " " + " </s> ".join(content) + " </s>"
+                output.append(content.strip())
+        except:
+            print("error in file", file_path)
 
         if len(output) >= 1000:
             writer.write("\n".join(output))
