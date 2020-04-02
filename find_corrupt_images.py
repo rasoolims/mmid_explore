@@ -20,6 +20,7 @@ transform = transforms.Compose([  # [1]
 Image.MAX_IMAGE_PIXELS = None
 
 input_folder = os.path.abspath(sys.argv[1])
+print("folder", input_folder)
 for file in os.listdir(input_folder):
     if file.lower().endswith(".jpg") or file.lower().endswith(".jpeg") or file.lower().endswith(".png"):
         path = os.path.join(input_folder, file)
@@ -29,6 +30,7 @@ for file in os.listdir(input_folder):
             if x * y > 1024 * 1024:
                 new_im = image.resize((1024, 1024))
                 new_im.save(path)
+                print("resized", path)
             image = transform(image)
         except:
-            print(path)
+            print("problem reading", path)
