@@ -22,7 +22,7 @@ for folder in os.listdir(image_folder):
 
 print("number of commands", len(commands))
 
-split_size = int(len(commands) / num_processes) + 1
+split_size = int(len(commands) / num_processes)
 
 print("split size", split_size)
 
