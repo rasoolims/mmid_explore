@@ -30,6 +30,7 @@ step = 0
 for step in range(num_processes + 1):
     start = step * split_size
     end = min(len(commands), start + split_size)
+    print(start, end)
 
     content = ["#$ -N i_" + str(step)]
     content += ["#$ -o " + os.path.join(config_folder, str(step) + ".stdout")]
