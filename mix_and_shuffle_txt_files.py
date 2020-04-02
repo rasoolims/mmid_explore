@@ -26,7 +26,6 @@ sum_sizes = sum(file_sizes.values())
 random_share = []
 for path in file_sizes.keys():
     share = max(1, int(file_sizes[path] / (1024 * 1024)))
-    print(path, share)
     random_share += [path] * share
 
 output_file = os.path.abspath(sys.argv[2])
@@ -49,5 +48,4 @@ with open(output_file, "w") as writer:
             line_num += 1
             if line_num % 100000 == 0:
                 print("processed", line_num)
-
 print("Done!")
