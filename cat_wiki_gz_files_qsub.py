@@ -56,6 +56,6 @@ for step in range(num_processes+1):
     command = "qsub " + config_path
     print(command)
     step += 1
-    #os.system(command)
+    os.system(command)
 
 print("Done!")

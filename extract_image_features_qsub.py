@@ -52,6 +52,6 @@ while True:
     command = "qsub " + config_path
     print(command)
     step += 1
-    # os.system(command)
+    os.system(command)
 
 print("Done!")
