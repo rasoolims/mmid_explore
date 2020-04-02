@@ -22,14 +22,16 @@ for folder in os.listdir(image_folder):
 
 print("number of commands", len(commands))
 
-split_size = int(len(commands) / num_processes)
+split_size = int(len(commands) / num_processes) + 1
 
 print("split size", split_size)
 
 step = 0
-for step in range(num_processes + 1):
+while True:
     start = step * split_size
     end = min(len(commands), start + split_size)
+    if start>=end:
+        break
     print(start, end)
 
     content = ["#$ -N i_" + str(step)]
@@ -49,6 +51,7 @@ for step in range(num_processes + 1):
         writer.write(content)
     command = "qsub " + config_path
     print(command)
+    step += 1
     # os.system(command)
 
 print("Done!")

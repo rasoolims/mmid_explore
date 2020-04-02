@@ -38,7 +38,7 @@ step = 0
 for step in range(num_processes+1):
     start = step*split_size
     end = min(len(commands), start + split_size)
-
+    print(start, end)
     content = ["#$ -N c_" + str(step)]
     content += ["#$ -o " + os.path.join(config_folder, str(step) + ".stdout")]
     content += ["#$ -e " + os.path.join(config_folder, str(step) + ".stderr")]
@@ -56,6 +56,6 @@ for step in range(num_processes+1):
     command = "qsub " + config_path
     print(command)
     step += 1
-    os.system(command)
+    #os.system(command)
 
 print("Done!")
