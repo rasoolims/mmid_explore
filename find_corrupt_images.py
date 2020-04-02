@@ -23,8 +23,5 @@ for file in os.listdir(input_folder):
         try:
             image = Image.open(path).convert("RGB")
             image = transform(image)
-            print("cool with", path)
         except:
             print("error in", path)
-    else:
-        print("skipped", file)
