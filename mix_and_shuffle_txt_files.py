@@ -46,6 +46,6 @@ with open(output_file, "w") as writer:
         else:
             writer.write(line_read + "\n")
             line_num += 1
-            if line_num % 100000 == 0:
+            if line_num % 1000 == 0:
                 print("processed", line_num)
 print("Done!")
