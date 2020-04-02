@@ -43,7 +43,6 @@ for step in range(num_processes + 1):
     content += commands[start:end]
     content = "\n".join(content)
 
-    content = "\n".join(content)
     config_path = os.path.join(config_folder, str(step)) + ".sh"
     with open(config_path, "w") as writer:
         writer.write(content)
