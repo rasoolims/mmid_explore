@@ -24,7 +24,8 @@ for folder in os.listdir(image_folder):
     content += ["#$ -l h_rt=2048:00:00"]
     content += ["#$ -cwd"]
     content += ["source /home1/r/rasooli/torch_env/bin/activate"]
-    command = "python3 -u " + path_dir_name + " " + " ".join([folder_path, cur_output_folder, "--batch 128"])
+    command = "python3 -u " + path_dir_name + " " + " ".join(
+        ["--data", folder_path, "--output", cur_output_folder, "--batch 128"])
     content += [command]
     content = "\n".join(content)
     config_path = os.path.join(config_folder, folder) + ".sh"
