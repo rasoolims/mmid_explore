@@ -23,5 +23,6 @@ for file in input_folder:
         try:
             image = Image.open(path).convert("RGB")
             image = transform(image)
+            print("cool with", path)
         except:
-            print(path)
+            print("error in", path)
