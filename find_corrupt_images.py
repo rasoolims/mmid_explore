@@ -24,4 +24,4 @@ for file in os.listdir(input_folder):
             image = Image.open(path).convert("RGB")
             image = transform(image)
         except:
-            print("error in", path)
+            print(path)

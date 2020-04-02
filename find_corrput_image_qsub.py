@@ -3,21 +3,16 @@ import sys
 
 image_folder = os.path.abspath(sys.argv[1])
 config_folder = os.path.abspath(sys.argv[2])
-output_folder = os.path.abspath(sys.argv[3])
-num_processes = int(sys.argv[4])
+num_processes = int(sys.argv[3])
 
 if not os.path.exists(config_folder):
     os.makedirs(config_folder)
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
-path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/../code/image_feature_extractor/feature_extractor.py"
+path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/find_corrupt_images.py"
 
 commands = []
 for folder in os.listdir(image_folder):
     folder_path = os.path.join(image_folder, folder)
-    cur_output_folder = os.path.join(output_folder, folder)
-    command = "python3 -u " + path_dir_name + " " + " ".join(
-        ["--data", folder_path, "--output", cur_output_folder, "--batch 128"])
+    command = "python3 -u " + path_dir_name + " " + folder_path
     commands.append(command)
 
 print("number of commands", len(commands))
@@ -34,7 +29,7 @@ while True:
         break
     print(start, end)
 
-    content = ["#$ -N i_" + str(step)]
+    content = ["#$ -N c_" + str(step)]
     content += ["#$ -o " + os.path.join(config_folder, str(step) + ".stdout")]
     content += ["#$ -e " + os.path.join(config_folder, str(step) + ".stderr")]
     content += ["#$ -M rasooli@seas.upenn.edu"]
