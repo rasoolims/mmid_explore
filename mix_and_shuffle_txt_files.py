@@ -1,5 +1,15 @@
 import os
+import random
 import sys
+
+
+def remove_from_list(cur_list, item_to_remove):
+    new_list = []
+    for i in cur_list:
+        if i != item_to_remove:
+            new_list.append(i)
+    return new_list
+
 
 input_folder = os.path.abspath(sys.argv[1])
 file_sizes = {}
@@ -19,7 +29,25 @@ for path in file_sizes.keys():
     print(path, share)
     random_share += [path] * share
 
-print(len(random_share))
+output_file = os.path.abspath(sys.argv[2])
 
-for f in file_handles:
-    file_handles[f].close()
+with open(output_file, "w") as writer:
+    line_num = 0
+    while len(random_share) > 0:
+        lang_index = random.randint(0, len(random_share))
+        path = random_share[lang_index]
+
+        line_read = file_handles[path].readline().strip()
+
+        if len(line_read) == 0:
+            # Used up all sentences for that file!
+            file_handles[path].close()
+            random_share = remove_from_list(random_share, path)
+            print("Done with", path)
+        else:
+            writer.write(line_read + "\n")
+            line_num += 1
+            if line_num % 100000 == 0:
+                print("processed", line_num)
+
+print("Done!")
