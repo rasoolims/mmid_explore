@@ -17,7 +17,7 @@ transform = transforms.Compose([  # [1]
     )])
 
 input_folder = os.path.abspath(sys.argv[1])
-for file in input_folder:
+for file in os.listdir(input_folder):
     if file.lower().endswith(".jpg") or file.lower().endswith(".jpeg") or file.lower().endswith(".png"):
         path = os.path.join(input_folder, file)
         try:
