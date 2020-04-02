@@ -26,3 +26,5 @@ for file in input_folder:
             print("cool with", path)
         except:
             print("error in", path)
+    else:
+        print("skipped", file)
