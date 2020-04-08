@@ -29,7 +29,7 @@ def split_txt(lang, txt):
             spl = re.split(sen_split_reg, sen)
             sentences += spl
     lang_rep = "<" + lang + ">"
-    caption = (lang + " " + " </s> ".join(sentences)).strip() + " </s>"
+    caption = (lang_rep + " " + " </s> ".join(sentences)).strip() + " </s>"
     return caption
 
 
