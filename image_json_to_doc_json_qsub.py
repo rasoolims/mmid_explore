@@ -1,10 +1,11 @@
 import os
 import sys
 
-input_folder = os.path.abspath(sys.argv[1])
-output_txt_folder = os.path.abspath(sys.argv[2])
-output_img_folder = os.path.abspath(sys.argv[3])
-config_folder = os.path.abspath(sys.argv[4])
+root_path = os.path.abspath(sys.argv[1])
+input_folder = os.path.abspath(sys.argv[2])
+output_txt_folder = os.path.abspath(sys.argv[3])
+output_img_folder = os.path.abspath(sys.argv[4])
+config_folder = os.path.abspath(sys.argv[5])
 
 if not os.path.exists(output_txt_folder):
     os.makedirs(output_txt_folder)
@@ -45,8 +46,9 @@ for i in range(len(json_files)):
     content += ["#$ -l h_rt=1200:00:00"]
     content += ["#$ -cwd"]
 
-    command = "python3 -u " + path_dir_name + " " + json_files[i] + " " + output_txt_files[i] + " " + output_img_files[
-        i]
+    command = "python3 -u " + path_dir_name + " " + root_path + " " + json_files[i] + " " + output_txt_files[i] + " " + \
+              output_img_files[
+                  i]
     content += [command]
     content = "\n".join(content)
     config_path = os.path.join(config_folder, langs[i]) + ".sh"
