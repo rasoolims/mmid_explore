@@ -58,4 +58,4 @@ for i in range(len(json_files)):
     print(command)
     command = "qsub " + config_path
     print(command)
-    # os.system(command)
+    os.system(command)
