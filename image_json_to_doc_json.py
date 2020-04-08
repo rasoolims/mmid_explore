@@ -55,7 +55,7 @@ class DocumentInfo:
                 self.content = None
 
         if os.path.exists(path):
-            self.content = split_txt(gzip.open(path, "rt").read())
+            self.content = split_txt(lang, gzip.open(path, "rt").read().strip())
 
         self.lang = lang
         self.images = []
