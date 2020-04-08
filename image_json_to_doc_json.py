@@ -85,8 +85,7 @@ with open(input_json_file, 'r', encoding="utf-8") as fp:
     print(len(docs), len(images))
 
     with open(output_json_file, 'w', encoding="utf-8") as fp:
-        for doc in docs:
-            json.dump(doc.__dict__, fp, indent=4)
+        json.dump([doc.__dict__ for doc in docs], fp, indent=4)
 
     with open(image_file, 'w', encoding="utf-8") as fp:
         for image in images:
