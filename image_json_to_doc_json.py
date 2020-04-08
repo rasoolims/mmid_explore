@@ -28,7 +28,7 @@ def split_txt(lang, txt):
             sen = sen.replace("。", "。 ").strip()
             spl = re.split(sen_split_reg, sen)
             sentences += spl
-
+    lang_rep = "<" + lang + ">"
     caption = (lang + " " + " </s> ".join(sentences)).strip() + " </s>"
     return caption
 
@@ -39,7 +39,7 @@ class Image:
         self.url = image_dict["img_url"]
         self.img_file = image_dict["file"]
         self.img_path = image_dict["file"]
-        self.caption = split_txt("<" + lang + ">", image_dict["caption"])
+        self.caption = split_txt(lang, image_dict["caption"])
 
     def exists(self, root_path):
         return os.path.exists(os.path.join(root_path, self.img_path))
