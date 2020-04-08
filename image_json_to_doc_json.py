@@ -18,11 +18,11 @@ class Image:
         self.info_url = image_dict["img_info_url"]
         self.url = image_dict["img_url"]
         self.img_file = image_dict["file"]
-        self.img_path = os.path.join(root_path, image_dict["file"])
+        self.img_path = image_dict["file"]
         self.caption = split_caption("<" + lang + ">", image_dict["caption"])
 
-    def exists(self):
-        return os.path.exists(self.img_path)
+    def exists(self, root_path):
+        return os.path.exists(os.path.join(root_path, self.img_path))
 
 
 class DocumentInfo:
@@ -35,7 +35,7 @@ class DocumentInfo:
         self.images = []
         for im in image_entries.values():
             image = Image(root_path, lang, im)
-            if image.exists():
+            if image.exists(root_path):
                 self.images.append(image.__dict__)
 
     def exists(self):
@@ -55,7 +55,7 @@ with open(input_json_file, 'r', encoding="utf-8") as fp:
     docs = []
     images = []
     for k, v in json_dict.items():
-        doc = DocumentInfo("", k, lang, v)
+        doc = DocumentInfo(root_path, k, lang, v)
         if doc.exists():
             docs.append(doc)
         images += doc.images
@@ -65,6 +65,6 @@ with open(input_json_file, 'r', encoding="utf-8") as fp:
         for doc in docs:
             json.dump(doc.__dict__, fp, indent=4)
 
-    with open(image_file, 'w', encoding="utf-8") as fp:
+    with open(image_file, 'w', eßncoding="utf-8") as fp:
         for image in images:
             fp.write(image["img_path"] + "\t" + image["caption"] + "\n")
