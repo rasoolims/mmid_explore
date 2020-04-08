@@ -37,7 +37,6 @@ class Image:
     def __init__(self, lang, image_dict):
         self.info_url = image_dict["img_info_url"]
         self.url = image_dict["img_url"]
-        self.img_file = image_dict["file"]
         self.img_path = image_dict["file"]
         self.caption = split_txt(lang, image_dict["caption"])
 
