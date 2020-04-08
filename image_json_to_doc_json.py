@@ -1,3 +1,4 @@
+import gzip
 import json
 import os
 import re
@@ -7,19 +8,38 @@ from typing import Dict
 sen_split_reg = r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\.|\؟|。|\!|\!|।)\s"
 
 
-def split_caption(lang, caption):
-    spl = re.split(sen_split_reg, caption)
-    caption = (lang + " " + " </s> ".join(spl)).strip() + " </s>"
+def split_txt(lang, txt):
+    full_stop = "\n"
+    if lang == "hy":
+        full_stop = ":"
+    elif lang == "am":
+        full_stop = "::"
+
+    sentences = []
+    for sens in txt.split("\n"):
+        # Special treatment for Thai.
+        if lang == "th":
+            if "(" not in sens and re.search('[0-9a-z]', sens.lower()) is None:
+                full_stop = " "
+            else:
+                full_stop = "\n"
+
+        for sen in sens.split(full_stop):
+            sen = sen.replace("。", "。 ").strip()
+            spl = re.split(sen_split_reg, sen)
+            sentences += spl
+
+    caption = (lang + " " + " </s> ".join(sentences)).strip() + " </s>"
     return caption
 
 
 class Image:
-    def __init__(self, root_path, lang, image_dict):
+    def __init__(self, lang, image_dict):
         self.info_url = image_dict["img_info_url"]
         self.url = image_dict["img_url"]
         self.img_file = image_dict["file"]
         self.img_path = image_dict["file"]
-        self.caption = split_caption("<" + lang + ">", image_dict["caption"])
+        self.caption = split_txt("<" + lang + ">", image_dict["caption"])
 
     def exists(self, root_path):
         return os.path.exists(os.path.join(root_path, self.img_path))
@@ -27,19 +47,22 @@ class Image:
 
 class DocumentInfo:
     def __init__(self, root_path, path, lang, image_entries: Dict[str, Dict]):
-        self.path = os.path.join(root_path, path)
-        if not os.path.exists(self.path):
-            self.path = self.path + ".gz"
+        self.content = []
+        path = os.path.join(root_path, path)
+        if not os.path.exists(path):
+            path = path + ".gz"
+            if not os.path.exists(path):
+                self.content = None
+
+        if os.path.exists(path):
+            self.content = split_txt(gzip.open(path, "rt").read())
 
         self.lang = lang
         self.images = []
         for im in image_entries.values():
-            image = Image(root_path, lang, im)
+            image = Image(lang, im)
             if image.exists(root_path):
                 self.images.append(image.__dict__)
-
-    def exists(self):
-        return os.path.exists(self.path)
 
 
 root_path = os.path.abspath(sys.argv[1])
@@ -56,10 +79,10 @@ with open(input_json_file, 'r', encoding="utf-8") as fp:
     images = []
     for k, v in json_dict.items():
         doc = DocumentInfo(root_path, k, lang, v)
-        if doc.exists():
+        if doc.content is not None:
             docs.append(doc)
         images += doc.images
-    print(len(docs))
+    print(len(docs), len(images))
 
     with open(output_json_file, 'w', encoding="utf-8") as fp:
         for doc in docs:
