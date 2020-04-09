@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/image_json_to_doc_json_qsub.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_json_to_doc_json_qsub.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mix_and_shuffle_selected_txt_files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,12 +424,12 @@
       <item itemvalue="Python.filter_bad_captions" />
       <item itemvalue="Python.find_matching_passage_for_images" />
       <item itemvalue="Python.get_caption_stat" />
+      <item itemvalue="Python.image_json_to_doc_json" />
       <item itemvalue="Python.move_data" />
       <item itemvalue="Python.prune_wrong_image_downloads" />
       <item itemvalue="Python.read_warc" />
       <item itemvalue="Python.resize_all_images_in_subfolders" />
       <item itemvalue="Python.unify_entries" />
-      <item itemvalue="Python.image_json_to_doc_json" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -445,13 +446,13 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="910" y="344" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586372139833">
+    <state x="910" y="344" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586450036833">
       <screen x="0" y="23" width="2560" height="1311" />
     </state>
     <state x="910" y="351" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583251494011" />
     <state x="910" y="352" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582751211224" />
     <state x="744" y="353" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1792.23.1792.1097/0.23.2560.1346@0.23.2560.1346" timestamp="1580846657752" />
-    <state x="910" y="344" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1311@0.23.2560.1311" timestamp="1586372139833" />
+    <state x="910" y="344" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1311@0.23.2560.1311" timestamp="1586450036833" />
     <state x="910" y="345" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1314@0.23.2560.1314" timestamp="1585921185631" />
     <state x="910" y="346" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585149658702" />
     <state x="910" y="347" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.23.1792.1097/0.23.2560.1322@0.23.2560.1322" timestamp="1584986901337" />
@@ -584,12 +585,12 @@
     <state width="1280" height="659" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1584996733471" />
     <state width="1280" height="663" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584644924914" />
     <state width="1280" height="667" key="XDebugger.FullValuePopup/2560.23.1792.1097/0.23.2560.1334@0.23.2560.1334" timestamp="1584051109338" />
-    <state x="438" y="838" key="com.intellij.ide.util.TipDialog" timestamp="1586367967862">
+    <state x="438" y="838" key="com.intellij.ide.util.TipDialog" timestamp="1586443475716">
       <screen x="0" y="23" width="2560" height="1311" />
     </state>
     <state x="626" y="695" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1338@0.23.2560.1338" timestamp="1583508757596" />
     <state x="626" y="697" key="com.intellij.ide.util.TipDialog/-1792.23.1792.1097/0.23.2560.1342@0.23.2560.1342" timestamp="1582652016417" />
-    <state x="438" y="838" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1311@0.23.2560.1311" timestamp="1586367967862" />
+    <state x="438" y="838" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1311@0.23.2560.1311" timestamp="1586443475716" />
     <state x="438" y="840" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1314@0.23.2560.1314" timestamp="1585919520271" />
     <state x="438" y="842" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1318@0.23.2560.1318" timestamp="1585748224837" />
     <state x="438" y="847" key="com.intellij.ide.util.TipDialog/2560.23.1792.1097/0.23.2560.1326@0.23.2560.1326" timestamp="1584969092295" />
