@@ -43,6 +43,9 @@ class Image:
     def exists(self, root_path):
         return os.path.exists(os.path.join(root_path, self.img_path))
 
+    def __eq__(self, obj):
+        return isinstance(obj, Image) and self.caption == obj.caption and self.img_path == obj.img_path
+
 
 class DocumentInfo:
     def __init__(self, root_path, path, lang, image_entries: Dict[str, Dict]):
@@ -75,12 +78,13 @@ with open(input_json_file, 'r', encoding="utf-8") as fp:
     json_dict = json.load(fp)
 
     docs = []
-    images = []
+    images = set()
     for k, v in json_dict.items():
         doc = DocumentInfo(root_path, k, lang, v)
         if doc.content is not None:
             docs.append(doc)
-        images += doc.images
+        for im in doc.images:
+            images.add(im)
     print(len(docs), len(images))
 
     with open(output_json_file, 'w', encoding="utf-8") as fp:
