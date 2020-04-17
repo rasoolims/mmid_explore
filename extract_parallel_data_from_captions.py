@@ -30,7 +30,7 @@ for image in image_dict.keys():
                 first_lang = l1  if l1 < l2 else l2
                 second_lang = l2  if l1 < l2 else l1
                 lang_pair = first_lang + "2" + second_lang
-                if not lang_pair in file_handers:
+                if  lang_pair+"." + first_lang not in file_handers:
                     basepath = os.path.join(output_folder, lang_pair)
                     file_handers[lang_pair+"." + first_lang] = open(basepath + "." + first_lang, "w")
                     file_handers[lang_pair + "." + second_lang] = open(basepath + "." + second_lang, "w")
