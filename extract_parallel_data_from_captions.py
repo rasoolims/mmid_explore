@@ -28,8 +28,8 @@ for image in image_dict.keys():
             if l1 != l2 or sen1 != sen2:
                 lang_pair = l1 + "2" + l2 if l1 < l2 else l2 + "2" + l1
                 first_sen = sen1 if l1 < l2 else sen2
-                sen2 = sen2 if l1 < l2 else sen1
-                parallel_data[lang_pair].append(sen1 + "\t" + sen2)
+                second_sen = sen2 if l1 < l2 else sen1
+                parallel_data[lang_pair].append(first_sen + "\t" + second_sen)
 
 for lang_pair in parallel_data.keys():
     print("Writing language pair", lang_pair)
