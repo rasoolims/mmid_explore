@@ -20,16 +20,16 @@ print("construct parallel data!")
 for image in image_dict.keys():
     for i1 in range(len(image_dict[image])):
         sen1 = image_dict[image][i1]
-        l1 = sen1.split(" ")[0]
+        l1 = sen1.split(" ")[0].replace("<", "").replace(">", "")
         for i2 in range(i1 + 1, len(image_dict[image])):
             sen2 = image_dict[image][i2]
-            l2 = sen2.split(" ")[0]
+            l2 = sen2.split(" ")[0].replace("<", "").replace(">", "")
 
             if l1 != l2 or sen1 != sen2:
                 lang_pair = l1 + "2" + l2 if l1 < l2 else l2 + "2" + l1
                 first_sen = sen1 if l1 < l2 else sen2
                 sen2 = sen2 if l1 < l2 else sen1
-                parallel_data[lang_pair] = sen1 + "\t" + sen2
+                parallel_data[lang_pair].append(sen1 + "\t" + sen2)
 
 for lang_pair in parallel_data.keys():
     print("Writing language pair", lang_pair)
