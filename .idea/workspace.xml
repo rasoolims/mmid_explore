@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020b76c9-5d3a-449b-8381-51e04335132b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extract_parallel_data_from_captions.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract_parallel_data_from_captions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -26,7 +26,7 @@ for i, image in enumerate(image_dict.keys()):
             sen2 = image_dict[image][i2]
             l2 = sen2.split(" ")[0].replace("<", "").replace(">", "")
 
-            if l1 != l2 or sen1 != sen2:
+            if l1 != l2 and sen1 != sen2:
                 first_lang = l1 if l1 < l2 else l2
                 second_lang = l2 if l1 < l2 else l1
                 lang_pair = first_lang + "2" + second_lang
