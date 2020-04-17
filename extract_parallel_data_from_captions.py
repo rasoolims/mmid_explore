@@ -17,7 +17,7 @@ for file in os.listdir(input_folder):
 
 parallel_data = defaultdict(list)
 print("construct parallel data from", len(image_dict), "images!")
-for image in image_dict.keys():
+for i, image in enumerate(image_dict.keys()):
     for i1 in range(len(image_dict[image])):
         sen1 = image_dict[image][i1]
         l1 = sen1.split(" ")[0].replace("<", "").replace(">", "")
@@ -36,5 +36,7 @@ for image in image_dict.keys():
                     writer.write(first_sen + "\n")
                 with open(basepath + "." + second_lang, "a") as writer:
                     writer.write(second_sen + "\n")
+    if i%1000==0:
+        print(i)
 
 print("done!")
