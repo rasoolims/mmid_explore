@@ -17,6 +17,7 @@ for file in os.listdir(input_folder):
 
 parallel_data = defaultdict(list)
 print("construct parallel data from", len(image_dict), "images!")
+file_handers = dict{}
 for image in image_dict.keys():
     for i1 in range(len(image_dict[image])):
         sen1 = image_dict[image][i1]
@@ -26,19 +27,18 @@ for image in image_dict.keys():
             l2 = sen2.split(" ")[0].replace("<", "").replace(">", "")
 
             if l1 != l2 or sen1 != sen2:
-                lang_pair = l1 + "2" + l2 if l1 < l2 else l2 + "2" + l1
+                first_lang = l1  if l1 < l2 else l2
+                second_lang = l2  if l1 < l2 else l1
+                lang_pair = first_lang + "2" + second_lang
+                if not lang_pair in file_handers:
+                    basepath = os.path.join(output_folder, lang_pair)
+                    file_handers[lang_pair+"." + first_lang] = open(basepath + "." + first_lang, "w")
+                    file_handers[lang_pair + "." + second_lang] = open(basepath + "." + second_lang, "w")
                 first_sen = sen1 if l1 < l2 else sen2
                 second_sen = sen2 if l1 < l2 else sen1
                 parallel_data[lang_pair].append(first_sen + "\t" + second_sen)
 
-for lang_pair in parallel_data.keys():
-    print("Writing language pair", lang_pair)
-    l1, l2 = lang_pair.split("2")
-    base_path = os.path.join(output_folder, lang_pair)
-    with open(base_path + "." + l1, "w") as w1, open(base_path + "." + l2, "w") as w2:
-        for sen_pair in parallel_data[lang_pair]:
-            sen1, sen2 = sen_pair.split("\t")
-            w1.write(sen1 + "\n")
-            w2.write(sen2 + "\n")
+for fh in file_handers.keys():
+    file_handers[fh].close()
 
 print("done!")
