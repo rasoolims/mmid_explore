@@ -17,6 +17,7 @@ for file in os.listdir(input_folder):
 
 parallel_data = defaultdict(list)
 print("construct parallel data from", len(image_dict), "images!")
+file_cache = defaultdict(list)
 for i, image in enumerate(image_dict.keys()):
     for i1 in range(len(image_dict[image])):
         sen1 = image_dict[image][i1]
@@ -32,11 +33,20 @@ for i, image in enumerate(image_dict.keys()):
                 basepath = os.path.join(output_folder, lang_pair)
                 first_sen = sen1 if l1 < l2 else sen2
                 second_sen = sen2 if l1 < l2 else sen1
-                with open(basepath + "." + first_lang, "a") as writer:
-                    writer.write(first_sen + "\n")
-                with open(basepath + "." + second_lang, "a") as writer:
-                    writer.write(second_sen + "\n")
-    if i%1000==0:
-        print(i)
+                file_cache[basepath + "." + first_lang].append(first_sen)
+                file_cache[basepath + "." + second_lang].append(second_sen)
+
+    if (i+1)%1000==0:
+        for file in file_cache.keys():
+            with open(file, "a") as writer:
+                writer.write("\n".join(file_cache[file]))
+                writer.write("\n")
+        file_cache = defaultdict(list)
+        print(i+1)
+
+for file in file_cache.keys():
+    with open(file, "a") as writer:
+        writer.write("\n".join(file_cache[file]))
+        writer.write("\n")
 
 print("done!")
