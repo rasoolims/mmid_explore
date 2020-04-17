@@ -26,13 +26,16 @@ for image in image_dict.keys():
             sen2 = image_dict[image][i2]
             l2 = sen2.split(" ")[0].replace("<", "").replace(">", "")
 
+            if l1 != "en" and l2 != "en":
+                continue
+
             if l1 != l2 or sen1 != sen2:
-                first_lang = l1  if l1 < l2 else l2
-                second_lang = l2  if l1 < l2 else l1
+                first_lang = l1 if l1 < l2 else l2
+                second_lang = l2 if l1 < l2 else l1
                 lang_pair = first_lang + "2" + second_lang
-                if  lang_pair+"." + first_lang not in file_handers:
+                if lang_pair + "." + first_lang not in file_handers:
                     basepath = os.path.join(output_folder, lang_pair)
-                    file_handers[lang_pair+"." + first_lang] = open(basepath + "." + first_lang, "w")
+                    file_handers[lang_pair + "." + first_lang] = open(basepath + "." + first_lang, "w")
                     file_handers[lang_pair + "." + second_lang] = open(basepath + "." + second_lang, "w")
                     print(len(file_handers))
                 first_sen = sen1 if l1 < l2 else sen2
