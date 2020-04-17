@@ -17,7 +17,7 @@ for file in os.listdir(input_folder):
 
 parallel_data = defaultdict(list)
 print("construct parallel data from", len(image_dict), "images!")
-file_handers = dict{}
+file_handers = {}
 for image in image_dict.keys():
     for i1 in range(len(image_dict[image])):
         sen1 = image_dict[image][i1]
