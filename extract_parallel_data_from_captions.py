@@ -32,7 +32,7 @@ for image in image_dict.keys():
                 parallel_data[lang_pair] = sen1 + "\t" + sen2
 
 for lang_pair in parallel_data.keys():
-    print("Writing langugae pair", lang_pair)
+    print("Writing language pair", lang_pair)
     l1, l2 = lang_pair.split("2")
     base_path = os.path.join(output_folder, lang_pair)
     with open(base_path + "." + l1, "w") as w1, open(base_path + "." + l2, "w") as w2:
