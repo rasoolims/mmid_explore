@@ -30,19 +30,18 @@ for i, image in enumerate(image_dict.keys()):
                 first_lang = l1 if l1 < l2 else l2
                 second_lang = l2 if l1 < l2 else l1
                 lang_pair = first_lang + "2" + second_lang
-                basepath = os.path.join(output_folder, lang_pair)
                 first_sen = sen1 if l1 < l2 else sen2
                 second_sen = sen2 if l1 < l2 else sen1
-                file_cache[basepath + "." + first_lang].append(first_sen)
-                file_cache[basepath + "." + second_lang].append(second_sen)
+                file_cache[output_folder + "/" + first_lang + "2" + second_lang].append(first_sen)
+                file_cache[output_folder + "/" + second_lang + "2" + first_lang].append(second_sen)
 
-    if (i+1)%1000==0:
+    if (i + 1) % 1000 == 0:
         for file in file_cache.keys():
             with open(file, "a") as writer:
                 writer.write("\n".join(file_cache[file]))
                 writer.write("\n")
         file_cache = defaultdict(list)
-        print(i+1)
+        print(i + 1)
 
 for file in file_cache.keys():
     with open(file, "a") as writer:
