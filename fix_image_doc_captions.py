@@ -23,7 +23,7 @@ with open(caption_file, "rb") as r:
                 saved += 1
         doc["images"] = new_list
 
-    with open(caption_output_file, "wb") as w:
-        json.dump(doc_dicts, w)
+    with open(caption_output_file, "w") as w:
+        json.dump(doc_dicts, w, indent=4)
 
 print("Saved", saved, "-- Skipped", skipped)
