@@ -7,7 +7,7 @@ output_file = os.path.abspath(sys.argv[2])
 use_all_langs = True
 sub_langs = None
 
-if len(sys.argv)>3:
+if len(sys.argv) > 3:
     sub_langs = set(sys.argv[3].strip().split(","))
     use_all_langs = False
 

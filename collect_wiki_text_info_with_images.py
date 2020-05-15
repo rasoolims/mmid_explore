@@ -23,7 +23,7 @@ def fix_caption(caption):
     caption = re.sub("\s+", " ", caption)
     if len(caption) < 3 or "{" in caption:
         return None
-    if "=" in caption or caption == "thumb" or caption=="left" or caption=="right" or caption=="thumbnail":
+    if "=" in caption or caption == "thumb" or caption == "left" or caption == "right" or caption == "thumbnail":
         return None
     return caption
 
