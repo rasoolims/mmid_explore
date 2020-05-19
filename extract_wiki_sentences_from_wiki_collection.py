@@ -13,7 +13,7 @@ with open(input, "r") as reader, open(output, "w") as writer:
         sentences = line.strip().split("</s>")
         first_sen = sentences[0].split(" ")
         lang = first_sen[0]
-        sentences = " ".join(first_sen[1:])
+        sentences[0] = " ".join(first_sen[1:])
 
         sentences = [lang + " " + sen.strip() + " </s>" for sen in sentences]
         writer.write("\n".join(sentences))
