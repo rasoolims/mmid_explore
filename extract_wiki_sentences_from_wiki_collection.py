@@ -7,6 +7,7 @@ import sys
 
 input = os.path.abspath(sys.argv[1])
 output = os.path.abspath(sys.argv[2])
+sen_set = set()
 
 with open(input, "r") as reader, open(output, "w") as writer:
     for i, line in enumerate(reader):
@@ -15,9 +16,12 @@ with open(input, "r") as reader, open(output, "w") as writer:
         lang = first_sen[0]
         sentences[0] = " ".join(first_sen[1:])
 
-        sentences = [lang + " " + sen.strip() + " </s>" for sen in sentences if len(sen.strip()) > 0]
-        writer.write("\n".join(sentences))
-        writer.write("\n")
-
-        if (i + 1) % 100000 == 0:
+        for sen in sentences:
+            if len(sen.strip()) > 0:
+                # To skip repetitive sentences.
+                sen_set.add(lang + " " + sen.strip() + " </s>")
+        if (i + 1) % 1000000 == 0:
             print(i + 1)
+
+    print("Writing sentences", len(sen_set))
+    writer.write("\n".join(sen_set))
