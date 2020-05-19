@@ -15,7 +15,7 @@ with open(input, "r") as reader, open(output, "w") as writer:
         lang = first_sen[0]
         sentences[0] = " ".join(first_sen[1:])
 
-        sentences = [lang + " " + sen.strip() + " </s>" for sen in sentences]
+        sentences = [lang + " " + sen.strip() + " </s>" for sen in sentences if len(sen.strip()) > 0]
         writer.write("\n".join(sentences))
         writer.write("\n")
 
