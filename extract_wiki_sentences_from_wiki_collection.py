@@ -26,7 +26,7 @@ with open(input, "r") as reader, open(output, "w") as writer:
                 # To skip repetitive sentences.
                 sen_set[lang].add(lang + " " + sen.strip() + " </s>")
         if (i + 1) % 1000000 == 0:
-            print(i + 1)
+            print(i + 1, "\r", end="")
     print("Writing sentences", len(sen_set))
 
 if min_num is None:
