@@ -3,11 +3,16 @@ Assuming that a data is already preprocessed and each sentence is split by </s>.
 We also assume that every line starts with language identifier token.
 """
 import os
+import random
 import sys
+from collections import defaultdict
 
 input = os.path.abspath(sys.argv[1])
 output = os.path.abspath(sys.argv[2])
-sen_set = set()
+min_num = None
+if len(sys.argv) > 3:
+    min_num = int(sys.argv[3])
+sen_set = defaultdict(set)
 
 with open(input, "r") as reader, open(output, "w") as writer:
     for i, line in enumerate(reader):
@@ -19,9 +24,23 @@ with open(input, "r") as reader, open(output, "w") as writer:
         for sen in sentences:
             if len(sen.strip()) > 0:
                 # To skip repetitive sentences.
-                sen_set.add(lang + " " + sen.strip() + " </s>")
+                sen_set[lang].add(lang + " " + sen.strip() + " </s>")
         if (i + 1) % 1000000 == 0:
             print(i + 1)
-
     print("Writing sentences", len(sen_set))
-    writer.write("\n".join(sen_set))
+
+if min_num is None:
+    min_num = min([len(len(sen_set[lang])) for lang in sen_set.keys()])
+
+data = []
+for lang in sen_set.keys():
+    if len(sen_set[lang]) <= min_num:
+        data += list(sen_set[lang])
+    else:
+        sentences = list(sen_set[lang])
+        random.shuffle(sentences)
+        data += sentences[:min_num]
+
+random.shuffle(data)
+
+writer.write("\n".join(data))
