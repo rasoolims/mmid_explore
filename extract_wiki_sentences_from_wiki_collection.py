@@ -44,4 +44,5 @@ with open(input, "r") as reader, open(output, "w") as writer:
 
     random.shuffle(data)
     print("Sample size", len(data))
-    writer.write("\n".join(data))
+    for sen in data:
+        writer.write(sen + "\n")
