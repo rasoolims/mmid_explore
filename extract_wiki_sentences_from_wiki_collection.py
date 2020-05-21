@@ -29,19 +29,19 @@ with open(input, "r") as reader, open(output, "w") as writer:
             lens = " ".join([lang + ":" + str(len(sens)) for lang, sens in sen_set.items()])
             print(i + 1, lens, "\r", end="")
 
-print("Sampling and writing sentences... ")
-if min_num is None:
-    min_num = min([len(sen_set[lang]) for lang in sen_set.keys()])
+    print("Sampling and writing sentences... ")
+    if min_num is None:
+        min_num = min([len(sen_set[lang]) for lang in sen_set.keys()])
 
-data = []
-for lang in sen_set.keys():
-    if len(sen_set[lang]) <= min_num:
-        data += list(sen_set[lang])
-    else:
-        sentences = list(sen_set[lang])
-        random.shuffle(sentences)
-        data += sentences[:min_num]
+    data = []
+    for lang in sen_set.keys():
+        if len(sen_set[lang]) <= min_num:
+            data += list(sen_set[lang])
+        else:
+            sentences = list(sen_set[lang])
+            random.shuffle(sentences)
+            data += sentences[:min_num]
 
-random.shuffle(data)
+    random.shuffle(data)
 
-writer.write("\n".join(data))
+    writer.write("\n".join(data))
