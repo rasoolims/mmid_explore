@@ -28,8 +28,8 @@ with open(input, "r") as reader, open(output, "w") as writer:
         if (i + 1) % 1000000 == 0:
             lens = " ".join([lang + ":" + str(len(sens)) for lang, sens in sen_set.items()])
             print(i + 1, lens, "\r", end="")
-    print("Writing sentences", len(sen_set))
 
+print("Sampling and writing sentences... ")
 if min_num is None:
     min_num = min([len(sen_set[lang]) for lang in sen_set.keys()])
 
