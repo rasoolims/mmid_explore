@@ -29,7 +29,7 @@ with open(input, "r") as reader, open(output, "w") as writer:
             lens = " ".join([lang + ":" + str(len(sens)) for lang, sens in sen_set.items()])
             print(i + 1, lens, "\r", end="")
 
-    print("Sampling and writing sentences... ")
+    print("\nSampling and writing sentences... ")
     if min_num is None:
         min_num = min([len(sen_set[lang]) for lang in sen_set.keys()])
 
@@ -43,5 +43,5 @@ with open(input, "r") as reader, open(output, "w") as writer:
             data += sentences[:min_num]
 
     random.shuffle(data)
-
+    print("Sample size", len(data))
     writer.write("\n".join(data))
