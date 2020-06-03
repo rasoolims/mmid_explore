@@ -47,4 +47,4 @@ with open(input, "r") as reader, open(output, "w") as writer:
     for i, sen in enumerate(data):
         writer.write(sen + "\n")
         print(i, "\r", end="")
-    print("")
+    print("\ndone!")
