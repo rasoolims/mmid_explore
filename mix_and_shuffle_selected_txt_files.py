@@ -50,6 +50,5 @@ with open(output_file, "w") as writer:
         else:
             writer.write(line_read + "\n")
             line_num += 1
-            if line_num % 1000 == 0:
-                print("processed", line_num, "\r", end="")
+            print("processed", line_num, "\r", end="")
 print("Done!")
