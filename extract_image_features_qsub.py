@@ -10,7 +10,7 @@ if not os.path.exists(config_folder):
     os.makedirs(config_folder)
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
-path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/../code/image_feature_extractor/feature_extractor.py"
+path_dir_name = os.path.dirname(os.path.realpath(__file__)) + "/../image_feature_extractor/feature_extractor.py"
 
 commands = []
 for folder in os.listdir(image_folder):
