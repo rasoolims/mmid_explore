@@ -44,11 +44,15 @@ for i, image in enumerate(image_dict.keys()):
 
     print(i + 1, "/", len(image_dict), end="\r")
     if (i + 1) % 100000 == 0:
-        for file in file_cache.keys():
+        print(i + 1, "/", len(image_dict), end="\n")
+        for f, file in enumerate(file_cache.keys()):
             with open(file, "a") as writer:
                 writer.write("\n".join(file_cache[file]))
                 writer.write("\n")
+            print("->", f,"/", len(file_cache), end="\r")
         file_cache = defaultdict(list)
+        print("\n", i + 1, "/", len(image_dict), end="\r")
+
 
 for file in file_cache.keys():
     with open(file, "a") as writer:
