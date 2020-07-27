@@ -42,7 +42,7 @@ for i, image in enumerate(image_dict.keys()):
                 file_cache[output_folder + "/" + first_lang + "2" + second_lang].append(first_sen)
                 file_cache[output_folder + "/" + second_lang + "2" + first_lang].append(second_sen)
 
-    print(i + 1, "/", len(image_dict))
+    print(i + 1, "/", len(image_dict), end="\r")
     if (i + 1) % 100000 == 0:
         for file in file_cache.keys():
             with open(file, "a") as writer:
@@ -55,4 +55,4 @@ for file in file_cache.keys():
         writer.write("\n".join(file_cache[file]))
         writer.write("\n")
 
-print("done!")
+print("\nDone!")
