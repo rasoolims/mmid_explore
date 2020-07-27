@@ -40,6 +40,8 @@ for i, image in enumerate(image_dict.keys()):
                 sen2_content = " ".join(sen2.split(" ")[1:-1])
                 if "=" in sen2_content or sen2_content == "thumb" or sen2_content == "left" or sen2_content == "right" or sen2_content == "thumbnail":
                     continue
+                if sen1_content == sen2_content:
+                    continue
 
                 first_sen = first_sen.replace(" </s> ", " ")
                 second_sen = second_sen.replace(" </s> ", " ")
