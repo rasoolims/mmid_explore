@@ -32,6 +32,10 @@ for i, image in enumerate(image_dict.keys()):
                 lang_pair = first_lang + "2" + second_lang
                 first_sen = sen1 if l1 < l2 else sen2
                 second_sen = sen2 if l1 < l2 else sen1
+                if "=" in first_sen or first_sen == "thumb" or first_sen == "left" or first_sen == "right" or first_sen == "thumbnail":
+                    continue
+                if "=" in second_sen or second_sen == "thumb" or second_sen == "left" or second_sen == "right" or second_sen == "thumbnail":
+                    continue
                 file_cache[output_folder + "/" + first_lang + "2" + second_lang].append(first_sen)
                 file_cache[output_folder + "/" + second_lang + "2" + first_lang].append(second_sen)
 

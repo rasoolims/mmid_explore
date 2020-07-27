@@ -4,6 +4,7 @@ import sys
 input_file = os.path.abspath(sys.argv[1])
 output_folder = os.path.abspath(sys.argv[2])
 config_folder = sys.argv[3]
+num_
 
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
