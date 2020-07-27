@@ -36,6 +36,9 @@ for i, image in enumerate(image_dict.keys()):
                     continue
                 if "=" in second_sen or second_sen == "thumb" or second_sen == "left" or second_sen == "right" or second_sen == "thumbnail":
                     continue
+
+                first_sen = first_sen.replace(" </s> ", " ")
+                second_sen = second_sen.replace(" </s> ", " ")
                 file_cache[output_folder + "/" + first_lang + "2" + second_lang].append(first_sen)
                 file_cache[output_folder + "/" + second_lang + "2" + first_lang].append(second_sen)
 
