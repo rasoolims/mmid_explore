@@ -43,7 +43,7 @@ for i, image in enumerate(image_dict.keys()):
                 file_cache[output_folder + "/" + second_lang + "2" + first_lang].append(second_sen)
 
     if (i + 1) % 1000 == 0:
-        print("i+1", len(image_dict))
+        print(i+1, len(image_dict))
         for file in file_cache.keys():
             with open(file, "a") as writer:
                 writer.write("\n".join(file_cache[file]))
