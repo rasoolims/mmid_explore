@@ -21,6 +21,10 @@ file_cache = defaultdict(list)
 for i, image in enumerate(image_dict.keys()):
     for i1 in range(len(image_dict[image])):
         sen1 = image_dict[image][i1]
+        sen1_content = " ".join(sen1.split(" ")[1:-1])
+        if "=" in sen1_content or sen1_content == "thumb" or sen1_content == "left" or sen1_content == "right" or sen1_content == "thumbnail":
+            continue
+
         l1 = sen1.split(" ")[0].replace("<", "").replace(">", "")
         for i2 in range(i1 + 1, len(image_dict[image])):
             sen2 = image_dict[image][i2]
@@ -32,9 +36,9 @@ for i, image in enumerate(image_dict.keys()):
                 lang_pair = first_lang + "2" + second_lang
                 first_sen = sen1 if l1 < l2 else sen2
                 second_sen = sen2 if l1 < l2 else sen1
-                if "=" in first_sen or first_sen == "thumb" or first_sen == "left" or first_sen == "right" or first_sen == "thumbnail":
-                    continue
-                if "=" in second_sen or second_sen == "thumb" or second_sen == "left" or second_sen == "right" or second_sen == "thumbnail":
+
+                sen2_content = " ".join(sen2.split(" ")[1:-1])
+                if "=" in sen2_content or sen2_content == "thumb" or sen2_content == "left" or sen2_content == "right" or sen2_content == "thumbnail":
                     continue
 
                 first_sen = first_sen.replace(" </s> ", " ")
